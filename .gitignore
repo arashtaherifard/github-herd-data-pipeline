@@ -1,0 +1,13 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+__MACOSX/
+
+.ipynb_checkpoints/
+
+*.log
+
+outputs/figures/.DS_Store
+outputs/.DS_Store
+data/.DS_Store

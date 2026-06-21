@@ -1,0 +1,13 @@
+{
+  "created_at": "2026-06-14T00:17:16.473066+00:00",
+  "topics": "machine-learning,data-science,deep-learning,artificial-intelligence,python,react,javascript,web-development,llm,generative-ai",
+  "num_repositories": 763,
+  "num_repositories_with_stargazers": 145,
+  "num_star_interactions": 216566,
+  "num_unique_users": 151142,
+  "num_daily_timeseries_rows": 11128,
+  "num_weekly_timeseries_rows": 2250,
+  "num_recommendation_interactions": 216566,
+  "num_modeling_rows": 145,
+  "used_token": true
+}

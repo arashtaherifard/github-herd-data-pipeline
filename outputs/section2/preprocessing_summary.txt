@@ -1,0 +1,29 @@
+Section 2 Preprocessing Summary
+==================================================
+
+Generated Preprocessed Files
+--------------------------------------------------
+repositories_preprocessed.csv: 763 rows, 42 columns
+stars_preprocessed.csv: 216566 rows, 7 columns
+user_repo_interactions_preprocessed.csv: 216566 rows, 6 columns
+daily_timeseries_preprocessed.csv: 11128 rows, 6 columns
+weekly_timeseries_preprocessed.csv: 2250 rows, 9 columns
+herd_modeling_preprocessed.csv: 145 rows, 22 columns
+
+Main Preprocessing Decisions
+--------------------------------------------------
+Missing programming languages were replaced with Unknown.
+Missing license values were replaced with No License.
+Missing homepage values were converted into the binary feature has_homepage.
+Repository timestamps were converted into datetime format.
+Repository age, update recency, push recency, topic count, and ratio-based repository features were created.
+Growth-rate missing values in time-series tables were filled with 0 when caused by unavailable previous time steps.
+Numeric columns were converted to numeric types and missing numeric values were filled using median values.
+User-repository interactions were kept as implicit feedback with interaction = 1.
+
+repositories_preprocessed.csv: 0 total missing values after preprocessing
+stars_preprocessed.csv: 0 total missing values after preprocessing
+user_repo_interactions_preprocessed.csv: 0 total missing values after preprocessing
+daily_timeseries_preprocessed.csv: 0 total missing values after preprocessing
+weekly_timeseries_preprocessed.csv: 0 total missing values after preprocessing
+herd_modeling_preprocessed.csv: 0 total missing values after preprocessing

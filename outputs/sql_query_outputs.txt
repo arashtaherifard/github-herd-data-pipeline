@@ -1,0 +1,102 @@
+================================================================================
+Total Repositories
+================================================================================
+ num_repositories
+              763
+
+================================================================================
+Total Star Interactions
+================================================================================
+ num_star_interactions
+                216566
+
+================================================================================
+Total Unique Users
+================================================================================
+ num_unique_users
+           151142
+
+================================================================================
+Top 10 Programming Languages
+================================================================================
+        language  repo_count
+          Python         265
+      TypeScript         129
+      JavaScript          93
+         Unknown          70
+Jupyter Notebook          61
+             C++          25
+            Rust          23
+            HTML          16
+              Go          16
+            Java           9
+
+================================================================================
+Top 10 Repositories by GitHub Star Count
+================================================================================
+                                 full_name   language  stars_count  forks_count
+                 freeCodeCamp/freeCodeCamp TypeScript       446814        44925
+          donnemartin/system-design-primer     Python       352930        56693
+                      vinta/awesome-python     Python       302737        28076
+practical-tutorials/project-based-learning        NaN       268897        34848
+                               react/react JavaScript       245816        51056
+                      TheAlgorithms/Python     Python       221924        50758
+                              affaan-m/ECC JavaScript       214843        33020
+                                 vuejs/vue TypeScript       209869        33706
+            trekhleb/javascript-algorithms JavaScript       196083        31057
+                     tensorflow/tensorflow        C++       195642        75177
+
+================================================================================
+Top 10 Repositories by Collected Stargazer Interactions
+================================================================================
+   repo_full_name  collected_star_events
+  mrdoob/three.js                   1500
+pandas-dev/pandas                   1500
+  Leaflet/Leaflet                   1500
+     psf/requests                   1500
+  JuliaLang/julia                   1500
+   twbs/bootstrap                   1500
+    meteor/meteor                   1500
+    django/django                   1500
+    opencv/opencv                   1500
+      pyenv/pyenv                   1500
+
+================================================================================
+Herd Modeling Class Balance
+================================================================================
+ became_high_growth  repo_count
+                  0          72
+                  1          73
+
+================================================================================
+Average Early and Later Stars by Herd Class
+================================================================================
+ became_high_growth  avg_early_4week_stars  avg_later_stars
+                  0            1460.833333        39.166667
+                  1             187.876712      1299.328767
+
+================================================================================
+Weekly Time-Series Example
+================================================================================
+            repo_full_name                  week  weekly_new_stars  cumulative_stars  herd_momentum_score
+           mrdoob/three.js 2010-03-22/2010-03-28              1500              1500                  0.0
+         pandas-dev/pandas 2013-07-01/2013-07-07                11              1500              27000.0
+           Leaflet/Leaflet 2010-09-20/2010-09-26              1500              1500                  0.0
+              psf/requests 2011-02-07/2011-02-13              1500              1500                  0.0
+           JuliaLang/julia 2012-06-18/2012-06-24                 2              1500               3000.0
+            twbs/bootstrap 2011-07-25/2011-07-31              1500              1500                  0.0
+             meteor/meteor 2012-01-16/2012-01-22              1500              1500                  0.0
+             django/django 2012-04-23/2012-04-29              1500              1500                  0.0
+             opencv/opencv 2013-12-16/2013-12-22                 8              1500              43500.0
+               pyenv/pyenv 2014-10-06/2014-10-12                10              1500              18000.0
+         airbnb/javascript 2013-03-18/2013-03-24                13              1500              58500.0
+       discourse/discourse 2013-01-07/2013-01-13              1500              1500                  0.0
+             pixijs/pixijs 2013-04-15/2013-04-21                85              1500              78000.0
+         electron/electron 2014-05-12/2014-05-18               199              1500            1950000.0
+            TryGhost/Ghost 2013-10-14/2013-10-20              1490              1500               1500.0
+               react/react 2013-07-29/2013-08-04                 8              1500              34500.0
+           netdata/netdata 2016-03-28/2016-04-03              1469              1500               7500.0
+                 vuejs/vue 2014-06-23/2014-06-29                 6              1500              30000.0
+ionic-team/ionic-framework 2013-12-02/2013-12-08               154              1500            1021500.0
+       home-assistant/core 2015-02-09/2015-02-15                 6              1500               9000.0
+

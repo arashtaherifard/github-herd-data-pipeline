@@ -1,0 +1,6 @@
+repositories: 763 rows, 30 columns
+stars: 216566 rows, 7 columns
+user_repo_interactions: 216566 rows, 6 columns
+daily_timeseries: 11128 rows, 6 columns
+weekly_timeseries: 2250 rows, 8 columns
+herd_modeling: 145 rows, 21 columns

@@ -1,0 +1,37 @@
+Section 2 Feature Engineering Summary
+==================================================
+
+Generated Feature-Engineered Files
+--------------------------------------------------
+repositories_feature_engineered.csv: 763 rows, 48 columns
+weekly_timeseries_features.csv: 2250 rows, 15 columns
+recommendation_features.csv: 216566 rows, 12 columns
+herd_features_unscaled.csv: 145 rows, 32 columns
+herd_model_ready.csv: 145 rows, 31 columns
+
+Repository-Level Features
+--------------------------------------------------
+Created topic-based binary features such as has_ai_topic, has_ml_topic, has_web_topic, and has_llm_topic.
+Kept repository-level engineered features such as repo_age_days, stars_per_day, forks_per_star, issues_per_star, topic_count, and description_length.
+
+Herd-Behavior Features
+--------------------------------------------------
+Created early-period growth features such as early_peak_to_average_ratio. Potential leakage-prone popularity-ratio features were excluded from the model-ready classification dataset.
+Removed future-information leakage columns from the model-ready classification dataset.
+Encoded language and license categories using one-hot encoding.
+Standardized numeric predictors using StandardScaler.
+
+Time-Series Features
+--------------------------------------------------
+Created lag_1_week_stars, lag_2_week_stars, rolling_3week_mean_stars, rolling_4week_sum_stars, weekly_growth_acceleration, and cumulative_growth_lag_1.
+
+Recommendation-System Features
+--------------------------------------------------
+Created user_activity_count and repo_popularity_count from implicit star interactions.
+Merged repository metadata features into the interaction table.
+
+Model-Ready Classification Dataset
+--------------------------------------------------
+Target column: became_high_growth
+Number of predictors after preprocessing and encoding: 29
+Class distribution: {0: 72, 1: 73}

@@ -1,0 +1,7 @@
+file,total_missing_values
+repositories_preprocessed.csv,0
+stars_preprocessed.csv,0
+user_repo_interactions_preprocessed.csv,0
+daily_timeseries_preprocessed.csv,0
+weekly_timeseries_preprocessed.csv,0
+herd_modeling_preprocessed.csv,0

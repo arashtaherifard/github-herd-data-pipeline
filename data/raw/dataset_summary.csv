@@ -1,0 +1,2 @@
+created_at,topics,num_repositories,num_repositories_with_stargazers,num_star_interactions,num_unique_users,num_daily_timeseries_rows,num_weekly_timeseries_rows,num_recommendation_interactions,num_modeling_rows,used_token
+2026-06-14T00:17:16.473066+00:00,"machine-learning,data-science,deep-learning,artificial-intelligence,python,react,javascript,web-development,llm,generative-ai",763,145,216566,151142,11128,2250,216566,145,True
