@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: github-herd-pipeline-job
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: github-herd-pipeline
+          image: github-herd-pipeline:latest
+          imagePullPolicy: Never
