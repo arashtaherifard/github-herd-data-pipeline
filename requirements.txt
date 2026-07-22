@@ -3,3 +3,5 @@ sqlalchemy
 numpy
 matplotlib
 scikit-learn
+xgboost
+joblib

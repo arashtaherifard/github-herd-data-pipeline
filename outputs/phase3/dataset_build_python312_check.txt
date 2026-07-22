@@ -1,0 +1,169 @@
+{
+  "project": "GitHub Herd Behavior and Repository Recommendation",
+  "random_state": 42,
+  "classification": {
+    "development_rows": 116,
+    "test_rows": 29,
+    "development_class_counts": {
+      "0": 58,
+      "1": 58
+    },
+    "test_class_counts": {
+      "0": 14,
+      "1": 15
+    },
+    "feature_count": 27
+  },
+  "forecasting": {
+    "complete_rows": 1423,
+    "repositories": 65,
+    "primary_repository_aware": {
+      "split_summary": {
+        "validation_samples_per_repo": 3,
+        "test_samples_per_repo": 3,
+        "minimum_train_samples": 8,
+        "eligible_repositories": 23,
+        "train_rows": 723,
+        "validation_rows": 69,
+        "test_rows": 69,
+        "retained_rows": 861,
+        "purged_or_unused_rows": 184,
+        "overlap_violations": 0,
+        "train_target_mean": 70.12586445366529,
+        "validation_target_mean": 127.7536231884058,
+        "test_target_mean": 213.82608695652175
+      },
+      "splits": {
+        "train": {
+          "rows": 723,
+          "repositories": 23,
+          "target_mean": 70.12586445366529,
+          "target_median": 57.0
+        },
+        "validation": {
+          "rows": 69,
+          "repositories": 23,
+          "target_mean": 127.7536231884058,
+          "target_median": 107.0
+        },
+        "test": {
+          "rows": 69,
+          "repositories": 23,
+          "target_mean": 213.82608695652175,
+          "target_median": 114.0
+        }
+      }
+    },
+    "secondary_cold_start": {
+      "train": {
+        "rows": 1130,
+        "repositories": 41,
+        "target_mean": 115.83185840707965,
+        "target_median": 77.0
+      },
+      "validation": {
+        "rows": 151,
+        "repositories": 14,
+        "target_mean": 261.3774834437086,
+        "target_median": 174.0
+      },
+      "test": {
+        "rows": 135,
+        "repositories": 11,
+        "target_mean": 206.88888888888889,
+        "target_median": 54.0
+      },
+      "training_boundary": "2020-06-08 00:00:00+00:00",
+      "validation_boundary": "2023-04-03 00:00:00+00:00"
+    }
+  },
+  "recommendation": {
+    "eligible_evaluation_users": 13301,
+    "train": {
+      "rows": 189964,
+      "users": 151142,
+      "repositories": 145
+    },
+    "validation": {
+      "rows": 13301,
+      "users": 13301,
+      "repositories": 144,
+      "cold_start_repositories": 0
+    },
+    "test": {
+      "rows": 13301,
+      "users": 13301,
+      "repositories": 143,
+      "cold_start_repositories": 0
+    }
+  },
+  "generated_files": {
+    "data/modeling/classification/classification_development.csv": {
+      "rows": 116,
+      "columns": 31,
+      "sha256": "04f6c40a8fc5b439ea1e6bc7f024e15d0a603cf4ca871ecfa3fe1cb3d04c80b0"
+    },
+    "data/modeling/classification/classification_test.csv": {
+      "rows": 29,
+      "columns": 31,
+      "sha256": "e132caf10e1d3291c1ecd160cd3c986144d4fd165f19d56b720d9308faadd4e5"
+    },
+    "data/modeling/classification/classification_schema.json": {
+      "type": "schema",
+      "sha256": "9eee5087c616652f2dbdd5b4dd3c0c1795d6f826094fce67c50b212320db1e70"
+    },
+    "data/modeling/forecasting/forecast_supervised_complete.csv": {
+      "rows": 1423,
+      "columns": 17,
+      "sha256": "088a08bda8bc323343e6a03e5369a2456c811c16ca0ff3adf2aa4ef8f0c36bdf"
+    },
+    "data/modeling/forecasting/forecast_primary_train.csv": {
+      "rows": 723,
+      "columns": 21,
+      "sha256": "8ba90f28d6a489ff9d41d5bcf25d44223f7e89b50201bb71da793050d9222bcf"
+    },
+    "data/modeling/forecasting/forecast_primary_validation.csv": {
+      "rows": 69,
+      "columns": 21,
+      "sha256": "0a1c7811d7e698ca4c4351e4568a1dc2f672c97a4af443a44ffe7668e5c3afa0"
+    },
+    "data/modeling/forecasting/forecast_primary_test.csv": {
+      "rows": 69,
+      "columns": 21,
+      "sha256": "3242edab7365c25d2b804e35317ffd87ecce71cc7124b541dff0fb246ba7a49b"
+    },
+    "data/modeling/forecasting/forecast_cold_start_train.csv": {
+      "rows": 1130,
+      "columns": 18,
+      "sha256": "988fe5252c561f3d69ccb5c98c14eb08b0d93df1449a974ead7831e6953c36c9"
+    },
+    "data/modeling/forecasting/forecast_cold_start_validation.csv": {
+      "rows": 151,
+      "columns": 18,
+      "sha256": "ddbe797c099af5b000369da39420d1c720b178c852152addedcc9ca867aa5117"
+    },
+    "data/modeling/forecasting/forecast_cold_start_test.csv": {
+      "rows": 135,
+      "columns": 18,
+      "sha256": "fc4eb2f46a270143dded3c8ad6ffdb82ce8f902fb169e57b951f7a6d29be2798"
+    },
+    "data/modeling/recommendation/recommendation_train.csv": {
+      "rows": 189964,
+      "columns": 12,
+      "sha256": "107b929aa9c87a9b14b67c4f4925e54e1e69c2566df6471c4f4193e5d6b0cc1d"
+    },
+    "data/modeling/recommendation/recommendation_validation.csv": {
+      "rows": 13301,
+      "columns": 12,
+      "sha256": "79227e56ee9461dc4ed92b051376329e4e996953f7ea05562c599fa172bca876"
+    },
+    "data/modeling/recommendation/recommendation_test.csv": {
+      "rows": 13301,
+      "columns": 12,
+      "sha256": "bbed68a6c2d81e8e0e404e6d5de330905f4bfcd53d0d282b38acbb1a4f4d1674"
+    }
+  }
+}
+
+Phase 3 modeling datasets created successfully.
+Manifest: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/data/modeling/phase3_dataset_manifest.json

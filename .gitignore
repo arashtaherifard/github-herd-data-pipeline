@@ -28,3 +28,6 @@ outputs/phase3/audit/forecast_repository_aware_candidate_*.csv
 mlruns/
 mlartifacts/
 .prefect/
+
+# Previous local virtual environment backup
+venv_py314_backup/

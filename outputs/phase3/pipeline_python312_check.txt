@@ -1,0 +1,149 @@
+Imported repositories_enriched.csv into table 'repositories' with 763 rows.
+Imported stars_raw.csv into table 'stars' with 216566 rows.
+Imported user_repo_interactions.csv into table 'user_repo_interactions' with 216566 rows.
+Imported repo_star_daily_timeseries.csv into table 'daily_timeseries' with 11128 rows.
+Imported repo_star_weekly_timeseries.csv into table 'weekly_timeseries' with 2250 rows.
+Imported repo_herd_modeling_table.csv into table 'herd_modeling' with 145 rows.
+Database import completed successfully.
+
+================================================================================
+Total Repositories
+================================================================================
+   num_repositories
+0               763
+
+================================================================================
+Total Star Interactions
+================================================================================
+   num_star_interactions
+0                 216566
+
+================================================================================
+Total Unique Users
+================================================================================
+   num_unique_users
+0            151142
+
+================================================================================
+Top 10 Programming Languages
+================================================================================
+           language  repo_count
+0            Python         265
+1        TypeScript         129
+2        JavaScript          93
+3           Unknown          70
+4  Jupyter Notebook          61
+5               C++          25
+6              Rust          23
+7              HTML          16
+8                Go          16
+9              Java           9
+
+================================================================================
+Top 10 Repositories by GitHub Star Count
+================================================================================
+                                    full_name  ... forks_count
+0                   freeCodeCamp/freeCodeCamp  ...       44925
+1            donnemartin/system-design-primer  ...       56693
+2                        vinta/awesome-python  ...       28076
+3  practical-tutorials/project-based-learning  ...       34848
+4                                 react/react  ...       51056
+5                        TheAlgorithms/Python  ...       50758
+6                                affaan-m/ECC  ...       33020
+7                                   vuejs/vue  ...       33706
+8              trekhleb/javascript-algorithms  ...       31057
+9                       tensorflow/tensorflow  ...       75177
+
+[10 rows x 4 columns]
+
+================================================================================
+Top 10 Repositories by Collected Stargazer Interactions
+================================================================================
+      repo_full_name  collected_star_events
+0    mrdoob/three.js                   1500
+1  pandas-dev/pandas                   1500
+2    Leaflet/Leaflet                   1500
+3       psf/requests                   1500
+4    JuliaLang/julia                   1500
+5     twbs/bootstrap                   1500
+6      meteor/meteor                   1500
+7      django/django                   1500
+8      opencv/opencv                   1500
+9        pyenv/pyenv                   1500
+
+================================================================================
+Herd Modeling Class Balance
+================================================================================
+   became_high_growth  repo_count
+0                   0          72
+1                   1          73
+
+================================================================================
+Average Early and Later Stars by Herd Class
+================================================================================
+   became_high_growth  avg_early_4week_stars  avg_later_stars
+0                   0            1460.833333        39.166667
+1                   1             187.876712      1299.328767
+
+================================================================================
+Weekly Time-Series Example
+================================================================================
+                repo_full_name  ... herd_momentum_score
+0              mrdoob/three.js  ...                 0.0
+1            pandas-dev/pandas  ...             27000.0
+2              Leaflet/Leaflet  ...                 0.0
+3                 psf/requests  ...                 0.0
+4              JuliaLang/julia  ...              3000.0
+5               twbs/bootstrap  ...                 0.0
+6                meteor/meteor  ...                 0.0
+7                django/django  ...                 0.0
+8                opencv/opencv  ...             43500.0
+9                  pyenv/pyenv  ...             18000.0
+10           airbnb/javascript  ...             58500.0
+11         discourse/discourse  ...                 0.0
+12               pixijs/pixijs  ...             78000.0
+13           electron/electron  ...           1950000.0
+14              TryGhost/Ghost  ...              1500.0
+15                 react/react  ...             34500.0
+16             netdata/netdata  ...              7500.0
+17                   vuejs/vue  ...             30000.0
+18  ionic-team/ionic-framework  ...           1021500.0
+19         home-assistant/core  ...              9000.0
+
+[20 rows x 5 columns]
+
+SQL query outputs saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/sql_query_outputs.txt
+Data loaded from database successfully.
+Loaded data saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/data/interim
+Summary saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/section2/load_data_summary.txt
+EDA completed successfully.
+EDA summary saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/section2/eda_summary.txt
+EDA tables saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/section2
+EDA figures saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/figures
+Preprocessing completed successfully.
+Preprocessed files saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/data/processed
+Preprocessing summary saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/section2/preprocessing_summary.txt
+Feature engineering completed successfully.
+Feature-engineered files saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/data/processed
+Feature engineering summary saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/section2/feature_engineering_summary.txt
+================================================================================
+Running scripts/import_to_db.py
+================================================================================
+================================================================================
+Running scripts/run_sql_queries.py
+================================================================================
+================================================================================
+Running scripts/load_data.py
+================================================================================
+================================================================================
+Running scripts/eda.py
+================================================================================
+================================================================================
+Running scripts/preprocess.py
+================================================================================
+================================================================================
+Running scripts/feature_engineering.py
+================================================================================
+================================================================================
+Full data science pipeline completed successfully.
+================================================================================
