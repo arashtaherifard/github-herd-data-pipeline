@@ -1,0 +1,39 @@
+{
+  "target": "became_high_growth",
+  "identifier_column": "repo_id",
+  "excluded_columns": [
+    "repo_id",
+    "is_fork",
+    "topic_count"
+  ],
+  "feature_columns": [
+    "early_4week_stars",
+    "early_avg_weekly_stars",
+    "early_max_weekly_stars",
+    "archived",
+    "has_ai_topic",
+    "has_ml_topic",
+    "has_deep_learning_topic",
+    "has_data_science_topic",
+    "has_web_topic",
+    "has_llm_topic",
+    "early_peak_to_average_ratio",
+    "language_grouped_C++",
+    "language_grouped_JavaScript",
+    "language_grouped_Jupyter Notebook",
+    "language_grouped_MDX",
+    "language_grouped_Other",
+    "language_grouped_Python",
+    "language_grouped_Rust",
+    "language_grouped_TypeScript",
+    "language_grouped_Unknown",
+    "license_grouped_AGPL-3.0",
+    "license_grouped_Apache-2.0",
+    "license_grouped_GPL-3.0",
+    "license_grouped_MIT",
+    "license_grouped_NOASSERTION",
+    "license_grouped_No License",
+    "license_grouped_Other"
+  ],
+  "feature_count": 27
+}

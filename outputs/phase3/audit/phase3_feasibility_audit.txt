@@ -1,0 +1,67 @@
+
+====================================================================================================
+CLASSIFICATION FEASIBILITY
+====================================================================================================
+Rows: 145
+Columns: 31
+Missing values: 0
+Duplicate rows: 0
+Identifier columns to exclude: ['repo_id']
+Constant columns to exclude: ['is_fork', 'topic_count']
+Usable predictor count: 27
+
+Target counts:
+became_high_growth
+0    72
+1    73
+
+====================================================================================================
+TIME-SERIES FORECASTING FEASIBILITY
+====================================================================================================
+Rows: 2250
+Repositories: 145
+Duplicate repository-week pairs: 0
+Unparseable week dates: 0
+Observed week-to-week gaps: 2105
+Fraction of observed gaps equal to exactly 7 days: 0.9496
+
+Valid supervised forecasting samples:
+ forecast_horizon_weeks  minimum_history_weeks  valid_samples  eligible_repositories  mean_future_stars  median_future_stars
+                      1                      1           1999                    123          76.570785                 19.0
+                      1                      2           1894                    104          66.865364                 19.0
+                      1                      4           1721                     82          55.715863                 18.0
+                      1                      8           1446                     65          48.511757                 18.0
+                      2                      1           1826                    100         113.073932                 41.0
+                      2                      2           1748                     92         101.412471                 41.0
+                      2                      4           1607                     77          89.659614                 40.0
+                      2                      8           1360                     61          78.514706                 39.0
+                      4                      1           1590                     76         157.445283                 84.0
+                      4                      2           1537                     73         150.458686                 83.0
+                      4                      4           1423                     65         141.404076                 82.0
+                      4                      8           1214                     53         126.892916                 80.0
+
+====================================================================================================
+RECOMMENDATION FEASIBILITY
+====================================================================================================
+Interactions: 216566
+Unique users: 151142
+Unique repositories: 145
+Duplicate user-repository pairs: 0
+Unparseable timestamps: 0
+Earliest interaction: 2010-03-23 18:58:01+00:00
+Latest interaction: 2026-03-03 10:04:13+00:00
+Interaction matrix density: 0.00988182
+Interaction matrix sparsity: 0.99011818
+
+Users eligible for train/test splitting (>=2 interactions): 31401
+Users eligible for train/validation/test splitting (>=3 interactions): 13301
+Users with at least 5 interactions: 4080
+
+Maximum collected interactions for a repository: 1500
+Repositories at the maximum collected count: 144
+Fraction of repositories at the maximum: 0.9931
+
+====================================================================================================
+AUDIT COMPLETE
+====================================================================================================
+Outputs saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/phase3/audit

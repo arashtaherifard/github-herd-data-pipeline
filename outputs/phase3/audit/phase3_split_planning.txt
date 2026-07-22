@@ -1,0 +1,64 @@
+
+====================================================================================================
+CLASSIFICATION SPLIT PLAN
+====================================================================================================
+Development/test strategy: stratified 80/20 split
+Validation strategy: 5-fold stratified CV inside development data
+Random state: 42
+
+      split  rows  class_0  class_1
+development   116       58       58
+       test    29       14       15
+
+====================================================================================================
+FORECAST SPLIT PLAN
+====================================================================================================
+Forecast horizon: 4 weeks
+Minimum history: 4 weeks
+Total supervised samples: 1423
+Repositories: 65
+Training boundary: 2020-06-08 00:00:00+00:00
+Validation boundary: 2023-04-03 00:00:00+00:00
+Samples dropped by temporal purging: 7
+
+Split summary:
+     split  rows  repositories              start_cutoff                end_cutoff  target_mean  target_median
+     train  1130            41 2010-09-13 00:00:00+00:00 2020-03-02 00:00:00+00:00   115.831858           77.0
+validation   151            14 2020-06-15 00:00:00+00:00 2023-03-06 00:00:00+00:00   261.377483          174.0
+      test   135            11 2023-04-10 00:00:00+00:00 2025-11-24 00:00:00+00:00   206.888889           54.0
+
+Repositories appearing in validation but not training:
+14
+Repositories appearing in test but not training:
+11
+
+Per-repository split feasibility:
+ minimum_samples  eligible_repositories
+               5                     52
+               8                     46
+              10                     40
+              15                     32
+              20                     26
+
+====================================================================================================
+RECOMMENDATION SPLIT PLAN
+====================================================================================================
+Users eligible for validation and test: 13301
+Split strategy: leave-two-out by timestamp
+Second-most-recent interaction: validation
+Most recent interaction: test
+All earlier and non-evaluation-user interactions: training
+
+     split   rows  users  repositories        earliest_timestamp          latest_timestamp
+     train 189964 151142           145 2010-03-23 18:58:01+00:00 2026-03-03 09:56:08+00:00
+validation  13301  13301           144 2010-08-24 01:37:33+00:00 2026-02-02 16:00:01+00:00
+      test  13301  13301           143 2011-02-13 18:38:17+00:00 2026-03-03 10:04:13+00:00
+
+Cold validation repositories: 0
+Cold test repositories: 0
+Validation/test ordering violations: 0
+
+====================================================================================================
+SPLIT PLANNING COMPLETE
+====================================================================================================
+Outputs saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/phase3/audit

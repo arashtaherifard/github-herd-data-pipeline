@@ -1,0 +1,4 @@
+configuration,validation_samples_per_repo,test_samples_per_repo,minimum_train_samples,eligible_repositories,train_rows,validation_rows,test_rows,retained_rows,purged_or_unused_rows,overlap_violations,train_target_mean,validation_target_mean,test_target_mean
+one_one_eight,1,1,8,28,864,28,28,920,224,0,78.5,134.10714285714286,373.07142857142856
+two_two_eight,2,2,8,26,796,52,52,900,208,0,74.86809045226131,130.71153846153845,287.1923076923077
+three_three_eight,3,3,8,23,723,69,69,861,184,0,70.12586445366529,127.7536231884058,213.82608695652175

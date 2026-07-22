@@ -1,0 +1,28 @@
+feature,dtype
+early_4week_stars,float64
+early_avg_weekly_stars,float64
+early_max_weekly_stars,float64
+archived,float64
+has_ai_topic,float64
+has_ml_topic,float64
+has_deep_learning_topic,float64
+has_data_science_topic,float64
+has_web_topic,float64
+has_llm_topic,float64
+early_peak_to_average_ratio,float64
+language_grouped_C++,float64
+language_grouped_JavaScript,float64
+language_grouped_Jupyter Notebook,float64
+language_grouped_MDX,float64
+language_grouped_Other,float64
+language_grouped_Python,float64
+language_grouped_Rust,float64
+language_grouped_TypeScript,float64
+language_grouped_Unknown,float64
+license_grouped_AGPL-3.0,float64
+license_grouped_Apache-2.0,float64
+license_grouped_GPL-3.0,float64
+license_grouped_MIT,float64
+license_grouped_NOASSERTION,float64
+license_grouped_No License,float64
+license_grouped_Other,float64

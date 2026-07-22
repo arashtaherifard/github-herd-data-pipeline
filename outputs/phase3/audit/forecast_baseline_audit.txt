@@ -1,0 +1,87 @@
+
+====================================================================================================
+FORECASTING SPLIT AND BASELINE AUDIT
+====================================================================================================
+
+Split configurations:
+    configuration  eligible_repositories  train_rows  validation_rows  test_rows  purged_or_unused_rows
+    one_one_eight                     28         864               28         28                    224
+    two_two_eight                     26         796               52         52                    208
+three_three_eight                     23         723               69         69                    184
+
+
+====================================================================================================
+TARGET DISTRIBUTIONS
+====================================================================================================
+    configuration      split  rows  repositories       mean  median  standard_deviation  minimum   q25    q75    q90     q95  maximum  zero_fraction
+    one_one_eight      train   864            28  78.500000    61.0           76.017699      4.0 26.00 103.00  161.7  209.00    796.0            0.0
+    one_one_eight validation    28            28 134.107143   116.5          101.617416     18.0 59.00 167.75  241.5  294.10    489.0            0.0
+    one_one_eight       test    28            28 373.071429   128.0          440.133055      8.0 95.50 473.25 1221.1 1286.15   1375.0            0.0
+    two_two_eight      train   796            26  74.868090    58.0           75.356738      4.0 25.00  97.25  148.5  194.25    796.0            0.0
+    two_two_eight validation    52            26 130.711538   110.0          144.487646     16.0 49.25 137.75  203.9  314.60    773.0            0.0
+    two_two_eight       test    52            26 287.192308   120.0          359.176948      8.0 73.50 389.75  735.6 1225.15   1375.0            0.0
+three_three_eight      train   723            23  70.125864    57.0           60.630340      4.0 25.00  93.00  140.8  178.80    513.0            0.0
+three_three_eight validation    69            23 127.753623   107.0          127.677144     20.0 53.00 132.00  222.6  303.80    750.0            0.0
+three_three_eight       test    69            23 213.826087   114.0          256.546232      8.0 74.00 258.00  477.0  640.80   1240.0            0.0
+
+
+====================================================================================================
+TEMPORAL DISTRIBUTION SHIFT
+====================================================================================================
+    configuration      split  target_mean_ratio_vs_train  fraction_above_train_p95  train_p95
+    one_one_eight validation                    1.708371                  0.142857     209.00
+    one_one_eight       test                    4.752502                  0.428571     209.00
+    two_two_eight validation                    1.745891                  0.134615     194.25
+    two_two_eight       test                    3.835977                  0.365385     194.25
+three_three_eight validation                    1.821776                  0.188406     178.80
+three_three_eight       test                    3.049176                  0.318841     178.80
+
+
+====================================================================================================
+BASELINE METRICS
+====================================================================================================
+    configuration      split              baseline  rows  repositories        mae       rmse    rmsle  smape_percent  forecast_bias
+    one_one_eight validation          last_week_x4    28            28  71.178571 170.297324 0.532769      41.944531       5.464286
+    one_one_eight validation      previous_week_x4    28            28  66.892857 121.943927 1.042888      57.018150     -32.107143
+    one_one_eight validation rolling_3week_mean_x4    28            28  40.559524  52.754937 0.434347      35.942934     -21.440476
+    one_one_eight validation  previous_4week_total    28            28  41.071429  54.489186 0.423751      35.177352     -23.785714
+    one_one_eight       test          last_week_x4    28            28 268.857143 516.024986 1.564418      63.812153    -211.785714
+    one_one_eight       test      previous_week_x4    28            28 275.785714 511.958215 1.417969      66.225686    -240.928571
+    one_one_eight       test rolling_3week_mean_x4    28            28 263.738095 513.224981 1.442858      58.686959    -235.214286
+    one_one_eight       test  previous_4week_total    28            28 265.678571 512.507665 1.417014      58.793407    -238.964286
+    two_two_eight validation          last_week_x4    52            26  61.903846 158.123430 0.944815      42.589656     -38.019231
+    two_two_eight validation      previous_week_x4    52            26  63.980769 153.267802 0.791153      43.571249     -35.173077
+    two_two_eight validation rolling_3week_mean_x4    52            26  57.544872 140.183861 0.678896      38.988862     -32.711538
+    two_two_eight validation  previous_4week_total    52            26  55.057692 133.532263 0.557232      37.884987     -32.288462
+    two_two_eight       test          last_week_x4    52            26 191.730769 402.594041 1.267009      56.995819    -148.500000
+    two_two_eight       test      previous_week_x4    52            26 202.923077 405.738974 1.234990      62.246094    -171.269231
+    two_two_eight       test rolling_3week_mean_x4    52            26 191.333333 404.007992 1.228197      55.016179    -163.910256
+    two_two_eight       test  previous_4week_total    52            26 196.000000 407.531028 1.253447      55.000892    -159.615385
+three_three_eight validation          last_week_x4    69            23  54.014493 130.018003 0.742739      41.186048     -25.260870
+three_three_eight validation      previous_week_x4    69            23  55.434783 115.965950 0.813941      45.990966     -28.101449
+three_three_eight validation rolling_3week_mean_x4    69            23  49.115942 110.422049 0.507218      37.317381     -26.961353
+three_three_eight validation  previous_4week_total    69            23  51.246377 116.273665 0.537022      37.970598     -27.681159
+three_three_eight       test          last_week_x4    69            23 115.826087 267.574289 0.950514      46.234950     -81.478261
+three_three_eight       test      previous_week_x4    69            23 123.507246 271.222568 0.949156      52.285940     -94.289855
+three_three_eight       test rolling_3week_mean_x4    69            23 118.396135 273.195500 0.914068      44.754566     -83.758454
+three_three_eight       test  previous_4week_total    69            23 126.115942 282.391546 0.927446      45.376397     -78.318841
+
+
+====================================================================================================
+VALIDATION BASELINE RANKING
+====================================================================================================
+    configuration      split              baseline  rows  repositories       mae       rmse    rmsle  smape_percent  forecast_bias
+    one_one_eight validation  previous_4week_total    28            28 41.071429  54.489186 0.423751      35.177352     -23.785714
+    one_one_eight validation rolling_3week_mean_x4    28            28 40.559524  52.754937 0.434347      35.942934     -21.440476
+three_three_eight validation rolling_3week_mean_x4    69            23 49.115942 110.422049 0.507218      37.317381     -26.961353
+    one_one_eight validation          last_week_x4    28            28 71.178571 170.297324 0.532769      41.944531       5.464286
+three_three_eight validation  previous_4week_total    69            23 51.246377 116.273665 0.537022      37.970598     -27.681159
+    two_two_eight validation  previous_4week_total    52            26 55.057692 133.532263 0.557232      37.884987     -32.288462
+    two_two_eight validation rolling_3week_mean_x4    52            26 57.544872 140.183861 0.678896      38.988862     -32.711538
+three_three_eight validation          last_week_x4    69            23 54.014493 130.018003 0.742739      41.186048     -25.260870
+    two_two_eight validation      previous_week_x4    52            26 63.980769 153.267802 0.791153      43.571249     -35.173077
+three_three_eight validation      previous_week_x4    69            23 55.434783 115.965950 0.813941      45.990966     -28.101449
+    two_two_eight validation          last_week_x4    52            26 61.903846 158.123430 0.944815      42.589656     -38.019231
+    one_one_eight validation      previous_week_x4    28            28 66.892857 121.943927 1.042888      57.018150     -32.107143
+
+Outputs saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/phase3/audit

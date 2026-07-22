@@ -1,0 +1,86 @@
+{
+  "project_name": "GitHub Herd Behavior and Repository Recommendation",
+  "random_state": 42,
+  "classification": {
+    "target": "became_high_growth",
+    "test_size": 0.2,
+    "cross_validation_folds": 5,
+    "excluded_columns": [
+      "repo_id",
+      "is_fork",
+      "topic_count"
+    ],
+    "primary_metric": "roc_auc",
+    "secondary_metrics": [
+      "accuracy",
+      "balanced_accuracy",
+      "precision",
+      "recall",
+      "f1",
+      "pr_auc",
+      "mcc",
+      "cohen_kappa",
+      "log_loss"
+    ]
+  },
+  "forecasting": {
+    "target": "future_4week_stars",
+    "forecast_horizon_weeks": 4,
+    "minimum_history_weeks": 4,
+    "target_transformation": "log1p",
+    "primary_metric": "rmsle",
+    "secondary_metrics": [
+      "mae",
+      "rmse",
+      "smape",
+      "forecast_bias"
+    ],
+    "primary_split": {
+      "strategy": "repository_aware_purged_temporal",
+      "validation_samples_per_repository": 3,
+      "test_samples_per_repository": 3,
+      "minimum_train_samples_per_repository": 8
+    },
+    "secondary_split": {
+      "strategy": "global_chronological_cold_start",
+      "train_fraction": 0.7,
+      "validation_fraction": 0.15,
+      "test_fraction": 0.15
+    },
+    "naive_baselines": [
+      "last_week_x4",
+      "previous_week_x4",
+      "rolling_3week_mean_x4",
+      "previous_4week_total"
+    ],
+    "main_naive_baseline": "rolling_3week_mean_x4"
+  },
+  "recommendation": {
+    "feedback_type": "implicit",
+    "minimum_interactions_for_evaluation": 3,
+    "split_strategy": "leave_two_out_by_timestamp",
+    "validation_interactions_per_user": 1,
+    "test_interactions_per_user": 1,
+    "candidate_strategy": "full_catalog",
+    "ranking_cutoffs": [
+      5,
+      10
+    ],
+    "primary_metric": "ndcg_at_10",
+    "secondary_metrics": [
+      "precision_at_5",
+      "precision_at_10",
+      "recall_at_5",
+      "recall_at_10",
+      "ndcg_at_5",
+      "hit_rate_at_5",
+      "hit_rate_at_10",
+      "mrr",
+      "map_at_10",
+      "catalog_coverage",
+      "novelty",
+      "diversity",
+      "average_recommended_popularity"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+
+====================================================================================================
+REPOSITORY-AWARE FORECAST SPLIT AUDIT
+====================================================================================================
+Forecast target: future_4week_stars
+Target horizon: four consecutive weeks
+
+Each split is purged so that:
+1. Training target windows finish before validation starts.
+2. Validation target windows finish before testing starts.
+
+Candidate comparison:
+ validation_samples_per_repo  test_samples_per_repo  minimum_train_samples  eligible_repositories  train_rows  validation_rows  test_rows  retained_rows  purged_or_unused_rows  overlap_violations  train_target_mean  validation_target_mean  test_target_mean  repositories_in_all_splits  train_validation_overlap_violations  validation_test_overlap_violations
+                           1                      1                      4                     34         897               34         34            965                    272                   0          80.336678              141.676471        400.411765                          34                                    0                                   0
+                           2                      2                      4                     31         822               62         62            946                    248                   0          77.631387              128.354839        307.693548                          31                                    0                                   0
+                           3                      3                      4                     28         752               84         84            920                    224                   0          74.538564              122.190476        248.023810                          28                                    0                                   0
+                           1                      1                      8                     28         864               28         28            920                    224                   0          78.500000              134.107143        373.071429                          28                                    0                                   0
+                           2                      2                      8                     26         796               52         52            900                    208                   0          74.868090              130.711538        287.192308                          26                                    0                                   0
+                           3                      3                      8                     23         723               69         69            861                    184                   0          70.125864              127.753623        213.826087                          23                                    0                                   0
+                           1                      1                     12                     23         815               23         23            861                    184                   0          73.565644              134.043478        300.913043                          23                                    0                                   0
+                           2                      2                     12                     21         748               42         42            832                    168                   0          72.168449              148.142857        233.738095                          21                                    0                                   0
+                           3                      3                     12                     20         695               60         60            815                    160                   0          68.374101              131.866667        208.483333                          20                                    0                                   0
+
+
+====================================================================================================
+PREFERRED CANDIDATE FOR REVIEW
+====================================================================================================
+ validation_samples_per_repo  test_samples_per_repo  minimum_train_samples  eligible_repositories  train_rows  validation_rows  test_rows  retained_rows  purged_or_unused_rows  overlap_violations  train_target_mean  validation_target_mean  test_target_mean  repositories_in_all_splits  train_validation_overlap_violations  validation_test_overlap_violations
+                           2                      2                      8                     26         796               52         52            900                    208                   0           74.86809              130.711538        287.192308                          26                                    0                                   0
+
+Candidate split saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/phase3/audit/forecast_repository_aware_candidate_2_2_8.csv
+Summary saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/phase3/audit/forecast_repository_aware_candidates.csv

@@ -12,3 +12,19 @@ outputs/figures/.DS_Store
 outputs/.DS_Store
 data/.DS_Store
 report.pdf
+
+# Phase 3 generated modeling datasets
+data/modeling/**/*.csv
+
+# Large temporary audit splits
+outputs/phase3/audit/recommendation_train.csv
+outputs/phase3/audit/recommendation_validation.csv
+outputs/phase3/audit/recommendation_test.csv
+outputs/phase3/audit/forecast_feasible_samples.csv
+outputs/phase3/audit/forecast_split_plan.csv
+outputs/phase3/audit/forecast_repository_aware_candidate_*.csv
+
+# MLflow and Prefect local runtime data
+mlruns/
+mlartifacts/
+.prefect/
