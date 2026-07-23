@@ -200,3 +200,6 @@
     }
   }
 }
+
+Phase 3 modeling datasets created successfully.
+Manifest: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/data/modeling/phase3_dataset_manifest.json

@@ -2,44 +2,17 @@
   "project": "GitHub Herd Behavior and Repository Recommendation",
   "random_state": 42,
   "classification": {
-    "design_status": "corrected_after_collection_cap_leakage_audit",
-    "primary_target": "future_growth_surge",
-    "secondary_target": "future_absolute_high_growth",
-    "relative_growth_multiplier": 1.5,
-    "absolute_training_quantile": 0.8,
-    "absolute_training_threshold": 101.0,
-    "feature_count": 12,
-    "splits": {
-      "train": {
-        "rows": 700,
-        "repositories": 22,
-        "primary_target_class_counts": {
-          "0": 524,
-          "1": 176
-        },
-        "secondary_target_class_counts": {
-          "0": 558,
-          "1": 142
-        }
-      },
-      "validation": {
-        "rows": 66,
-        "repositories": 22,
-        "primary_target_class_counts": {
-          "0": 50,
-          "1": 16
-        },
-        "secondary_target_class_counts": {
-          "0": 30,
-          "1": 36
-        }
-      },
-      "test": {
-        "rows": 66,
-        "repositories": 22,
-        "target_distribution_status": "not_summarized_during_development"
-      }
-    }
+    "development_rows": 116,
+    "test_rows": 29,
+    "development_class_counts": {
+      "0": 58,
+      "1": 58
+    },
+    "test_class_counts": {
+      "0": 14,
+      "1": 15
+    },
+    "feature_count": 27
   },
   "forecasting": {
     "forecast_horizon_weeks": 4,
@@ -129,6 +102,20 @@
     }
   },
   "generated_files": {
+    "data/modeling/classification/classification_development.csv": {
+      "rows": 116,
+      "columns": 31,
+      "sha256": "04f6c40a8fc5b439ea1e6bc7f024e15d0a603cf4ca871ecfa3fe1cb3d04c80b0"
+    },
+    "data/modeling/classification/classification_test.csv": {
+      "rows": 29,
+      "columns": 31,
+      "sha256": "e132caf10e1d3291c1ecd160cd3c986144d4fd165f19d56b720d9308faadd4e5"
+    },
+    "data/modeling/classification/classification_schema.json": {
+      "type": "schema",
+      "sha256": "9eee5087c616652f2dbdd5b4dd3c0c1795d6f826094fce67c50b212320db1e70"
+    },
     "data/modeling/forecasting/forecast_supervised_complete.csv": {
       "rows": 1371,
       "columns": 19,
@@ -164,25 +151,6 @@
       "columns": 20,
       "sha256": "939c6f01136c1501c13880de1e017c7563f22150050f9e9aa1dde56fe5292d5a"
     },
-    "data/modeling/classification/classification_train.csv": {
-      "rows": 700,
-      "columns": 25,
-      "sha256": "982442694f11010dde8118a06277601c95876e644be426582ccc3b892dc12cd8"
-    },
-    "data/modeling/classification/classification_validation.csv": {
-      "rows": 66,
-      "columns": 25,
-      "sha256": "e0c0d91a6d99e27dfdbfa1da95a7bd28b000c6d1b6a4344dda581696f9435ba9"
-    },
-    "data/modeling/classification/classification_test.csv": {
-      "rows": 66,
-      "columns": 25,
-      "sha256": "fcb8e0ea12ab27345f59585ddc5add206cba862250fa014fb3eaeb6170bea631"
-    },
-    "data/modeling/classification/classification_schema.json": {
-      "type": "schema",
-      "sha256": "564d91aa5f19260e235d84dfed186fe3fdbe1165c170c002f71c790d8e47ff13"
-    },
     "data/modeling/recommendation/recommendation_train.csv": {
       "rows": 189964,
       "columns": 12,
@@ -200,3 +168,6 @@
     }
   }
 }
+
+Phase 3 modeling datasets created successfully.
+Manifest: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/data/modeling/phase3_dataset_manifest.json

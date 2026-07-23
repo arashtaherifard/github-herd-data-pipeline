@@ -1,0 +1,4 @@
+fold,repositories,train_rows,validation_rows,train_negative_rows,train_positive_rows,validation_negative_rows,validation_positive_rows,train_positive_rate,validation_positive_rate,target_window_overlap_violations
+1,22,546,22,406,140,16,6,0.2564102564102564,0.2727272727272727,0
+2,22,568,22,424,144,15,7,0.2535211267605634,0.3181818181818182,0
+3,22,590,22,443,147,16,6,0.24915254237288137,0.2727272727272727,0

@@ -181,7 +181,7 @@
     },
     "data/modeling/classification/classification_schema.json": {
       "type": "schema",
-      "sha256": "564d91aa5f19260e235d84dfed186fe3fdbe1165c170c002f71c790d8e47ff13"
+      "sha256": "5c72b29e79d72cbb6a70c444ee3b68ed299cf43dbf5f2e21279856816be610e6"
     },
     "data/modeling/recommendation/recommendation_train.csv": {
       "rows": 189964,
@@ -200,3 +200,6 @@
     }
   }
 }
+
+Phase 3 modeling datasets created successfully.
+Manifest: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/data/modeling/phase3_dataset_manifest.json

@@ -1,0 +1,3 @@
+split,rows,repositories,rows_without_four_clean_history_weeks,comparable_rows,rolling_4week_mismatch_rows,rolling_4week_match_rows,maximum_absolute_difference
+train,700,22,0,700,0,700,0.0
+validation,66,22,0,66,0,66,0.0

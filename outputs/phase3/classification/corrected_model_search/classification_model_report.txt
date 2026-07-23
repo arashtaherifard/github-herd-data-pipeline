@@ -1,0 +1,64 @@
+=========================================================================================================
+CORRECTED GROWTH-SURGE CLASSIFICATION REPORT
+=========================================================================================================
+
+Training rows: 700
+Validation rows: 66
+Repositories: 22
+Features: 12
+Test data was not loaded or evaluated.
+
+MODEL COMPARISON
+                 model                                                                                                                                                           best_parameters  cv_roc_auc_mean  cv_roc_auc_std  cv_pr_auc_mean  cv_pr_auc_std  cv_accuracy_mean  cv_balanced_accuracy_mean  cv_precision_mean  cv_recall_mean  cv_f1_mean  cv_mcc_mean  cv_cohen_kappa_mean  cv_log_loss_mean  cv_brier_score_mean  validation_threshold  validation_roc_auc  validation_pr_auc  validation_accuracy  validation_balanced_accuracy  validation_precision  validation_recall  validation_f1  validation_mcc  validation_cohen_kappa  validation_log_loss  validation_brier_score  validation_tn  validation_fp  validation_fn  validation_tp
+   logistic_regression                                                                                                   {"model__C": 10.0, "model__class_weight": null, "model__l1_ratio": 0.5}         0.735813        0.062974        0.533009       0.069541          0.712121                   0.577480           0.500000        0.261905    0.337879     0.195318             0.178727          0.731580             0.212663                   0.5             0.73625           0.473741             0.757576                       0.52125              0.500000             0.0625       0.111111        0.106250                0.060498             0.589433                0.183408             49              1             15              1
+hist_gradient_boosting                                                       {"model__l2_regularization": 1.0, "model__learning_rate": 0.03, "model__max_iter": 100, "model__max_leaf_nodes": 7}         0.710119        0.071638        0.518725       0.081136          0.651515                   0.504365           0.305556        0.158730    0.208754     0.013047             0.011416          0.681815             0.224226                   0.5             0.65625           0.424669             0.757576                       0.54250              0.500000             0.1250       0.200000        0.152665                0.114094             0.592382                0.191399             48              2             14              2
+               xgboost {"model__colsample_bytree": 1.0, "model__learning_rate": 0.1, "model__max_depth": 2, "model__n_estimators": 100, "model__scale_pos_weight": 1.0, "model__subsample": 0.8}         0.737004        0.071093        0.540801       0.066527          0.666667                   0.528175           0.355556        0.206349    0.259259     0.067805             0.063850          0.737230             0.227332                   0.5             0.64125           0.437277             0.757576                       0.54250              0.500000             0.1250       0.200000        0.152665                0.114094             0.610439                0.186326             48              2             14              2
+         decision_tree                                                                                  {"model__class_weight": "balanced", "model__max_depth": 2, "model__min_samples_leaf": 1}         0.728026        0.065191        0.493025       0.038560          0.757576                   0.626786           0.666667        0.317460    0.429630     0.333420             0.300134          0.556482             0.177059                   0.5             0.62500           0.321212             0.742424                       0.53250              0.400000             0.1250       0.190476        0.105271                0.084829             0.556978                0.185701             47              3             14              2
+     gradient_boosting                                                                 {"model__learning_rate": 0.1, "model__max_depth": 2, "model__n_estimators": 200, "model__subsample": 0.8}         0.749405        0.068062        0.559680       0.068472          0.712121                   0.590873           0.477778        0.309524    0.374074     0.207592             0.200509          0.752898             0.228911                   0.5             0.62125           0.436708             0.742424                       0.55375              0.428571             0.1875       0.260870        0.149616                0.132921             0.641927                0.190036             46              4             13              3
+         random_forest                                                           {"model__class_weight": null, "model__max_depth": 4, "model__max_features": 0.75, "model__min_samples_leaf": 5}         0.728571        0.034752        0.516216       0.020289          0.712121                   0.560119           0.500000        0.206349    0.287879     0.168922             0.145067          0.681364             0.214102                   0.5             0.61125           0.434094             0.757576                       0.54250              0.500000             0.1250       0.200000        0.152665                0.114094             0.593532                0.185192             48              2             14              2
+                   knn                                                                                                     {"model__n_neighbors": 9, "model__p": 2, "model__weights": "uniform"}         0.635665        0.100327        0.444867       0.102283          0.666667                   0.502083           0.277778        0.111111    0.157407    -0.000192             0.005419          3.659402             0.228208                   0.5             0.58250           0.394143             0.757576                       0.58500              0.500000             0.2500       0.333333        0.223221                0.204819             4.108343                0.203143             46              4             12              4
+                 dummy                                                                                                                                              {"model__strategy": "prior"}         0.500000        0.000000        0.287879       0.021427          0.712121                   0.500000           0.000000        0.000000    0.000000     0.000000             0.000000          0.603350             0.206213                   0.5             0.50000           0.242424             0.757576                       0.50000              0.000000             0.0000       0.000000        0.000000                0.000000             0.554075                0.183736             50              0             16              0
+
+Selected model: logistic_regression
+Selected parameters: {'model__C': 10.0, 'model__class_weight': None, 'model__l1_ratio': 0.5}
+Selected validation threshold: 0.100332
+
+SELECTED-THRESHOLD VALIDATION METRICS
+{
+  "threshold": 0.10033205455803261,
+  "roc_auc": 0.73625,
+  "pr_auc": 0.4737409698395573,
+  "accuracy": 0.7575757575757576,
+  "balanced_accuracy": 0.7125,
+  "precision": 0.5,
+  "recall": 0.625,
+  "f1": 0.5555555555555556,
+  "mcc": 0.39631454350213335,
+  "cohen_kappa": 0.39170506912442404,
+  "log_loss": 0.5894334504689335,
+  "brier_score": 0.1834078291302661,
+  "tn": 40,
+  "fp": 10,
+  "fn": 6,
+  "tp": 10
+}
+
+TARGET-FEATURE ABLATION
+                 design               model  feature_count         removed_feature  cv_roc_auc  validation_roc_auc  validation_pr_auc  validation_log_loss  validation_brier_score
+          full_features logistic_regression             12                    none    0.735813             0.73625           0.473741             0.589433                0.183408
+target_feature_ablation logistic_regression             11 rolling_4week_sum_stars    0.691865             0.71875           0.430559             0.629744                0.188335
+
+TOP PERMUTATION IMPORTANCES
+                   feature  importance_mean  importance_std
+   rolling_4week_sum_stars         0.252375        0.077183
+   cumulative_growth_lag_1         0.077000        0.040491
+          cumulative_stars         0.070500        0.038430
+          weekly_new_stars         0.032375        0.024131
+weekly_growth_acceleration         0.026917        0.016159
+  rolling_3week_mean_stars         0.011042        0.013743
+       previous_week_stars         0.001667        0.014257
+          lag_1_week_stars         0.001667        0.014257
+          lag_2_week_stars        -0.000833        0.003727
+       clean_history_weeks        -0.007792        0.017065
+       herd_momentum_score        -0.008250        0.016785
+        weekly_growth_rate        -0.009917        0.011152

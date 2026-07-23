@@ -1,0 +1,23 @@
+=========================================================================================================
+CLASSIFICATION PROBABILITY CALIBRATION AUDIT
+=========================================================================================================
+
+Training rows: 700
+Validation rows: 66
+Repositories: 22
+Temporal folds: 3
+Test data: not loaded
+
+METHOD COMPARISON
+---------------------------------------------------------------------------------------------------------
+              method  deployment_eligible  selected_threshold  roc_auc   pr_auc  log_loss  brier_score  expected_calibration_error  maximum_calibration_error  accuracy_at_0_5  balanced_accuracy_at_0_5  f1_at_0_5  mcc_at_0_5  accuracy_at_selected_threshold  balanced_accuracy_at_selected_threshold  precision_at_selected_threshold  recall_at_selected_threshold  f1_at_selected_threshold  mcc_at_selected_threshold  tn_at_selected_threshold  fp_at_selected_threshold  fn_at_selected_threshold  tp_at_selected_threshold
+        uncalibrated                 True            0.100332  0.73625 0.473741  0.589433     0.183408                    0.144863                   0.417087         0.757576                   0.52125   0.111111    0.106250                        0.757576                                   0.7125                         0.500000                         0.625                  0.555556                   0.396315                        40                        10                         6                        10
+ sigmoid_temporal_cv                 True            0.174825  0.77250 0.497074  0.487083     0.160826                    0.119053                   0.151699         0.772727                   0.53125   0.117647    0.219265                        0.636364                                   0.7600                         0.400000                         1.000                  0.571429                   0.456070                        26                        24                         0                        16
+isotonic_exploratory                False            0.085216  0.76250 0.441685  0.477942     0.164991                    0.103570                   0.244919         0.712121                   0.55500   0.296296    0.126491                        0.621212                                   0.7500                         0.390244                         1.000                  0.561404                   0.441726                        25                        25                         0                        16
+
+Selected probability method: sigmoid_temporal_cv
+Selected threshold: 0.174825
+
+Isotonic calibration was evaluated only as a diagnostic and was not eligible for deployment because the temporal calibration folds are small.
+
+Test data was not loaded or evaluated.

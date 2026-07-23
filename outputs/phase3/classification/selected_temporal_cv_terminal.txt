@@ -1,0 +1,23 @@
+====================================================================================================
+SELECTED CLASSIFICATION TEMPORAL CV
+====================================================================================================
+{
+  "target": "future_growth_surge",
+  "training_rows": 700,
+  "repositories": 22,
+  "folds": 3,
+  "validation_samples_per_repository": 1,
+  "purge_gap_weeks": 4,
+  "all_repositories_required": true,
+  "test_status": "not_loaded_or_evaluated"
+}
+
+====================================================================================================
+FOLD SUMMARY
+====================================================================================================
+ fold  repositories  train_rows  validation_rows  train_negative_rows  train_positive_rows  validation_negative_rows  validation_positive_rows  train_positive_rate  validation_positive_rate  target_window_overlap_violations
+    1            22         546               22                  406                  140                        16                         6             0.256410                  0.272727                                 0
+    2            22         568               22                  424                  144                        15                         7             0.253521                  0.318182                                 0
+    3            22         590               22                  443                  147                        16                         6             0.249153                  0.272727                                 0
+
+Test data was not loaded or evaluated.

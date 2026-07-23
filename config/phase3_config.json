@@ -2,14 +2,16 @@
   "project_name": "GitHub Herd Behavior and Repository Recommendation",
   "random_state": 42,
   "classification": {
-    "target": "became_high_growth",
-    "test_size": 0.2,
-    "cross_validation_folds": 5,
-    "excluded_columns": [
-      "repo_id",
-      "is_fork",
-      "topic_count"
-    ],
+    "target": "future_growth_surge",
+    "secondary_target": "future_absolute_high_growth",
+    "target_base": "future_4week_stars",
+    "recent_activity_column": "rolling_4week_sum_stars",
+    "relative_growth_multiplier": 1.5,
+    "absolute_high_growth_quantile": 0.8,
+    "split_strategy": "shared_with_primary_repository_aware_purged_forecasting_split",
+    "cross_validation_folds": 3,
+    "cross_validation_strategy": "repository_aware_purged_temporal",
+    "purge_weeks": 4,
     "primary_metric": "roc_auc",
     "secondary_metrics": [
       "accuracy",
@@ -21,12 +23,33 @@
       "mcc",
       "cohen_kappa",
       "log_loss"
-    ]
+    ],
+    "feature_columns": [
+      "clean_history_weeks",
+      "weekly_new_stars",
+      "cumulative_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "herd_momentum_score",
+      "lag_1_week_stars",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration",
+      "cumulative_growth_lag_1"
+    ],
+    "target_feature_ablation": {
+      "enabled": true,
+      "feature": "rolling_4week_sum_stars",
+      "reason": "This historical feature is used in the relative-growth target definition. An ablation will verify that performance is not dependent only on this feature."
+    },
+    "cross_validation_validation_samples_per_repository": 1,
+    "cross_validation_require_all_repositories": true,
+    "cross_validation_selection_rationale": "The 3-fold, one-validation-sample-per-repository configuration retains all 22 repositories, preserves both classes in every fold, provides 6 to 7 positive validation observations per fold, and has zero future-target-window overlap violations."
   },
   "forecasting": {
     "target": "future_4week_stars",
     "forecast_horizon_weeks": 4,
-    "minimum_history_weeks": 4,
     "target_transformation": "log1p",
     "primary_metric": "rmsle",
     "secondary_metrics": [
@@ -53,7 +76,10 @@
       "rolling_3week_mean_x4",
       "previous_4week_total"
     ],
-    "main_naive_baseline": "rolling_3week_mean_x4"
+    "main_naive_baseline": "rolling_3week_mean_x4",
+    "initial_snapshot_rows": 1,
+    "minimum_clean_history_weeks": 4,
+    "minimum_observed_rows": 5
   },
   "recommendation": {
     "feedback_type": "implicit",

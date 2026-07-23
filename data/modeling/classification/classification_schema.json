@@ -1,39 +1,57 @@
 {
-  "target": "became_high_growth",
-  "identifier_column": "repo_id",
-  "excluded_columns": [
+  "primary_target": "future_growth_surge",
+  "secondary_target": "future_absolute_high_growth",
+  "target_base": "future_4week_stars",
+  "identifier_columns": [
     "repo_id",
-    "is_fork",
-    "topic_count"
+    "repo_full_name",
+    "cutoff_week",
+    "target_end_week"
   ],
   "feature_columns": [
-    "early_4week_stars",
-    "early_avg_weekly_stars",
-    "early_max_weekly_stars",
-    "archived",
-    "has_ai_topic",
-    "has_ml_topic",
-    "has_deep_learning_topic",
-    "has_data_science_topic",
-    "has_web_topic",
-    "has_llm_topic",
-    "early_peak_to_average_ratio",
-    "language_grouped_C++",
-    "language_grouped_JavaScript",
-    "language_grouped_Jupyter Notebook",
-    "language_grouped_MDX",
-    "language_grouped_Other",
-    "language_grouped_Python",
-    "language_grouped_Rust",
-    "language_grouped_TypeScript",
-    "language_grouped_Unknown",
-    "license_grouped_AGPL-3.0",
-    "license_grouped_Apache-2.0",
-    "license_grouped_GPL-3.0",
-    "license_grouped_MIT",
-    "license_grouped_NOASSERTION",
-    "license_grouped_No License",
-    "license_grouped_Other"
+    "clean_history_weeks",
+    "weekly_new_stars",
+    "cumulative_stars",
+    "previous_week_stars",
+    "weekly_growth_rate",
+    "herd_momentum_score",
+    "lag_1_week_stars",
+    "lag_2_week_stars",
+    "rolling_3week_mean_stars",
+    "rolling_4week_sum_stars",
+    "weekly_growth_acceleration",
+    "cumulative_growth_lag_1"
   ],
-  "feature_count": 27
+  "split_strategy": "shared_with_primary_repository_aware_purged_forecasting_split",
+  "cross_validation": {
+    "strategy": "repository_aware_purged_temporal",
+    "folds": 3,
+    "validation_samples_per_repository": 1,
+    "purge_weeks": 4,
+    "require_all_repositories": true,
+    "selection_rationale": "The 3-fold, one-validation-sample-per-repository configuration retains all 22 repositories, preserves both classes in every fold, provides 6 to 7 positive validation observations per fold, and has zero future-target-window overlap violations."
+  },
+  "primary_target_definition": {
+    "description": "The next four weeks receive at least 1.5 times as many stars as the previous four weeks.",
+    "future_column": "future_4week_stars",
+    "historical_column": "rolling_4week_sum_stars",
+    "relative_growth_multiplier": 1.5
+  },
+  "secondary_target_definition": {
+    "description": "The next four-week star total is at or above the 80th percentile of the primary training period.",
+    "training_quantile": 0.8,
+    "training_derived_threshold": 101.0
+  },
+  "target_feature_ablation": {
+    "enabled": true,
+    "feature": "rolling_4week_sum_stars",
+    "reason": "This historical feature is used in the relative-growth target definition. An ablation will verify that performance is not dependent only on this feature."
+  },
+  "leakage_controls": [
+    "Targets are created from future four-week outcomes.",
+    "All predictors are observed at or before the cutoff week.",
+    "The absolute target threshold is derived only from training data.",
+    "Train, validation, and test use purged temporal repository-aware forecasting splits.",
+    "The test target distribution is not summarized during development."
+  ]
 }

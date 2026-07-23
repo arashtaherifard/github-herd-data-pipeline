@@ -1,0 +1,121 @@
+
+====================================================================================================
+DATABASE TABLES
+====================================================================================================
+                  name
+      daily_timeseries
+         herd_modeling
+          repositories
+                 stars
+user_repo_interactions
+     weekly_timeseries
+
+====================================================================================================
+HERD_MODELING TABLE COLUMNS
+====================================================================================================
+ cid                   name    type  notnull dflt_value  pk
+   0                repo_id  BIGINT        0       None   0
+   1         repo_full_name    TEXT        0       None   0
+   2      early_4week_stars  BIGINT        0       None   0
+   3 early_avg_weekly_stars   FLOAT        0       None   0
+   4 early_max_weekly_stars  BIGINT        0       None   0
+   5            later_stars   FLOAT        0       None   0
+   6 later_avg_weekly_stars   FLOAT        0       None   0
+   7     became_high_growth  BIGINT        0       None   0
+   8               language    TEXT        0       None   0
+   9                 topics    TEXT        0       None   0
+  10            stars_count  BIGINT        0       None   0
+  11            forks_count  BIGINT        0       None   0
+  12         watchers_count  BIGINT        0       None   0
+  13      open_issues_count  BIGINT        0       None   0
+  14             created_at    TEXT        0       None   0
+  15             updated_at    TEXT        0       None   0
+  16              pushed_at    TEXT        0       None   0
+  17               archived BOOLEAN        0       None   0
+  18                is_fork BOOLEAN        0       None   0
+  19                license    TEXT        0       None   0
+  20               html_url    TEXT        0       None   0
+
+====================================================================================================
+HIGH-GROWTH TARGET LEAKAGE AUDIT
+====================================================================================================
+Model-ready rows: 145
+Model-ready columns: 31
+Target counts: {0: 72, 1: 73}
+
+====================================================================================================
+RAW TARGET RELATIONSHIPS
+====================================================================================================
+Rows: 145
+Columns: repo_id, repo_full_name, early_4week_stars, early_avg_weekly_stars, early_max_weekly_stars, later_stars, later_avg_weekly_stars, became_high_growth, language, topics, stars_count, forks_count, watchers_count, open_issues_count, created_at, updated_at, pushed_at, archived, is_fork, license, html_url
+
+Class-wise early/later star summary:
+                   early_4week_stars                                  later_stars                                     collected_period_total
+                               count   min  median         mean   max       count    min  median         mean     max                  count     min  median         mean     max
+became_high_growth
+0                                 72  1026  1500.0  1460.833333  1500          72    0.0     0.0    39.166667   474.0                     72  1500.0  1500.0  1500.000000  1500.0
+1                                 73     4    69.0   187.876712  1021          73  479.0  1430.0  1299.328767  1496.0                     73   566.0  1500.0  1487.205479  1500.0
+
+Correlation between early_4week_stars and later_stars: -0.993230
+Repositories where early + later = 1500: 144 / 145
+Fraction where early + later = 1500: 0.993103
+Unique collected-period totals: 2
+Collected-period total minimum/median/maximum: 566.0 / 1500.0 / 1500.0
+
+Class 0 later_stars range: 0.0 to 474.0
+Class 1 later_stars range: 479.0 to 1496.0
+Class 0 early_4week_stars range: 1026 to 1500
+Class 1 early_4week_stars range: 4 to 1021
+
+Best single-threshold prediction using later_stars:
+{'best_threshold_accuracy': 1.0, 'best_threshold': 476.5, 'threshold_direction': 'class_1_if_value_at_least_threshold'}
+
+Best single-threshold prediction using early_4week_stars:
+{'best_threshold_accuracy': 1.0, 'best_threshold': 1023.5, 'threshold_direction': 'class_1_if_value_below_threshold'}
+
+====================================================================================================
+UNIVARIATE FEATURE AUDIT
+====================================================================================================
+
+Top univariate predictors:
+ rank                     feature  unique_values  direct_auc  predictive_auc                 auc_direction  best_threshold_accuracy  best_threshold                 threshold_direction  class_0_mean  class_1_mean
+    1           early_4week_stars             72    0.000000        1.000000  lower_values_predict_class_1                 1.000000        0.305942    class_1_if_value_below_threshold      0.963319     -0.950122
+    2      early_avg_weekly_stars             75    0.000000        1.000000  lower_values_predict_class_1                 1.000000       -0.312679    class_1_if_value_below_threshold      0.761157     -0.750730
+    3      early_max_weekly_stars             98    0.000761        0.999239  lower_values_predict_class_1                 0.993103       -0.185725    class_1_if_value_below_threshold      0.931723     -0.918960
+    4               has_web_topic              2    0.413337        0.586663  lower_values_predict_class_1                 0.586207       -0.132174    class_1_if_value_below_threshold      0.176039     -0.173627
+    5 language_grouped_JavaScript              2    0.443683        0.556317  lower_values_predict_class_1                 0.558621        0.900002    class_1_if_value_below_threshold      0.152578     -0.150488
+    6  license_grouped_Apache-2.0              2    0.547089        0.547089 higher_values_predict_class_1                 0.544828        0.867227 class_1_if_value_at_least_threshold     -0.125520      0.123800
+    7     language_grouped_Python              2    0.546138        0.546138 higher_values_predict_class_1                 0.544828        0.409946 class_1_if_value_at_least_threshold     -0.100416      0.099040
+    8                has_ml_topic              2    0.457002        0.542998  lower_values_predict_class_1                 0.544828        0.626700    class_1_if_value_below_threshold      0.102189     -0.100789
+    9                has_ai_topic              2    0.463280        0.536720  lower_values_predict_class_1                 0.537931        0.375732    class_1_if_value_below_threshold      0.078994     -0.077912
+   10 license_grouped_NOASSERTION              2    0.464326        0.535674  lower_values_predict_class_1                 0.537931        0.867227    class_1_if_value_below_threshold      0.095091     -0.093788
+   11     has_deep_learning_topic              2    0.533771        0.533771 higher_values_predict_class_1                 0.531034        1.302119 class_1_if_value_at_least_threshold     -0.111655      0.110126
+   12         license_grouped_MIT              2    0.469273        0.530727  lower_values_predict_class_1                 0.531034        0.090018    class_1_if_value_below_threshold      0.062128     -0.061277
+   13     license_grouped_GPL-3.0              2    0.527397        0.527397 higher_values_predict_class_1                 0.524138        2.884370 class_1_if_value_at_least_threshold     -0.168430      0.166123
+   14 early_peak_to_average_ratio            115    0.474125        0.525875  lower_values_predict_class_1                 0.565517       -1.147884    class_1_if_value_below_threshold      0.076748     -0.075697
+   15  license_grouped_No License              2    0.478881        0.521119  lower_values_predict_class_1                 0.524138        1.815027    class_1_if_value_below_threshold      0.088131     -0.086924
+
+Top feature distributions by class:
+                    feature  became_high_growth  count       min    median      mean       max
+          early_4week_stars                   0     72  0.309700  1.022192  0.963319  1.022192
+          early_4week_stars                   1     73 -1.226516 -1.128812 -0.950122  0.302184
+     early_avg_weekly_stars                   0     72 -0.311369  0.723442  0.761157  2.296104
+     early_avg_weekly_stars                   1     73 -0.847122 -0.813048 -0.750730 -0.313990
+     early_max_weekly_stars                   0     72 -0.168487  1.091541  0.931723  1.376381
+     early_max_weekly_stars                   1     73 -1.084572 -1.012336 -0.918960  0.122099
+              has_web_topic                   0     72 -1.140871  0.876523  0.176039  0.876523
+              has_web_topic                   1     73 -1.140871 -1.140871 -0.173627  0.876523
+language_grouped_JavaScript                   0     72 -0.445362 -0.445362  0.152578  2.245366
+language_grouped_JavaScript                   1     73 -0.445362 -0.445362 -0.150488  2.245366
+ license_grouped_Apache-2.0                   0     72 -0.456435 -0.456435 -0.125520  2.190890
+ license_grouped_Apache-2.0                   1     73 -0.456435 -0.456435  0.123800  2.190890
+    language_grouped_Python                   0     72 -0.670820 -0.670820 -0.100416  1.490712
+    language_grouped_Python                   1     73 -0.670820 -0.670820  0.099040  1.490712
+               has_ml_topic                   0     72 -0.553449 -0.553449  0.102189  1.806850
+               has_ml_topic                   1     73 -0.553449 -0.553449 -0.100789  1.806850
+
+====================================================================================================
+AUDIT OUTPUTS
+====================================================================================================
+Results saved to: /Users/arash/Desktop/atf/university/term 6/DATA-Sience/CAs/Final Project/DS_Project_P3_810102474_810102515_810102606/outputs/phase3/classification
+Important: do not evaluate the untouched test set until this audit has been reviewed.

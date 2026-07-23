@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pandas as pd
@@ -5,14 +6,46 @@ from sklearn.model_selection import train_test_split
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+CONFIG_PATH = PROJECT_ROOT / "config" / "phase3_config.json"
 PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 OUTPUT_DIR = PROJECT_ROOT / "outputs" / "phase3" / "audit"
 
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-FORECAST_HORIZON = 4
-MINIMUM_HISTORY = 4
-RANDOM_STATE = 42
+with CONFIG_PATH.open("r", encoding="utf-8") as file:
+    PHASE3_CONFIG = json.load(file)
+
+FORECAST_SETTINGS = PHASE3_CONFIG["forecasting"]
+
+FORECAST_HORIZON = int(
+    FORECAST_SETTINGS["forecast_horizon_weeks"]
+)
+
+INITIAL_SNAPSHOT_ROWS = int(
+    FORECAST_SETTINGS["initial_snapshot_rows"]
+)
+
+MINIMUM_CLEAN_HISTORY_WEEKS = int(
+    FORECAST_SETTINGS["minimum_clean_history_weeks"]
+)
+
+MINIMUM_OBSERVED_ROWS = int(
+    FORECAST_SETTINGS["minimum_observed_rows"]
+)
+
+RANDOM_STATE = int(
+    PHASE3_CONFIG["random_state"]
+)
+
+if MINIMUM_OBSERVED_ROWS != (
+    INITIAL_SNAPSHOT_ROWS
+    + MINIMUM_CLEAN_HISTORY_WEEKS
+):
+    raise ValueError(
+        "minimum_observed_rows must equal "
+        "initial_snapshot_rows plus "
+        "minimum_clean_history_weeks."
+    )
 
 
 def heading(title: str) -> str:
@@ -56,7 +89,7 @@ def build_forecast_dataset() -> pd.DataFrame:
         for cutoff_index in range(len(group)):
             history_length = cutoff_index + 1
 
-            if history_length < MINIMUM_HISTORY:
+            if history_length < MINIMUM_OBSERVED_ROWS:
                 continue
 
             final_index = cutoff_index + FORECAST_HORIZON
@@ -93,6 +126,10 @@ def build_forecast_dataset() -> pd.DataFrame:
                     final_index, "week_start"
                 ],
                 "history_length": history_length,
+                "initial_snapshot_rows": INITIAL_SNAPSHOT_ROWS,
+                "clean_history_weeks": (
+                    history_length - INITIAL_SNAPSHOT_ROWS
+                ),
                 "future_4week_stars": float(
                     future_rows["weekly_new_stars"].sum()
                 ),
@@ -252,7 +289,14 @@ def audit_forecast_splits() -> list[str]:
     lines = [
         heading("FORECAST SPLIT PLAN"),
         f"Forecast horizon: {FORECAST_HORIZON} weeks",
-        f"Minimum history: {MINIMUM_HISTORY} weeks",
+        (
+            "Minimum clean history: "
+            f"{MINIMUM_CLEAN_HISTORY_WEEKS} weeks"
+        ),
+        (
+            "Minimum observed rows including the initial snapshot: "
+            f"{MINIMUM_OBSERVED_ROWS}"
+        ),
         f"Total supervised samples: {len(forecast_data)}",
         f"Repositories: {forecast_data['repo_id'].nunique()}",
         f"Training boundary: {train_end}",

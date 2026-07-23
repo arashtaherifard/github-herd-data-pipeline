@@ -1,0 +1,10 @@
+{
+  "target": "future_growth_surge",
+  "training_rows": 700,
+  "repositories": 22,
+  "folds": 3,
+  "validation_samples_per_repository": 1,
+  "purge_gap_weeks": 4,
+  "all_repositories_required": true,
+  "test_status": "not_loaded_or_evaluated"
+}

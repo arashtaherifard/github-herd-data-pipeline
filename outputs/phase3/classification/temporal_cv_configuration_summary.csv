@@ -1,0 +1,7 @@
+n_splits,validation_samples_per_repo,gap_samples,folds,minimum_eligible_repositories,minimum_train_rows,minimum_validation_rows,minimum_validation_positives,maximum_validation_positives,all_train_folds_have_both_classes,all_validation_folds_have_both_classes,total_overlap_violations,eligible_repository_count
+3,1,4,3,22,546,22,6,7,True,True,0,22
+3,2,4,3,20,482,40,5,11,True,True,0,20
+4,1,4,4,21,524,21,5,6,True,True,0,21
+4,2,4,4,19,443,38,3,10,True,True,0,19
+5,1,4,5,21,503,21,3,6,True,True,0,21
+5,2,4,5,15,408,30,3,9,True,True,0,15

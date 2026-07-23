@@ -1,0 +1,50 @@
+
+====================================================================================================
+WEEKLY INITIAL-SNAPSHOT AUDIT
+====================================================================================================
+Weekly rows: 2250
+Repositories: 145
+
+First rows where weekly_new_stars equals cumulative_stars: 145 / 145
+First-row equality fraction: 1.000000
+
+Non-first rows where weekly_new_stars equals cumulative difference: 2105 / 2105
+Non-first-row equality fraction: 1.000000
+
+====================================================================================================
+IMPACT ON FORECASTING SPLITS
+====================================================================================================
+     split  rows  repositories  rows_without_four_clean_history_weeks  comparable_rows  rolling_4week_mismatch_rows  rolling_4week_match_rows  maximum_absolute_difference
+     train   700            22                                      0              700                            0                       700                          0.0
+validation    66            22                                      0               66                            0                        66                          0.0
+
+====================================================================================================
+PANDAS SAMPLE HISTORY
+====================================================================================================
+ repo_id    repo_full_name                  week  weekly_new_stars  cumulative_stars                week_start  repository_row_index  cumulative_difference  clean_weekly_new_stars  clean_rolling_3week_mean  clean_rolling_4week_sum
+  858127 pandas-dev/pandas 2010-08-23/2010-08-29               538               538 2010-08-23 00:00:00+00:00                     0                    NaN                     NaN                       NaN                      NaN
+  858127 pandas-dev/pandas 2010-08-30/2010-09-05                 2               540 2010-08-30 00:00:00+00:00                     1                    2.0                     2.0                       NaN                      NaN
+  858127 pandas-dev/pandas 2010-09-06/2010-09-12                 3               543 2010-09-06 00:00:00+00:00                     2                    3.0                     3.0                       NaN                      NaN
+  858127 pandas-dev/pandas 2010-09-13/2010-09-19                 5               548 2010-09-13 00:00:00+00:00                     3                    5.0                     5.0                  3.333333                      NaN
+
+====================================================================================================
+LARGEST TRAINING DIFFERENCES
+====================================================================================================
+ repo_id       repo_full_name               cutoff_week  history_length  rolling_4week_sum_stars  clean_rolling_4week_sum  rolling_4week_difference
+  858127    pandas-dev/pandas 2010-09-20 00:00:00+00:00               5                     17.0                     17.0                       0.0
+63476337 TheAlgorithms/Python 2017-05-01 00:00:00+00:00              41                     84.0                     84.0                       0.0
+63476337 TheAlgorithms/Python 2017-03-06 00:00:00+00:00              33                     78.0                     78.0                       0.0
+63476337 TheAlgorithms/Python 2017-03-13 00:00:00+00:00              34                     97.0                     97.0                       0.0
+63476337 TheAlgorithms/Python 2017-03-20 00:00:00+00:00              35                    104.0                    104.0                       0.0
+63476337 TheAlgorithms/Python 2017-03-27 00:00:00+00:00              36                    113.0                    113.0                       0.0
+63476337 TheAlgorithms/Python 2017-04-03 00:00:00+00:00              37                     98.0                     98.0                       0.0
+63476337 TheAlgorithms/Python 2017-04-10 00:00:00+00:00              38                     81.0                     81.0                       0.0
+63476337 TheAlgorithms/Python 2017-04-17 00:00:00+00:00              39                     82.0                     82.0                       0.0
+63476337 TheAlgorithms/Python 2017-04-24 00:00:00+00:00              40                     73.0                     73.0                       0.0
+63476337 TheAlgorithms/Python 2017-05-08 00:00:00+00:00              42                     86.0                     86.0                       0.0
+63476337 TheAlgorithms/Python 2017-02-20 00:00:00+00:00              31                     53.0                     53.0                       0.0
+63476337 TheAlgorithms/Python 2017-05-15 00:00:00+00:00              43                     82.0                     82.0                       0.0
+63476337 TheAlgorithms/Python 2017-05-22 00:00:00+00:00              44                     88.0                     88.0                       0.0
+65750241            expo/expo 2016-09-12 00:00:00+00:00               5                     89.0                     89.0                       0.0
+
+Test split values were not loaded or evaluated.

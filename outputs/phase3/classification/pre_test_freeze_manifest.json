@@ -1,0 +1,83 @@
+{
+  "freeze_status": "classification_development_complete_before_test_evaluation",
+  "created_at_utc": "2026-07-23T10:04:43.610580+00:00",
+  "git_branch": "phase3",
+  "git_head_before_freeze_commit": "5a668a1e50653980b7444909b12d27a0cd9a3198",
+  "target": "future_growth_surge",
+  "base_model": "logistic_regression",
+  "probability_method": "sigmoid_temporal_cv",
+  "selected_threshold": 0.17482545773975103,
+  "threshold_rule": "Maximum validation MCC, then balanced accuracy, then F1.",
+  "validation_metrics": {
+    "method": "sigmoid_temporal_cv",
+    "deployment_eligible": true,
+    "selected_threshold": 0.17482545773975103,
+    "roc_auc": 0.7725000000000001,
+    "pr_auc": 0.497073839093027,
+    "log_loss": 0.48708256183082693,
+    "brier_score": 0.16082585198760224,
+    "expected_calibration_error": 0.11905295943420258,
+    "maximum_calibration_error": 0.15169918199369756,
+    "accuracy_at_0_5": 0.7727272727272727,
+    "balanced_accuracy_at_0_5": 0.53125,
+    "f1_at_0_5": 0.11764705882352941,
+    "mcc_at_0_5": 0.2192645048267573,
+    "accuracy_at_selected_threshold": 0.6363636363636364,
+    "balanced_accuracy_at_selected_threshold": 0.76,
+    "precision_at_selected_threshold": 0.4,
+    "recall_at_selected_threshold": 1.0,
+    "f1_at_selected_threshold": 0.5714285714285714,
+    "mcc_at_selected_threshold": 0.4560701700396552,
+    "tn_at_selected_threshold": 26,
+    "fp_at_selected_threshold": 24,
+    "fn_at_selected_threshold": 0,
+    "tp_at_selected_threshold": 16,
+    "roc_auc_drop": -0.036250000000000115
+  },
+  "test_status": "file_hashed_only_not_parsed_or_evaluated",
+  "frozen_files": {
+    "untouched_test_dataset": {
+      "relative_path": "data/modeling/classification/classification_test.csv",
+      "size_bytes": 12701,
+      "sha256": "fcb8e0ea12ab27345f59585ddc5add206cba862250fa014fb3eaeb6170bea631"
+    },
+    "deployment_model": {
+      "relative_path": "models/classification/corrected/selected_classifier_deployment.joblib",
+      "size_bytes": 21991,
+      "sha256": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23"
+    },
+    "deployment_metadata": {
+      "relative_path": "models/classification/corrected/selected_classifier_deployment_metadata.json",
+      "size_bytes": 2373,
+      "sha256": "e101fee0ec87fc28237624eafb284c48e15406cf0f3110dc951da15c091be06c"
+    },
+    "base_model_metadata": {
+      "relative_path": "models/classification/corrected/selected_classifier_metadata.json",
+      "size_bytes": 2344,
+      "sha256": "5d26e6755c082ba75835cad6bb2eb16175a0ca1dc0269dba49c5cd2ff2f3644b"
+    },
+    "classification_schema": {
+      "relative_path": "data/modeling/classification/classification_schema.json",
+      "size_bytes": 2334,
+      "sha256": "564d91aa5f19260e235d84dfed186fe3fdbe1165c170c002f71c790d8e47ff13"
+    },
+    "phase3_configuration": {
+      "relative_path": "config/phase3_config.json",
+      "size_bytes": 3540,
+      "sha256": "6c6829da31266699416a402757bb8b01e866afc7479f868e2194d6eb08a2bcfb"
+    },
+    "dataset_manifest": {
+      "relative_path": "data/modeling/phase3_dataset_manifest.json",
+      "size_bytes": 6144,
+      "sha256": "6fa23569dabbb7303cc40c9f4df7be441a680a611897934279df53a560a0391c"
+    }
+  },
+  "software": {
+    "python": "3.12.10",
+    "pandas": "3.0.3",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0",
+    "xgboost": "3.3.0"
+  },
+  "post_test_rule": "After the classification test set is evaluated, models, features, calibration method, and thresholds must not be changed based on test performance."
+}

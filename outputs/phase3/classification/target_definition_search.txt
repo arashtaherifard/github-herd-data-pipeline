@@ -1,0 +1,31 @@
+scripts/feature_engineering.py:72:if "early_4week_stars" in herd.columns and "stars_count" in herd.columns:
+scripts/feature_engineering.py:73:    herd["early_to_total_star_ratio"] = herd["early_4week_stars"] / (herd["stars_count"] + 1)
+scripts/feature_engineering.py:137:    "later_stars",
+scripts/feature_engineering.py:174:target_col = "became_high_growth"
+scripts/run_sql_queries.py:49:        SELECT became_high_growth, COUNT(*) AS repo_count
+scripts/run_sql_queries.py:51:        GROUP BY became_high_growth;
+scripts/run_sql_queries.py:55:        SELECT became_high_growth,
+scripts/run_sql_queries.py:56:               AVG(early_4week_stars) AS avg_early_4week_stars,
+scripts/run_sql_queries.py:57:               AVG(later_stars) AS avg_later_stars
+scripts/run_sql_queries.py:59:        GROUP BY became_high_growth;
+scripts/phase3_split_planning.py:285:        stratify=classification["became_high_growth"],
+scripts/phase3_split_planning.py:295:                    (development["became_high_growth"] == 0).sum()
+scripts/phase3_split_planning.py:298:                    (development["became_high_growth"] == 1).sum()
+scripts/phase3_split_planning.py:305:                    (test["became_high_growth"] == 0).sum()
+scripts/phase3_split_planning.py:308:                    (test["became_high_growth"] == 1).sum()
+scripts/preprocess.py:182:    "early_4week_stars",
+scripts/preprocess.py:185:    "later_stars",
+scripts/preprocess.py:188:    "became_high_growth",
+scripts/preprocess.py:198:        if col == "became_high_growth":
+Binary file scripts/__pycache__/phase3_split_planning.cpython-313.pyc matches
+Binary file scripts/__pycache__/phase3_split_planning.cpython-312.pyc matches
+scripts/eda.py:147:if "became_high_growth" in herd.columns:
+scripts/eda.py:148:    target_counts = herd["became_high_growth"].value_counts().sort_index()
+scripts/eda.py:151:    summary_lines.append("Class Balance of became_high_growth")
+scripts/eda.py:160:    plt.xlabel("became_high_growth")
+scripts/eda.py:233:if "early_4week_stars" in herd.columns and "later_stars" in herd.columns and "became_high_growth" in herd.columns:
+scripts/eda.py:234:    group_summary = herd.groupby("became_high_growth")[["early_4week_stars", "later_stars"]].mean().round(2)
+scripts/eda.py:235:    group_summary.to_csv(OUTPUT_DIR / "early_later_stars_by_class.csv")
+scripts/eda.py:245:    plt.xlabel("became_high_growth")
+scripts/eda.py:248:    plt.savefig(FIGURE_DIR / "early_later_stars_by_class.png", dpi=300)
+scripts/phase3_feasibility_audit.py:21:    target = "became_high_growth"

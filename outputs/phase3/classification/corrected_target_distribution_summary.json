@@ -1,0 +1,49 @@
+{
+  "training_rows": 700,
+  "validation_rows": 66,
+  "training_repositories": 22,
+  "validation_repositories": 22,
+  "training_thresholds": {
+    "absolute_q75": 93.0,
+    "absolute_q80": 101.0,
+    "absolute_q85": 118.0,
+    "absolute_q90": 141.0
+  },
+  "training_future_target": {
+    "mean": 70.14714285714285,
+    "median": 57.0,
+    "maximum": 513.0
+  },
+  "validation_future_target": {
+    "mean": 130.5151515151515,
+    "median": 113.0,
+    "maximum": 750.0
+  },
+  "training_future_to_recent_ratio": {
+    "median": 1.0178628389154705,
+    "q75": 1.5,
+    "q90": 2.306578947368421
+  },
+  "validation_future_to_recent_ratio": {
+    "median": 1.0999697519661222,
+    "q75": 1.4479638009049773,
+    "q90": 2.2172172172172173
+  },
+  "historical_feature_columns": [
+    "history_length",
+    "clean_history_weeks",
+    "weekly_new_stars",
+    "cumulative_stars",
+    "previous_week_stars",
+    "weekly_growth_rate",
+    "herd_momentum_score",
+    "lag_1_week_stars",
+    "lag_2_week_stars",
+    "rolling_3week_mean_stars",
+    "rolling_4week_sum_stars",
+    "weekly_growth_acceleration",
+    "cumulative_growth_lag_1"
+  ],
+  "test_file_status": "header_only_values_not_loaded",
+  "test_column_count": 23
+}

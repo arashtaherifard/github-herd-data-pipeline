@@ -1,0 +1,41 @@
+==============================================================================================================
+CORRECTED HIGH-GROWTH TARGET AUDIT
+==============================================================================================================
+
+Thresholds derived only from training data:
+{
+  "absolute_q75": 93.0,
+  "absolute_q80": 102.0,
+  "absolute_q85": 118.0,
+  "absolute_q90": 141.0
+}
+
+Test set status: header read only; test values and targets were not loaded.
+
+CANDIDATE COMPARISON:
+               candidate      split  rows  positive_rows  negative_rows  positive_rate  repositories  repositories_with_positive  median_positive_rows_per_positive_repo  majority_baseline_accuracy  future_target_mean_class_0  future_target_mean_class_1                  feature  direct_auc  predictive_auc  best_single_threshold_accuracy
+            absolute_q75      train   723            184            539       0.254495            23                          20                                     9.0                    0.745505                   43.391466                  148.440217 rolling_3week_mean_stars    0.831638        0.831638                        0.807746
+            absolute_q75 validation    69             37             32       0.536232            23                          14                                     3.0                    0.536232                   52.750000                  192.621622 rolling_3week_mean_stars    0.913851        0.913851                        0.855072
+            absolute_q80      train   723            145            578       0.200553            23                          18                                     8.5                    0.799447                   47.020761                  162.227586 rolling_3week_mean_stars    0.826644        0.826644                        0.842324
+            absolute_q80 validation    69             36             33       0.521739            23                          13                                     3.0                    0.521739                   54.090909                  195.277778 rolling_3week_mean_stars    0.919192        0.919192                        0.855072
+            absolute_q85      train   723            111            612       0.153527            23                          14                                     8.0                    0.846473                   50.475490                  178.468468 rolling_3week_mean_stars    0.810502        0.810502                        0.858921
+            absolute_q85 validation    69             31             38       0.449275            23                          12                                     3.0                    0.550725                   61.526316                  208.935484 rolling_3week_mean_stars    0.934635        0.934635                        0.884058
+            absolute_q90      train   723             73            650       0.100968            23                          13                                     5.0                    0.899032                   55.046154                  204.397260         weekly_new_stars    0.765732        0.765732                        0.904564
+            absolute_q90 validation    69             16             53       0.231884            23                           7                                     3.0                    0.768116                   79.830189                  286.500000 rolling_3week_mean_stars    0.886792        0.886792                        0.840580
+hybrid_q75_relative_1_10      train   723            110            613       0.152144            23                          19                                     5.0                    0.847856                   53.445351                  163.081818         weekly_new_stars    0.675219        0.675219                        0.846473
+hybrid_q75_relative_1_10 validation    69             22             47       0.318841            23                          11                                     2.0                    0.681159                   78.638298                  232.681818 rolling_3week_mean_stars    0.733075        0.733075                        0.710145
+hybrid_q80_relative_1_10      train   723             90            633       0.124481            23                          17                                     5.0                    0.875519                   54.834123                  177.677778         weekly_new_stars    0.694006        0.694006                        0.874136
+hybrid_q80_relative_1_10 validation    69             22             47       0.318841            23                          11                                     2.0                    0.681159                   78.638298                  232.681818 rolling_3week_mean_stars    0.733075        0.733075                        0.710145
+hybrid_q80_relative_1_25      train   723             80            643       0.110650            23                          17                                     4.0                    0.889350                   55.911353                  184.375000         weekly_new_stars    0.668740        0.668740                        0.887967
+hybrid_q80_relative_1_25 validation    69             13             56       0.188406            23                           7                                     2.0                    0.811594                   90.357143                  288.846154 rolling_3week_mean_stars    0.701236        0.701236                        0.797101
+    relative_growth_1_25      train   723            244            479       0.337483            23                          23                                     7.0                    0.662517                   56.962422                   95.967213      herd_momentum_score    0.310509        0.689491                        0.695712
+    relative_growth_1_25 validation    69             23             46       0.333333            23                          12                                     2.0                    0.666667                   98.869565                  185.521739      herd_momentum_score    0.260870        0.739130                        0.724638
+    relative_growth_1_50      train   723            179            544       0.247580            23                          23                                     6.0                    0.752420                   58.209559                  106.340782      herd_momentum_score    0.276398        0.723602                        0.764869
+    relative_growth_1_50 validation    69             16             53       0.231884            23                           8                                     2.0                    0.768116                  102.075472                  212.812500      herd_momentum_score    0.258255        0.741745                        0.797101
+
+Interpretation:
+- A valid candidate needs enough positive examples and repository coverage.
+- A candidate with perfect univariate prediction should be examined carefully.
+- Validation positive rate may differ from training because the validation period has stronger future growth.
+
+Corrected target audit completed successfully.

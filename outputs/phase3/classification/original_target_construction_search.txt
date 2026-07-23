@@ -1,0 +1,85 @@
+./scripts/build_phase3_datasets.py:206:            "target_median": float(
+./scripts/build_phase3_datasets.py:207:                frame["future_4week_stars"].median()
+./scripts/build_phase3_datasets.py:266:            "target_median": float(
+./scripts/build_phase3_datasets.py:267:                frame["future_4week_stars"].median()
+./scripts/feature_engineering.py:72:if "early_4week_stars" in herd.columns and "stars_count" in herd.columns:
+./scripts/feature_engineering.py:73:    herd["early_to_total_star_ratio"] = herd["early_4week_stars"] / (herd["stars_count"] + 1)
+./scripts/feature_engineering.py:137:    "later_stars",
+./scripts/feature_engineering.py:174:target_col = "became_high_growth"
+./scripts/audit_high_growth_leakage.py:41:TARGET = "became_high_growth"
+./scripts/audit_high_growth_leakage.py:160:        "early_4week_stars",
+./scripts/audit_high_growth_leakage.py:161:        "later_stars",
+./scripts/audit_high_growth_leakage.py:175:        raw["early_4week_stars"]
+./scripts/audit_high_growth_leakage.py:176:        + raw["later_stars"]
+./scripts/audit_high_growth_leakage.py:185:                    "early_4week_stars",
+./scripts/audit_high_growth_leakage.py:186:                    "later_stars",
+./scripts/audit_high_growth_leakage.py:194:                    "median",
+./scripts/audit_high_growth_leakage.py:202:                "Correlation between early_4week_stars "
+./scripts/audit_high_growth_leakage.py:203:                "and later_stars: "
+./scripts/audit_high_growth_leakage.py:204:                f"{raw['early_4week_stars'].corr(raw['later_stars']):.6f}"
+./scripts/audit_high_growth_leakage.py:220:                "Collected-period total minimum/median/maximum: "
+./scripts/audit_high_growth_leakage.py:222:                f"{raw['collected_period_total'].median()} / "
+./scripts/audit_high_growth_leakage.py:235:                "Class 0 later_stars range: "
+./scripts/audit_high_growth_leakage.py:236:                f"{target_zero['later_stars'].min()} to "
+./scripts/audit_high_growth_leakage.py:237:                f"{target_zero['later_stars'].max()}"
+./scripts/audit_high_growth_leakage.py:240:                "Class 1 later_stars range: "
+./scripts/audit_high_growth_leakage.py:241:                f"{target_one['later_stars'].min()} to "
+./scripts/audit_high_growth_leakage.py:242:                f"{target_one['later_stars'].max()}"
+./scripts/audit_high_growth_leakage.py:245:                "Class 0 early_4week_stars range: "
+./scripts/audit_high_growth_leakage.py:246:                f"{target_zero['early_4week_stars'].min()} to "
+./scripts/audit_high_growth_leakage.py:247:                f"{target_zero['early_4week_stars'].max()}"
+./scripts/audit_high_growth_leakage.py:250:                "Class 1 early_4week_stars range: "
+./scripts/audit_high_growth_leakage.py:251:                f"{target_one['early_4week_stars'].min()} to "
+./scripts/audit_high_growth_leakage.py:252:                f"{target_one['early_4week_stars'].max()}"
+./scripts/audit_high_growth_leakage.py:258:        raw["later_stars"],
+./scripts/audit_high_growth_leakage.py:263:        raw["early_4week_stars"],
+./scripts/audit_high_growth_leakage.py:270:            "Best single-threshold prediction using later_stars:",
+./scripts/audit_high_growth_leakage.py:273:            "Best single-threshold prediction using early_4week_stars:",
+./scripts/audit_high_growth_leakage.py:282:            "early_4week_stars",
+./scripts/audit_high_growth_leakage.py:283:            "later_stars",
+./scripts/audit_high_growth_leakage.py:419:                    "median",
+./scripts/audit_high_growth_leakage.py:461:        heading("HIGH-GROWTH TARGET LEAKAGE AUDIT"),
+./scripts/run_sql_queries.py:49:        SELECT became_high_growth, COUNT(*) AS repo_count
+./scripts/run_sql_queries.py:51:        GROUP BY became_high_growth;
+./scripts/run_sql_queries.py:55:        SELECT became_high_growth,
+./scripts/run_sql_queries.py:56:               AVG(early_4week_stars) AS avg_early_4week_stars,
+./scripts/run_sql_queries.py:57:               AVG(later_stars) AS avg_later_stars
+./scripts/run_sql_queries.py:59:        GROUP BY became_high_growth;
+./scripts/phase3_split_planning.py:212:                "target_median": (
+./scripts/phase3_split_planning.py:213:                    frame["future_4week_stars"].median()
+./scripts/phase3_split_planning.py:285:        stratify=classification["became_high_growth"],
+./scripts/phase3_split_planning.py:295:                    (development["became_high_growth"] == 0).sum()
+./scripts/phase3_split_planning.py:298:                    (development["became_high_growth"] == 1).sum()
+./scripts/phase3_split_planning.py:305:                    (test["became_high_growth"] == 0).sum()
+./scripts/phase3_split_planning.py:308:                    (test["became_high_growth"] == 1).sum()
+./scripts/preprocess.py:128:        repositories[col] = repositories[col].fillna(repositories[col].median())
+./scripts/preprocess.py:182:    "early_4week_stars",
+./scripts/preprocess.py:185:    "later_stars",
+./scripts/preprocess.py:188:    "became_high_growth",
+./scripts/preprocess.py:198:        if col == "became_high_growth":
+./scripts/preprocess.py:201:            herd[col] = herd[col].fillna(herd[col].median())
+./scripts/preprocess.py:233:summary_lines.append("Numeric columns were converted to numeric types and missing numeric values were filled using median values.")
+./scripts/eda.py:116:    summary_lines.append(f"Median stars_count: {stars_count.median():.2f}")
+./scripts/eda.py:135:    summary_lines.append(f"Median forks_count: {forks_count.median():.2f}")
+./scripts/eda.py:147:if "became_high_growth" in herd.columns:
+./scripts/eda.py:148:    target_counts = herd["became_high_growth"].value_counts().sort_index()
+./scripts/eda.py:151:    summary_lines.append("Class Balance of became_high_growth")
+./scripts/eda.py:160:    plt.xlabel("became_high_growth")
+./scripts/eda.py:233:if "early_4week_stars" in herd.columns and "later_stars" in herd.columns and "became_high_growth" in herd.columns:
+./scripts/eda.py:234:    group_summary = herd.groupby("became_high_growth")[["early_4week_stars", "later_stars"]].mean().round(2)
+./scripts/eda.py:235:    group_summary.to_csv(OUTPUT_DIR / "early_later_stars_by_class.csv")
+./scripts/eda.py:245:    plt.xlabel("became_high_growth")
+./scripts/eda.py:248:    plt.savefig(FIGURE_DIR / "early_later_stars_by_class.png", dpi=300)
+./scripts/phase3_forecast_baseline_audit.py:137:        "median": float(target.median()),
+./scripts/phase3_forecast_baseline_audit.py:140:        "q25": float(target.quantile(0.25)),
+./scripts/phase3_forecast_baseline_audit.py:141:        "q75": float(target.quantile(0.75)),
+./scripts/phase3_forecast_baseline_audit.py:142:        "q90": float(target.quantile(0.90)),
+./scripts/phase3_forecast_baseline_audit.py:143:        "q95": float(target.quantile(0.95)),
+./scripts/phase3_forecast_baseline_audit.py:195:            train[TARGET].quantile(0.95)
+./scripts/train_high_growth_models.py:87:            "Compare and tune high-growth classification "
+./scripts/train_high_growth_models.py:553:        "High-Growth Classification Model Comparison"
+./scripts/train_high_growth_models.py:709:    print("HIGH-GROWTH CLASSIFICATION MODEL SEARCH")
+./scripts/train_high_growth_models.py:902:        "HIGH-GROWTH CLASSIFICATION MODEL SEARCH",
+./scripts/phase3_feasibility_audit.py:21:    target = "became_high_growth"
+./scripts/phase3_feasibility_audit.py:164:                    "median_future_stars": (
+./scripts/phase3_feasibility_audit.py:165:                        eligible["future_stars"].median()
