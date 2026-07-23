@@ -1,0 +1,123 @@
+============================================================================================================
+FORECASTING PRETEST FREEZE
+============================================================================================================
+{
+  "freeze_status": "forecasting_pretest_frozen",
+  "created_at_utc": "2026-07-23T12:04:55.820045+00:00",
+  "git_branch": "phase3",
+  "git_commit_before_freeze": "08c3ab2abe14770f67d08b9886ab502fc75382f7",
+  "selection_source": "outputs/phase3/forecasting/baseline_residual_audit/audit_metadata.json",
+  "selected_development_approach": {
+    "family": "additive_residual_extra_trees",
+    "mode": "additive_residual",
+    "model_kind": "extra_trees",
+    "feature_set": "recent_only",
+    "parameters": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 10}",
+    "cv_mean_rmsle": 0.517680691925574,
+    "cv_std_rmsle": 0.13498104727921792,
+    "cv_mean_mae": 37.449958419465375,
+    "validation_rmsle": 0.4945711223443873,
+    "validation_mae": 50.93507128061863,
+    "validation_rmse": 115.05973059248772,
+    "validation_smape": 0.3480073139838976,
+    "validation_forecast_bias": -28.29374243598551
+  },
+  "selection_rule": "Tune each approach family only with the frozen purged temporal CV, then compare one CV-selected winner per family on the external validation set. The deterministic rolling baseline is eligible for final selection.",
+  "development_training": {
+    "rows": 766,
+    "repositories": 22,
+    "train_rows": 700,
+    "validation_rows": 66,
+    "target_minimum": 4.0,
+    "target_median": 59.0,
+    "target_mean": 75.3485639686684,
+    "target_maximum": 750.0,
+    "residual_target_mean": 7.15361183637946,
+    "residual_target_median": 1.6666666666666679
+  },
+  "implementation_reproduction": {
+    "rows": 66,
+    "maximum_absolute_difference": 2.842170943040401e-14,
+    "tolerance": 1e-10,
+    "passed": true,
+    "reproduction_path": "outputs/phase3/forecasting/pretest_freeze/train_only_validation_reproduction.csv"
+  },
+  "artifact": {
+    "path": "models/forecasting/selected_forecaster_pretest.joblib",
+    "sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+    "artifact_version": "forecasting_pretest_v1",
+    "baseline_formula": "4 * rolling_3week_mean_stars",
+    "residual_model": "ExtraTreesRegressor",
+    "feature_columns": [
+      "weekly_new_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration"
+    ],
+    "parameters": {
+      "max_depth": 4,
+      "max_features": "sqrt",
+      "min_samples_leaf": 10,
+      "n_estimators": 400,
+      "random_state": 42
+    }
+  },
+  "selected_validation_metrics": {
+    "rmsle": 0.4945711223443873,
+    "mae": 50.93507128061863,
+    "rmse": 115.05973059248772,
+    "smape": 0.3480073139838976,
+    "forecast_bias": -28.29374243598551
+  },
+  "selected_cv_metrics": {
+    "mean_rmsle": 0.517680691925574,
+    "std_rmsle": 0.13498104727921792,
+    "mean_mae": 37.449958419465375
+  },
+  "input_hashes": {
+    "config/phase3_config.json": "5edb3897feca5a3a397e89a40e0ff12faeef9c6424f58a8e9dcfe3561ee7bd02",
+    "data/modeling/forecasting/forecasting_schema.json": "07ef9ad9c82fce469046ad057f6631ae0babd3c02cfccfe6f4116ca8ac8ac7c6",
+    "data/modeling/forecasting/forecast_primary_train.csv": "11f25fa9b61e1cfc7c7a402553fcf2852250a404528cb6023cd36d74ec500876",
+    "data/modeling/forecasting/forecast_primary_validation.csv": "8915fe1bc958362ba1eff624163d6df51d320aae37570b1449e7956f70ad0047",
+    "outputs/phase3/forecasting/baseline_residual_audit/audit_metadata.json": "c9121e73e9b87ed90b4d3f46f62536789d3b899f665836ed58034677c283f1e4",
+    "outputs/phase3/forecasting/baseline_residual_audit/validation_predictions.csv": "b7e78295e179ff96284b4334cddb5b5b0448cf380705e3919d7297436eaede28"
+  },
+  "software": {
+    "python": "3.12.10",
+    "pandas": "3.0.3",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0",
+    "joblib": "1.5.3"
+  },
+  "test_data_status": "not_loaded_or_evaluated"
+}
+
+============================================================================================================
+FREEZE MANIFEST
+============================================================================================================
+{
+  "freeze_name": "forecasting-pretest-freeze-v1",
+  "git_commit_before_freeze": "08c3ab2abe14770f67d08b9886ab502fc75382f7",
+  "model_path": "models/forecasting/selected_forecaster_pretest.joblib",
+  "model_sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+  "metadata_path": "models/forecasting/selected_forecaster_pretest_metadata.json",
+  "metadata_sha256": "da03678a32bdefa36000328648da802cf90da685163d6f5a0f0a3fb7b44b787c",
+  "freeze_metadata_path": "outputs/phase3/forecasting/pretest_freeze/pretest_freeze_metadata.json",
+  "freeze_metadata_sha256": "da03678a32bdefa36000328648da802cf90da685163d6f5a0f0a3fb7b44b787c",
+  "reproduction_path": "outputs/phase3/forecasting/pretest_freeze/train_only_validation_reproduction.csv",
+  "reproduction_sha256": "95cf4fa428497300c94634bd06dcc442ece72ec91103f14edf1d3676c9b2c0a5",
+  "input_hashes": {
+    "config/phase3_config.json": "5edb3897feca5a3a397e89a40e0ff12faeef9c6424f58a8e9dcfe3561ee7bd02",
+    "data/modeling/forecasting/forecasting_schema.json": "07ef9ad9c82fce469046ad057f6631ae0babd3c02cfccfe6f4116ca8ac8ac7c6",
+    "data/modeling/forecasting/forecast_primary_train.csv": "11f25fa9b61e1cfc7c7a402553fcf2852250a404528cb6023cd36d74ec500876",
+    "data/modeling/forecasting/forecast_primary_validation.csv": "8915fe1bc958362ba1eff624163d6df51d320aae37570b1449e7956f70ad0047",
+    "outputs/phase3/forecasting/baseline_residual_audit/audit_metadata.json": "c9121e73e9b87ed90b4d3f46f62536789d3b899f665836ed58034677c283f1e4",
+    "outputs/phase3/forecasting/baseline_residual_audit/validation_predictions.csv": "b7e78295e179ff96284b4334cddb5b5b0448cf380705e3919d7297436eaede28"
+  },
+  "test_data_status": "not_loaded_or_evaluated"
+}
+
+Forecast test data was not loaded or evaluated.

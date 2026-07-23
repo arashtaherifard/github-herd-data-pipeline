@@ -1,0 +1,106 @@
+{
+  "status": "baseline_residual_audit_complete",
+  "target": "future_4week_stars",
+  "training_rows": 700,
+  "external_validation_rows": 66,
+  "repositories": 22,
+  "candidate_configurations": 122,
+  "families": [
+    "additive_residual_extra_trees",
+    "additive_residual_ridge",
+    "blend_direct_extra_trees",
+    "direct_extra_trees",
+    "log_residual_extra_trees",
+    "log_residual_ridge",
+    "scaled_rolling_baseline"
+  ],
+  "feature_sets": {
+    "full": [
+      "clean_history_weeks",
+      "weekly_new_stars",
+      "cumulative_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "herd_momentum_score",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration"
+    ],
+    "recent_only": [
+      "weekly_new_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration"
+    ],
+    "recent_compact": [
+      "weekly_new_stars",
+      "previous_week_stars",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "weekly_growth_acceleration"
+    ]
+  },
+  "selected_development_approach": {
+    "family": "additive_residual_extra_trees",
+    "mode": "additive_residual",
+    "model_kind": "extra_trees",
+    "feature_set": "recent_only",
+    "parameters": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 10}",
+    "cv_mean_rmsle": 0.517680691925574,
+    "cv_std_rmsle": 0.13498104727921792,
+    "cv_mean_mae": 37.449958419465375,
+    "validation_rmsle": 0.4945711223443873,
+    "validation_mae": 50.93507128061863,
+    "validation_rmse": 115.05973059248772,
+    "validation_smape": 0.3480073139838976,
+    "validation_forecast_bias": -28.29374243598551
+  },
+  "selection_rule": "Tune each approach family only with the frozen purged temporal CV, then compare one CV-selected winner per family on the external validation set. The deterministic rolling baseline is eligible for final selection.",
+  "fold_summary": [
+    {
+      "fold": 1,
+      "repositories": 22,
+      "train_rows": 546,
+      "validation_rows": 22,
+      "train_target_mean": 61.37362637362637,
+      "validation_target_mean": 107.95454545454545,
+      "train_target_median": 52.0,
+      "validation_target_median": 100.0,
+      "validation_target_minimum": 10.0,
+      "validation_target_maximum": 278.0,
+      "target_window_overlap_violations": 0
+    },
+    {
+      "fold": 2,
+      "repositories": 22,
+      "train_rows": 568,
+      "validation_rows": 22,
+      "train_target_mean": 62.88380281690141,
+      "validation_target_mean": 108.5,
+      "train_target_median": 53.0,
+      "validation_target_median": 104.0,
+      "validation_target_minimum": 11.0,
+      "validation_target_maximum": 248.0,
+      "target_window_overlap_violations": 0
+    },
+    {
+      "fold": 3,
+      "repositories": 22,
+      "train_rows": 590,
+      "validation_rows": 22,
+      "train_target_mean": 63.97118644067797,
+      "validation_target_mean": 104.68181818181819,
+      "train_target_median": 53.0,
+      "validation_target_median": 99.0,
+      "validation_target_minimum": 9.0,
+      "validation_target_maximum": 244.0,
+      "target_window_overlap_violations": 0
+    }
+  ],
+  "all_repositories_eligible": true,
+  "test_data_status": "not_loaded_or_evaluated"
+}

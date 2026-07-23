@@ -1,0 +1,53 @@
+============================================================================================================
+FORECAST BASELINE, ABLATION, AND RESIDUAL-MODEL AUDIT
+============================================================================================================
+Training rows: 700
+External validation rows: 66
+Candidate configurations: 122
+Test data: not loaded
+
+============================================================================================================
+CV-SELECTED FAMILY WINNERS
+============================================================================================================
+                       family  candidate_id              mode  model_kind    feature_set                                                                         parameters  mean_cv_rmsle  std_cv_rmsle  mean_cv_mae  mean_cv_rmse  mean_cv_smape  mean_cv_bias  elapsed_seconds
+additive_residual_extra_trees            89 additive_residual extra_trees    recent_only                   {"max_depth": 4, "max_features": "sqrt", "min_samples_leaf": 10}       0.517681      0.134981    37.449958     55.652520       0.389740    -18.247543         0.387471
+      additive_residual_ridge            37 additive_residual       ridge recent_compact                                                                  {"alpha": 1000.0}       0.547410      0.110944    38.270485     55.876854       0.411375    -20.383109         0.006306
+     blend_direct_extra_trees            58      blend_direct extra_trees           full {"blend_weight": 0.6, "max_depth": 8, "max_features": 1.0, "min_samples_leaf": 20}       0.502698      0.120377    37.445219     55.559243       0.381686    -23.647836         0.416297
+           direct_extra_trees            74            direct extra_trees    recent_only                      {"max_depth": 8, "max_features": 1.0, "min_samples_leaf": 10}       0.525311      0.102970    39.727185     58.041759       0.415629    -25.224649         0.422542
+     log_residual_extra_trees            90      log_residual extra_trees    recent_only                   {"max_depth": 4, "max_features": "sqrt", "min_samples_leaf": 10}       0.542633      0.144516    37.162744     55.567744       0.373222    -22.225639         0.415135
+           log_residual_ridge            28      log_residual       ridge    recent_only                                                                  {"alpha": 1000.0}       0.537308      0.126649    36.855135     55.445346       0.373387    -27.685836         0.006463
+      scaled_rolling_baseline             5   scaled_baseline        none  baseline_only                                                                     {"scale": 1.2}       0.567052      0.156268    43.845455     62.865496       0.401634      3.645455         0.001766
+
+============================================================================================================
+EXTERNAL VALIDATION COMPARISON
+============================================================================================================
+                       family              mode  model_kind    feature_set                                                                         parameters  cv_mean_rmsle  cv_std_rmsle  cv_mean_mae  validation_rmsle  validation_mae  validation_rmse  validation_smape  validation_forecast_bias
+additive_residual_extra_trees additive_residual extra_trees    recent_only                   {"max_depth": 4, "max_features": "sqrt", "min_samples_leaf": 10}       0.517681      0.134981    37.449958          0.494571       50.935071       115.059731          0.348007                -28.293742
+     log_residual_extra_trees      log_residual extra_trees    recent_only                   {"max_depth": 4, "max_features": "sqrt", "min_samples_leaf": 10}       0.542633      0.144516    37.162744          0.504405       51.009191       114.275864          0.362732                -28.312812
+      scaled_rolling_baseline   scaled_baseline        none  baseline_only                                                                     {"scale": 1.2}       0.567052      0.156268    43.845455          0.504417       53.193939       108.753929          0.380839                 -7.460606
+         raw_rolling_baseline      raw_baseline        none  baseline_only                                                                     {"scale": 1.0}       0.596798      0.167399    40.146465          0.516159       50.666667       112.855305          0.379601                -27.969697
+     blend_direct_extra_trees      blend_direct extra_trees           full {"blend_weight": 0.6, "max_depth": 8, "max_features": 1.0, "min_samples_leaf": 20}       0.502698      0.120377    37.445219          0.526902       53.549777       119.982046          0.374172                -33.834900
+      additive_residual_ridge additive_residual       ridge recent_compact                                                                  {"alpha": 1000.0}       0.547410      0.110944    38.270485          0.527176       54.445856       120.526219          0.372682                -36.066772
+           log_residual_ridge      log_residual       ridge    recent_only                                                                  {"alpha": 1000.0}       0.537308      0.126649    36.855135          0.527923       53.820540       119.626344          0.372410                -36.752589
+           direct_extra_trees            direct extra_trees    recent_only                      {"max_depth": 8, "max_features": 1.0, "min_samples_leaf": 10}       0.525311      0.102970    39.727185          0.604826       58.210996       126.358398          0.414114                -35.560159
+
+============================================================================================================
+SELECTED DEVELOPMENT APPROACH
+============================================================================================================
+{
+  "family": "additive_residual_extra_trees",
+  "mode": "additive_residual",
+  "model_kind": "extra_trees",
+  "feature_set": "recent_only",
+  "parameters": "{\"max_depth\": 4, \"max_features\": \"sqrt\", \"min_samples_leaf\": 10}",
+  "cv_mean_rmsle": 0.517680691925574,
+  "cv_std_rmsle": 0.13498104727921792,
+  "cv_mean_mae": 37.449958419465375,
+  "validation_rmsle": 0.4945711223443873,
+  "validation_mae": 50.93507128061863,
+  "validation_rmse": 115.05973059248772,
+  "validation_smape": 0.3480073139838976,
+  "validation_forecast_bias": -28.29374243598551
+}
+
+Forecast test data was not loaded or evaluated.

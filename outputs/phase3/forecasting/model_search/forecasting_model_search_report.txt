@@ -1,0 +1,74 @@
+==============================================================================================================
+FOUR-WEEK FORECASTING MODEL-SEARCH REPORT
+==============================================================================================================
+
+Training rows: 700
+Training repositories: 22
+External validation rows: 66
+External validation repositories: 22
+Candidate configurations: 395
+Successful configurations: 395
+Failed configurations: 0
+
+Selected model: extra_trees
+Selected target transform: raw
+Selected parameters: {"max_depth": 8, "max_features": 1.0, "min_samples_leaf": 10}
+Selected CV mean RMSLE: 0.536375
+Selected CV RMSLE SD: 0.090934
+
+SELECTED MODEL VALIDATION METRICS
+--------------------------------------------------------------------------------------------------------------
+{
+  "rmsle": 0.5935179160714926,
+  "mae": 57.290005712682856,
+  "rmse": 126.40908652882702,
+  "smape": 0.4076502315032043,
+  "forecast_bias": -36.36521287130613
+}
+
+BEST NAIVE VALIDATION BASELINE
+--------------------------------------------------------------------------------------------------------------
+{
+  "name": "baseline_rolling_3week_mean_x4",
+  "rmsle": 0.5161585559189952,
+  "mae": 50.666666666666664,
+  "rmse": 112.8553049941378,
+  "smape": 0.37960142821077214,
+  "forecast_bias": -27.96969696969697
+}
+
+MODEL COMPARISON
+--------------------------------------------------------------------------------------------------------------
+ approach_type                          model target_transform                                                                                                                                                            parameters  cv_mean_rmsle  cv_std_rmsle  cv_mean_mae  validation_rmsle  validation_mae  validation_rmse  validation_smape  validation_forecast_bias  fit_seconds                                               artifact_path
+naive_baseline baseline_rolling_3week_mean_x4   not_applicable                                                                                                                                                                    {}            NaN           NaN          NaN          0.516159       50.666667       112.855305          0.379601                -27.969697     0.000000
+naive_baseline  baseline_previous_4week_total   not_applicable                                                                                                                                                                    {}            NaN           NaN          NaN          0.545277       52.712121       118.806247          0.384122                -28.924242     0.000000
+ trained_model                    extra_trees              raw                                                                                                         {"max_depth": 8, "max_features": 1.0, "min_samples_leaf": 10}       0.536375      0.090934    40.410769          0.593518       57.290006       126.409087          0.407650                -36.365213     0.088455            models/forecasting/candidates/extra_trees.joblib
+ trained_model                  random_forest              raw                                                                                                      {"max_depth": 4, "max_features": "sqrt", "min_samples_leaf": 10}       0.540267      0.084121    41.536500          0.596294       57.437257       127.374346          0.400641                -38.640315     0.286579          models/forecasting/candidates/random_forest.joblib
+ trained_model                        xgboost              raw {"colsample_bytree": 0.8, "learning_rate": 0.03, "max_depth": 2, "min_child_weight": 5.0, "n_estimators": 150, "reg_alpha": 0.0, "reg_lambda": 1.0, "subsample": 0.8}       0.558079      0.063391    42.145090          0.600193       58.592265       127.609409          0.416246                -41.012817     0.069268                models/forecasting/candidates/xgboost.joblib
+ trained_model              gradient_boosting              raw                                                                 {"learning_rate": 0.03, "loss": "huber", "max_depth": 2, "min_samples_leaf": 10, "n_estimators": 100}       0.561628      0.116765    42.127213          0.602016       59.002782       129.625783          0.401597                -46.332290     0.097284      models/forecasting/candidates/gradient_boosting.joblib
+ trained_model         hist_gradient_boosting              raw                                                       {"l2_regularization": 1.0, "learning_rate": 0.03, "max_iter": 150, "max_leaf_nodes": 7, "min_samples_leaf": 10}       0.583641      0.097093    42.554858          0.611753       59.253144       130.130013          0.412761                -43.369688     0.137967 models/forecasting/candidates/hist_gradient_boosting.joblib
+ trained_model                    elastic_net              raw                                                                                                                                       {"alpha": 1.0, "l1_ratio": 0.9}       0.646018      0.068888    45.130609          0.617394       62.341597       129.668850          0.440787                -47.935426     0.001390            models/forecasting/candidates/elastic_net.joblib
+ trained_model                          ridge              raw                                                                                                                                                      {"alpha": 100.0}       0.651958      0.070654    45.719647          0.618858       62.381304       129.711264          0.440923                -47.987099     0.001282                  models/forecasting/candidates/ridge.joblib
+ trained_model                  decision_tree            log1p                                                                                                      {"max_depth": 4, "max_features": "sqrt", "min_samples_leaf": 20}       0.570499      0.140815    41.371327          0.639694       62.192982       132.114098          0.439527                -46.442733     0.001169          models/forecasting/candidates/decision_tree.joblib
+ trained_model             poisson_regression              raw                                                                                                                                                       {"alpha": 10.0}       0.715510      0.080671    51.549553          0.689759       69.130294       134.191411          0.517242                -54.593675     0.060631     models/forecasting/candidates/poisson_regression.joblib
+ trained_model                            knn              raw                                                                                                                      {"n_neighbors": 3, "p": 1, "weights": "uniform"}       0.551986      0.167640    40.444444          0.730136       65.732323       136.509055          0.459828                -32.489899     0.001703                    models/forecasting/candidates/knn.joblib
+naive_baseline          baseline_last_week_x4   not_applicable                                                                                                                                                                    {}            NaN           NaN          NaN          0.750677       55.000000       132.760322          0.406576                -25.969697     0.000000
+ trained_model                     dummy_mean              raw                                                                                                                                                                    {}       0.852386      0.011479    60.192634          0.825094       80.067706       142.338055          0.640153                -60.368009     0.000176             models/forecasting/candidates/dummy_mean.joblib
+naive_baseline      baseline_previous_week_x4   not_applicable                                                                                                                                                                    {}            NaN           NaN          NaN          0.826676       57.030303       118.443824          0.465817                -29.060606     0.000000
+ trained_model                   dummy_median              raw                                                                                                                                                                    {}       0.922274      0.010859    65.075758          0.920158       85.212121       148.392395          0.701936                -73.515152     0.000186           models/forecasting/candidates/dummy_median.joblib
+
+PERMUTATION IMPORTANCE
+--------------------------------------------------------------------------------------------------------------
+                   feature  importance_mean_rmsle_increase  importance_std
+  rolling_3week_mean_stars                        0.052909        0.009947
+   rolling_4week_sum_stars                        0.043350        0.008618
+          weekly_new_stars                        0.031142        0.009994
+       previous_week_stars                        0.007889        0.003214
+          lag_2_week_stars                        0.000578        0.001362
+        weekly_growth_rate                       -0.000335        0.001240
+weekly_growth_acceleration                       -0.001885        0.001464
+       clean_history_weeks                       -0.002654        0.001766
+       herd_momentum_score                       -0.005077        0.002588
+          cumulative_stars                       -0.009626        0.007009
+
+Forecast test data was not loaded or evaluated.

@@ -31,3 +31,5 @@ mlartifacts/
 
 # Previous local virtual environment backup
 venv_py314_backup/
+models/forecasting/candidates/
+models/forecasting/selected_forecaster_development.joblib

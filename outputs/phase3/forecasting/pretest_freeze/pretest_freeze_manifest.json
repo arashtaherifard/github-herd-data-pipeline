@@ -1,0 +1,21 @@
+{
+  "freeze_name": "forecasting-pretest-freeze-v1",
+  "git_commit_before_freeze": "08c3ab2abe14770f67d08b9886ab502fc75382f7",
+  "model_path": "models/forecasting/selected_forecaster_pretest.joblib",
+  "model_sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+  "metadata_path": "models/forecasting/selected_forecaster_pretest_metadata.json",
+  "metadata_sha256": "da03678a32bdefa36000328648da802cf90da685163d6f5a0f0a3fb7b44b787c",
+  "freeze_metadata_path": "outputs/phase3/forecasting/pretest_freeze/pretest_freeze_metadata.json",
+  "freeze_metadata_sha256": "da03678a32bdefa36000328648da802cf90da685163d6f5a0f0a3fb7b44b787c",
+  "reproduction_path": "outputs/phase3/forecasting/pretest_freeze/train_only_validation_reproduction.csv",
+  "reproduction_sha256": "95cf4fa428497300c94634bd06dcc442ece72ec91103f14edf1d3676c9b2c0a5",
+  "input_hashes": {
+    "config/phase3_config.json": "5edb3897feca5a3a397e89a40e0ff12faeef9c6424f58a8e9dcfe3561ee7bd02",
+    "data/modeling/forecasting/forecasting_schema.json": "07ef9ad9c82fce469046ad057f6631ae0babd3c02cfccfe6f4116ca8ac8ac7c6",
+    "data/modeling/forecasting/forecast_primary_train.csv": "11f25fa9b61e1cfc7c7a402553fcf2852250a404528cb6023cd36d74ec500876",
+    "data/modeling/forecasting/forecast_primary_validation.csv": "8915fe1bc958362ba1eff624163d6df51d320aae37570b1449e7956f70ad0047",
+    "outputs/phase3/forecasting/baseline_residual_audit/audit_metadata.json": "c9121e73e9b87ed90b4d3f46f62536789d3b899f665836ed58034677c283f1e4",
+    "outputs/phase3/forecasting/baseline_residual_audit/validation_predictions.csv": "b7e78295e179ff96284b4334cddb5b5b0448cf380705e3919d7297436eaede28"
+  },
+  "test_data_status": "not_loaded_or_evaluated"
+}

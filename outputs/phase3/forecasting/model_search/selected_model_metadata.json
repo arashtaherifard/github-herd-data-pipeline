@@ -1,0 +1,112 @@
+{
+  "development_status": "forecasting_model_search_complete",
+  "created_at_utc": "2026-07-23T11:48:35.155685+00:00",
+  "task": "four_week_repository_star_count_forecasting",
+  "target": "future_4week_stars",
+  "features": [
+    "clean_history_weeks",
+    "weekly_new_stars",
+    "cumulative_stars",
+    "previous_week_stars",
+    "weekly_growth_rate",
+    "herd_momentum_score",
+    "lag_2_week_stars",
+    "rolling_3week_mean_stars",
+    "rolling_4week_sum_stars",
+    "weekly_growth_acceleration"
+  ],
+  "feature_count": 10,
+  "training_rows": 700,
+  "training_repositories": 22,
+  "external_validation_rows": 66,
+  "external_validation_repositories": 22,
+  "temporal_cv": {
+    "folds": 3,
+    "purge_weeks": 4,
+    "validation_samples_per_repository": 1,
+    "all_repositories_eligible": true,
+    "fold_summary": [
+      {
+        "fold": 1,
+        "repositories": 22,
+        "train_rows": 546,
+        "validation_rows": 22,
+        "train_target_mean": 61.37362637362637,
+        "validation_target_mean": 107.95454545454545,
+        "train_target_median": 52.0,
+        "validation_target_median": 100.0,
+        "validation_target_minimum": 10.0,
+        "validation_target_maximum": 278.0,
+        "target_window_overlap_violations": 0
+      },
+      {
+        "fold": 2,
+        "repositories": 22,
+        "train_rows": 568,
+        "validation_rows": 22,
+        "train_target_mean": 62.88380281690141,
+        "validation_target_mean": 108.5,
+        "train_target_median": 53.0,
+        "validation_target_median": 104.0,
+        "validation_target_minimum": 11.0,
+        "validation_target_maximum": 248.0,
+        "target_window_overlap_violations": 0
+      },
+      {
+        "fold": 3,
+        "repositories": 22,
+        "train_rows": 590,
+        "validation_rows": 22,
+        "train_target_mean": 63.97118644067797,
+        "validation_target_mean": 104.68181818181819,
+        "train_target_median": 53.0,
+        "validation_target_median": 99.0,
+        "validation_target_minimum": 9.0,
+        "validation_target_maximum": 244.0,
+        "target_window_overlap_violations": 0
+      }
+    ]
+  },
+  "candidate_configurations": 395,
+  "successful_configurations": 395,
+  "failed_configurations": 0,
+  "selected_model": "extra_trees",
+  "selected_target_transform": "raw",
+  "selected_parameters": {
+    "max_depth": 8,
+    "max_features": 1.0,
+    "min_samples_leaf": 10
+  },
+  "selected_cv_mean_rmsle": 0.5363752228254263,
+  "selected_cv_std_rmsle": 0.09093367457454245,
+  "selected_validation_metrics": {
+    "rmsle": 0.5935179160714926,
+    "mae": 57.290005712682856,
+    "rmse": 126.40908652882702,
+    "smape": 0.4076502315032043,
+    "forecast_bias": -36.36521287130613
+  },
+  "best_validation_baseline": {
+    "name": "baseline_rolling_3week_mean_x4",
+    "rmsle": 0.5161585559189952,
+    "mae": 50.666666666666664,
+    "rmse": 112.8553049941378,
+    "smape": 0.37960142821077214,
+    "forecast_bias": -27.96969696969697
+  },
+  "improvement_over_best_validation_baseline": {
+    "absolute_rmsle_reduction": -0.07735936015249745,
+    "relative_rmsle_reduction": -0.14987518712106374,
+    "absolute_mae_reduction": -6.623339046016191
+  },
+  "selection_rule": "Choose the best CV-tuned trained model family by external validation RMSLE; break ties using validation MAE, CV mean RMSLE, and CV RMSLE standard deviation.",
+  "selected_model_path": "models/forecasting/selected_forecaster_development.joblib",
+  "test_data_status": "not_loaded_or_evaluated",
+  "software": {
+    "python": "3.12.10",
+    "pandas": "3.0.3",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0",
+    "xgboost": "3.3.0"
+  }
+}

@@ -116,7 +116,32 @@
       "raw",
       "log1p"
     ],
-    "prediction_minimum": 0.0
+    "prediction_minimum": 0.0,
+    "selected_approach_family": "additive_residual_extra_trees",
+    "selected_approach_mode": "additive_residual",
+    "selected_feature_set_name": "recent_only",
+    "selected_feature_columns": [
+      "weekly_new_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration"
+    ],
+    "selected_baseline_formula": "4 * rolling_3week_mean_stars",
+    "selected_residual_model": "ExtraTreesRegressor",
+    "selected_residual_model_parameters": {
+      "max_depth": 4,
+      "max_features": "sqrt",
+      "min_samples_leaf": 10,
+      "n_estimators": 400,
+      "random_state": 42
+    },
+    "pretest_model_path": "models/forecasting/selected_forecaster_pretest.joblib",
+    "pretest_model_metadata_path": "models/forecasting/selected_forecaster_pretest_metadata.json",
+    "pretest_freeze_manifest_path": "outputs/phase3/forecasting/pretest_freeze/pretest_freeze_manifest.json",
+    "test_data_status": "not_loaded_or_evaluated"
   },
   "recommendation": {
     "feedback_type": "implicit",

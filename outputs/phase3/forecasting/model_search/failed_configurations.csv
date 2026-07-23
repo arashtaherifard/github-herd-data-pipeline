@@ -1,0 +1,1 @@
+configuration_id,model,target_transform,parameters,successful_folds,mean_rmsle,std_rmsle,mean_mae,std_mae,mean_rmse,mean_smape,mean_forecast_bias,elapsed_seconds,status,error
