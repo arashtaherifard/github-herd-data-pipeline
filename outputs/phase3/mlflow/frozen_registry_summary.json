@@ -1,0 +1,66 @@
+{
+  "artifact_root": ".mlflow_local/artifacts",
+  "classification": {
+    "artifact_sha256": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23",
+    "model_uri": "models:/m-a220598f7105465889ff534c7032d93b",
+    "registered_model_name": "github-herd-growth-surge-classifier",
+    "registered_model_version": "1",
+    "run_id": "cb8d98c6bd7d4acab2dba240126e40a3"
+  },
+  "experiment_id": "1",
+  "experiment_name": "github-herd-phase3-frozen-models",
+  "forecasting": {
+    "artifact_sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+    "model_uri": "models:/m-9fcd1341f40440cc88c6b3c92ce72d52",
+    "registered_model_name": "github-herd-four-week-forecaster",
+    "registered_model_version": "1",
+    "run_id": "7b2d843a2742409caabfc1f2ea968dd2"
+  },
+  "frozen_hashes": {
+    "classification": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23",
+    "forecasting": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+    "recommendation": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878"
+  },
+  "git_branch": "phase3",
+  "git_commit": "09bbe0284792ee0dcd1831e8c31164b5152baedc",
+  "mlflow_version": "3.14.0",
+  "operational": {
+    "database_sha256": "3e030169ac5e46e541e4fd154e462a61a4a2dc4eb9ec3d992d652311e71d5f4c",
+    "operational_run_id": "operational_v1_1cafd65",
+    "run_id": "546f8210270e4c89a08505c678dc5bc6"
+  },
+  "operational_database_verification": {
+    "actual_sha256": "3e030169ac5e46e541e4fd154e462a61a4a2dc4eb9ec3d992d652311e71d5f4c",
+    "expected_sha256": "3e030169ac5e46e541e4fd154e462a61a4a2dc4eb9ec3d992d652311e71d5f4c",
+    "passed": true,
+    "path": "database/generated/github_herd_phase3_predictions.db",
+    "source": "current_worktree"
+  },
+  "policy": "Existing frozen models and historical validation/final-test evidence were registered without retraining and without rerunning final tests.",
+  "recommendation": {
+    "artifact_sha256": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878",
+    "model_uri": "models:/m-f9ad988fa0574762bd4a36db9f7ef315",
+    "registered_model_name": "github-herd-herd-aware-recommender",
+    "registered_model_version": "1",
+    "run_id": "98809319ddfc4e7fa9e3c13e32af8bc5"
+  },
+  "registered_models": {
+    "github-herd-four-week-forecaster": {
+      "champion_run_id": "7b2d843a2742409caabfc1f2ea968dd2",
+      "champion_version": "1",
+      "source": "models:/m-9fcd1341f40440cc88c6b3c92ce72d52"
+    },
+    "github-herd-growth-surge-classifier": {
+      "champion_run_id": "cb8d98c6bd7d4acab2dba240126e40a3",
+      "champion_version": "1",
+      "source": "models:/m-a220598f7105465889ff534c7032d93b"
+    },
+    "github-herd-herd-aware-recommender": {
+      "champion_run_id": "98809319ddfc4e7fa9e3c13e32af8bc5",
+      "champion_version": "1",
+      "source": "models:/m-f9ad988fa0574762bd4a36db9f7ef315"
+    }
+  },
+  "status": "mlflow_frozen_registration_complete",
+  "tracking_database": ".mlflow_local/mlflow.db"
+}
