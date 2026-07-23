@@ -1,0 +1,26 @@
+{
+  "run_id": "operational_v1_1cafd65",
+  "status": "operational_predictions_frozen",
+  "created_at_utc": "2026-07-23T17:58:24.787310+00:00",
+  "git_commit": "1cafd653016084b81a914db71b75ad57e7aa6961",
+  "database_path": "database/generated/github_herd_phase3_predictions.db",
+  "database_sha256": "3e030169ac5e46e541e4fd154e462a61a4a2dc4eb9ec3d992d652311e71d5f4c",
+  "input_hashes": {
+    "data/processed/weekly_timeseries_features.csv": "854c2943516e614d9232e78111164ff27222ba79b4c96dc3a645a23b25f40b71",
+    "models/classification/corrected/selected_classifier_deployment.joblib": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23",
+    "models/classification/corrected/selected_classifier_deployment_metadata.json": "e101fee0ec87fc28237624eafb284c48e15406cf0f3110dc951da15c091be06c",
+    "models/forecasting/selected_forecaster_pretest.joblib": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+    "models/recommendation/selected_recommender_pretest.joblib": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878",
+    "data/modeling/recommendation/recommendation_train.csv": "107b929aa9c87a9b14b67c4f4925e54e1e69c2566df6471c4f4193e5d6b0cc1d",
+    "data/modeling/recommendation/recommendation_validation.csv": "79227e56ee9461dc4ed92b051376329e4e996953f7ea05562c599fa172bca876"
+  },
+  "output_hashes": {
+    "operational_run_summary.json": "9636ef1f8faae75aff2d132b29107565f35757d00d447b4f7f46fa4faaafe082",
+    "recommendation_repository_frequency.csv": "7c244e6ff38a3fd786a71654a510ab3da9954e8fdd28b6510f41bf7d83f643bd",
+    "recommendation_sample_first_100_users.csv": "19170cd05e17b9033b5aa28385c5b09b7e74119942978f8c383b045b0d328a9b",
+    "repository_predictions.csv": "bb5152f4ee25753aeecfadae9222db4ce3214e55e3bb8cd2cc267838efd3df37"
+  },
+  "repository_prediction_rows": 82,
+  "recommendation_rows": 1511420,
+  "recommendation_users": 151142
+}
