@@ -1,0 +1,83 @@
+{
+  "completed_at_utc": "2026-07-23T21:02:35.766133+00:00",
+  "duration_seconds": 4.188091875053942,
+  "final_test_scripts_rerun": false,
+  "flow_name": "github-herd-phase3-safe-orchestration",
+  "flow_version": "1.0.0",
+  "git_branch": "phase3",
+  "git_commit": "b1cb7a18766ba7f22ff0b1fecc9d905b621a59be",
+  "mlflow_validation": {
+    "command": [
+      "./venv_bonus/bin/python",
+      "./scripts/register_frozen_models_mlflow.py",
+      "--validate-only"
+    ],
+    "completed_at_utc": "2026-07-23T21:02:34.103309+00:00",
+    "duration_seconds": 2.4005363329779357,
+    "exit_code": 0,
+    "label": "MLflow frozen-evidence validation",
+    "started_at_utc": "2026-07-23T21:02:31.702769+00:00",
+    "status": "passed",
+    "stderr_tail": "",
+    "stdout_tail": "============================================================================================================\nMLFLOW FROZEN-MODEL REGISTRATION VALIDATION\n============================================================================================================\nClassification hash checks: 17\nClassification sample rows: 3\nClassification sample probabilities: [0.18502638, 0.15090798, 0.22421312]\nForecasting hash checks: 23\nForecasting sample rows: 3\nForecasting sample predictions: [108.19075474, 88.90426974, 81.84811344]\nRecommendation hash checks: 24\nRecommendation history shape: (151142, 145)\nRecommendation history nonzero: 203265\nRecommendation sample users: [1, 17, 19]\nRecommendation sample output rows: 3\nOperational compact hash checks: 11\nOperational database found and verified: True\nFrozen final-test scripts were not executed: True\nModels were not retrained: True\nValidation status: passed_no_files_written"
+  },
+  "models_retrained": false,
+  "operational_execution": null,
+  "operational_validation": {
+    "command": [
+      "./venv/bin/python",
+      "./scripts/generate_operational_predictions.py",
+      "--batch-size",
+      "5000",
+      "--validate-only"
+    ],
+    "completed_at_utc": "2026-07-23T21:02:35.763445+00:00",
+    "duration_seconds": 1.6564089159946889,
+    "exit_code": 0,
+    "label": "Operational inference validation",
+    "started_at_utc": "2026-07-23T21:02:34.107032+00:00",
+    "status": "passed",
+    "stderr_tail": "",
+    "stdout_tail": "====================================================================================================\nOPERATIONAL PREDICTION VALIDATION\n====================================================================================================\nRepository prediction rows: 82\nPredicted growth surges: 12\nMean four-week forecast: 945.6430864976309\nRecommendation fitted users: 151142\nRecommendation catalog: 145\nValidated recommendation users: 5000\nTop-k: 10\nCandidate minimum / median / maximum: 96 144.0 144\nExpected full recommendation rows: 1511420\nValidation status: passed_no_files_written"
+  },
+  "policy": "Frozen models and historical final-test results were validated without retraining or rerunning final tests.",
+  "preflight": {
+    "frozen_model_hashes": {
+      "classification": {
+        "actual_sha256": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23",
+        "expected_sha256": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23",
+        "passed": true,
+        "path": "models/classification/corrected/selected_classifier_deployment.joblib"
+      },
+      "forecasting": {
+        "actual_sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+        "expected_sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+        "passed": true,
+        "path": "models/forecasting/selected_forecaster_pretest.joblib"
+      },
+      "recommendation": {
+        "actual_sha256": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878",
+        "expected_sha256": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878",
+        "passed": true,
+        "path": "models/recommendation/selected_recommender_pretest.joblib"
+      }
+    },
+    "git_branch": "phase3",
+    "git_commit": "b1cb7a18766ba7f22ff0b1fecc9d905b621a59be",
+    "mlflow_experiment_name": "github-herd-phase3-frozen-models",
+    "mlflow_summary_status": "mlflow_frozen_registration_complete",
+    "mlflow_version": "3.14.0",
+    "phase2_database": {
+      "path": "database/github_herd.db",
+      "sha256": "559803caa16b7f43a55cf6947f4eb580e92bb5a0ed7cd68ad0b581b960f88ee4"
+    },
+    "repository_clean": true,
+    "repository_status": "clean",
+    "status": "passed"
+  },
+  "repository_clean_at_preflight": true,
+  "started_at_utc": "2026-07-23T21:02:31.578049+00:00",
+  "status": "prefect_phase3_flow_complete",
+  "summary_path": "outputs/phase3/prefect/read_only_validation_v1.json",
+  "write_enabled": false
+}
