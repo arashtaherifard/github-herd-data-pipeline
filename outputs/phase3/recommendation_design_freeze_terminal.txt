@@ -1,0 +1,91 @@
+============================================================================================================
+RECOMMENDATION DESIGN FREEZE
+============================================================================================================
+{
+  "freeze_status": "recommendation_design_frozen",
+  "freeze_name": "recommendation-design-freeze-v1",
+  "created_at_utc": "2026-07-23T13:22:13.528073+00:00",
+  "git_branch": "phase3",
+  "git_commit_before_freeze": "6ca59f9961f1cdcd2782a09fb77a62fbea44561c",
+  "schema_version": "recommendation_design_v1",
+  "catalog_size": 145,
+  "internal_tuning": {
+    "users_with_at_least_two_training_interactions": 24994,
+    "users_with_unique_latest_timestamp": 24968,
+    "users_excluded_for_latest_timestamp_tie": 26,
+    "internal_training_rows": 164996,
+    "internal_holdout_rows": 24968,
+    "minimum_remaining_history": 1,
+    "maximum_remaining_history": 74,
+    "train_holdout_pair_overlap": 0,
+    "temporal_order_violations": 0,
+    "catalog_repositories_before_holdout": 145,
+    "catalog_repositories_after_holdout": 145,
+    "cold_repositories_created": 0
+  },
+  "external_validation": {
+    "all_validation_users": 13301,
+    "primary_strict_validation_users": 13295,
+    "excluded_equal_timestamp_users": 6,
+    "excluded_train_after_validation_users": 0,
+    "missing_train_history_users": 0
+  },
+  "primary_metric": "ndcg_at_10",
+  "primary_selection_pool": [
+    "random_sanity",
+    "training_popularity",
+    "item_item_cosine",
+    "truncated_svd",
+    "graph_personalized_pagerank",
+    "rank_normalized_hybrid",
+    "herd_mitigation_reranker"
+  ],
+  "secondary_static_content_pool": [
+    "tfidf_content",
+    "static_content_hybrid"
+  ],
+  "secondary_forecast_pool": [
+    "cutoff_aligned_frozen_forecast_reranker"
+  ],
+  "input_hashes": {
+    "config/phase3_config.json": "ef1407bcd533dfe841702df1d1bc74c37874aa30b4bd8a719c115d8420326145",
+    "data/modeling/recommendation/recommendation_train.csv": "107b929aa9c87a9b14b67c4f4925e54e1e69c2566df6471c4f4193e5d6b0cc1d",
+    "data/modeling/recommendation/recommendation_validation.csv": "79227e56ee9461dc4ed92b051376329e4e996953f7ea05562c599fa172bca876",
+    "data/modeling/recommendation/recommendation_test.csv": "bbed68a6c2d81e8e0e404e6d5de330905f4bfcd53d0d282b38acbb1a4f4d1674",
+    "outputs/phase3/recommendation/design_audit/recommendation_design_audit.json": "0c262cbc3c931c2be422b286e4f90dda0934d9ccf49f5e3f080f6ef1459a8ede",
+    "outputs/phase3/recommendation/temporal_signal_audit/recommendation_temporal_signal_audit.json": "0b43aab313903dc5041e8ee7f0b39e15c7b1ff514aea38ff65beb07746a0de2e"
+  },
+  "artifact_hashes": {
+    "data/modeling/recommendation/recommendation_schema.json": "a9589cd9ebae366528e659c75ad193a97d54b89d6ec3e165cc165d7177b90036",
+    "data/modeling/recommendation/recommendation_internal_tuning_assignments.csv": "b285a7919390673684eb3857f42fbdb24287384d58dad3e20987ba4d17aa5eda",
+    "data/modeling/recommendation/recommendation_primary_validation_users.csv": "280cb5b8379de2188506aa28340d3e8d6dd88ffdea1fef568351f38338d89846"
+  },
+  "test_data_status": "header_only_not_loaded_or_evaluated"
+}
+
+============================================================================================================
+FREEZE MANIFEST
+============================================================================================================
+{
+  "freeze_name": "recommendation-design-freeze-v1",
+  "schema_version": "recommendation_design_v1",
+  "git_commit_before_freeze": "6ca59f9961f1cdcd2782a09fb77a62fbea44561c",
+  "metadata_path": "outputs/phase3/recommendation/design_freeze/recommendation_design_freeze_metadata.json",
+  "metadata_sha256": "4db0e3fe27c07a6f796592d748bf71ac7522e03e823c30b8a25380abf2811e01",
+  "input_hashes": {
+    "config/phase3_config.json": "ef1407bcd533dfe841702df1d1bc74c37874aa30b4bd8a719c115d8420326145",
+    "data/modeling/recommendation/recommendation_train.csv": "107b929aa9c87a9b14b67c4f4925e54e1e69c2566df6471c4f4193e5d6b0cc1d",
+    "data/modeling/recommendation/recommendation_validation.csv": "79227e56ee9461dc4ed92b051376329e4e996953f7ea05562c599fa172bca876",
+    "data/modeling/recommendation/recommendation_test.csv": "bbed68a6c2d81e8e0e404e6d5de330905f4bfcd53d0d282b38acbb1a4f4d1674",
+    "outputs/phase3/recommendation/design_audit/recommendation_design_audit.json": "0c262cbc3c931c2be422b286e4f90dda0934d9ccf49f5e3f080f6ef1459a8ede",
+    "outputs/phase3/recommendation/temporal_signal_audit/recommendation_temporal_signal_audit.json": "0b43aab313903dc5041e8ee7f0b39e15c7b1ff514aea38ff65beb07746a0de2e"
+  },
+  "artifact_hashes": {
+    "data/modeling/recommendation/recommendation_schema.json": "a9589cd9ebae366528e659c75ad193a97d54b89d6ec3e165cc165d7177b90036",
+    "data/modeling/recommendation/recommendation_internal_tuning_assignments.csv": "b285a7919390673684eb3857f42fbdb24287384d58dad3e20987ba4d17aa5eda",
+    "data/modeling/recommendation/recommendation_primary_validation_users.csv": "280cb5b8379de2188506aa28340d3e8d6dd88ffdea1fef568351f38338d89846"
+  },
+  "test_data_status": "header_only_not_loaded_or_evaluated"
+}
+
+Recommendation test values were not loaded or evaluated.

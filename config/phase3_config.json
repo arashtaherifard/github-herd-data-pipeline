@@ -169,6 +169,17 @@
       "novelty",
       "diversity",
       "average_recommended_popularity"
-    ]
+    ],
+    "schema_path": "data/modeling/recommendation/recommendation_schema.json",
+    "internal_tuning_assignments_path": "data/modeling/recommendation/recommendation_internal_tuning_assignments.csv",
+    "primary_validation_users_path": "data/modeling/recommendation/recommendation_primary_validation_users.csv",
+    "catalog_size": 145,
+    "primary_validation_users": 13295,
+    "validation_sensitivity_users": 13301,
+    "internal_tuning_users": 24968,
+    "primary_model_pool": "time_safe_interaction_models",
+    "secondary_content_pool": "static_snapshot_exploratory",
+    "secondary_forecast_pool": "cutoff_aligned_exploratory",
+    "test_data_status": "header_only_not_loaded_or_evaluated"
   }
 }

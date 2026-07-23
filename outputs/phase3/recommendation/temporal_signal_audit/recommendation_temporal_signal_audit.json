@@ -1,0 +1,138 @@
+{
+  "audit_status": "recommendation_temporal_signal_audit_complete",
+  "test_data_status": "header_only_not_loaded_or_evaluated",
+  "validation_temporal_order": {
+    "validation_users": 13301,
+    "strictly_later": 13295,
+    "equal_timestamp": 6,
+    "train_after_validation": 0,
+    "missing": 0,
+    "problematic_rows": 6
+  },
+  "internal_tuning": {
+    "all_train_users": 151142,
+    "users_with_at_least_two_train_interactions": 24994,
+    "users_with_unique_latest_timestamp": 24968,
+    "users_with_tied_latest_timestamp": 26,
+    "eligible_history_count": {
+      "minimum": 2.0,
+      "q25": 2.0,
+      "median": 2.0,
+      "mean": 2.5538289009932713,
+      "q75": 2.0,
+      "q90": 4.0,
+      "q95": 5.0,
+      "q99": 11.0,
+      "maximum": 75.0
+    }
+  },
+  "static_content_metadata": {
+    "catalog_repositories": 145,
+    "matched_repositories": 145,
+    "repositories_with_description": 145,
+    "repositories_with_topic_identities": 145,
+    "unique_topics": 946,
+    "topic_count_per_repository": {
+      "minimum": 2.0,
+      "q25": 7.0,
+      "median": 11.0,
+      "mean": 11.758620689655173,
+      "q75": 17.0,
+      "q90": 19.0,
+      "q95": 20.0,
+      "q99": 20.0,
+      "maximum": 20.0
+    },
+    "description_length": {
+      "minimum": 19.0,
+      "q25": 47.0,
+      "median": 71.0,
+      "mean": 83.46206896551725,
+      "q75": 106.0,
+      "q90": 152.0,
+      "q95": 173.59999999999997,
+      "q99": 275.96000000000004,
+      "maximum": 348.0
+    },
+    "metadata_collected_at_minimum": "2026-06-13T20:47:18.656748+00:00",
+    "metadata_collected_at_maximum": "2026-06-13T21:08:28.702323+00:00",
+    "temporal_status": "static_snapshot_not_strictly_time_safe_for_historical_validation"
+  },
+  "forecast_signal": {
+    "frozen_forecast_artifact_version": "forecasting_pretest_v1",
+    "feature_columns": [
+      "weekly_new_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration"
+    ],
+    "weekly_period_availability_rule": "For an interval such as YYYY-MM-DD/YYYY-MM-DD, the weekly feature row becomes available at 00:00 UTC on the day after the interval ends.",
+    "catalog_repositories": 145,
+    "repositories_with_any_complete_forecast_history": 145,
+    "repositories_without_complete_forecast_history": 0,
+    "complete_feature_rows": {
+      "minimum": 1.0,
+      "q25": 2.0,
+      "median": 7.0,
+      "mean": 15.517241379310345,
+      "q75": 20.0,
+      "q90": 40.39999999999998,
+      "q95": 61.19999999999993,
+      "q99": 96.04000000000002,
+      "maximum": 140.0
+    },
+    "validation_forecast_catalog_coverage": {
+      "minimum": 0.006896551724137931,
+      "q25": 0.27586206896551724,
+      "median": 0.4689655172413793,
+      "mean": 0.4919033829450209,
+      "q75": 0.7241379310344828,
+      "q90": 0.8758620689655172,
+      "q95": 0.9172413793103448,
+      "q99": 0.9655172413793104,
+      "maximum": 1.0
+    },
+    "validation_available_repository_count": {
+      "minimum": 1.0,
+      "q25": 40.0,
+      "median": 68.0,
+      "mean": 71.32599052702804,
+      "q75": 105.0,
+      "q90": 127.0,
+      "q95": 133.0,
+      "q99": 140.0,
+      "maximum": 145.0
+    },
+    "validation_positive_with_forecast_history": 10259,
+    "validation_positive_forecast_coverage": 0.7712953913239606,
+    "recommended_missing_signal_policy": "Use a neutral rank score for repositories with no forecast history at the user's cutoff; do not impute using future rows."
+  },
+  "architecture_implications": {
+    "primary_time_safe_pool": [
+      "training-popularity baseline",
+      "item-item cosine collaborative filtering",
+      "TruncatedSVD latent-factor recommender",
+      "co-occurrence graph recommender",
+      "rank-normalized collaborative-graph hybrid"
+    ],
+    "static_content_pool": [
+      "topic-description-language TF-IDF recommender",
+      "static-content hybrid"
+    ],
+    "forecast_aware_pool": [
+      "cutoff-aligned frozen-forecast reranker with neutral missing signal handling"
+    ],
+    "selection_policy": "Select the primary frozen recommender from the time-safe pool. Report static-content models separately because the metadata was collected in June 2026. Forecast-aware models are eligible only when their score uses the latest weekly features at or before each user's cutoff."
+  },
+  "output_paths": {
+    "summary": "outputs/phase3/recommendation/temporal_signal_audit/recommendation_temporal_signal_audit.json",
+    "temporal_violations": "outputs/phase3/recommendation/temporal_signal_audit/recommendation_temporal_violations.csv",
+    "forecast_repository_availability": "outputs/phase3/recommendation/temporal_signal_audit/recommendation_forecast_repository_availability.csv",
+    "forecast_validation_coverage": "outputs/phase3/recommendation/temporal_signal_audit/recommendation_forecast_validation_coverage.csv",
+    "topic_profile": "outputs/phase3/recommendation/temporal_signal_audit/recommendation_topic_profile.csv",
+    "internal_tuning_eligibility": "outputs/phase3/recommendation/temporal_signal_audit/recommendation_internal_tuning_eligibility.csv"
+  }
+}

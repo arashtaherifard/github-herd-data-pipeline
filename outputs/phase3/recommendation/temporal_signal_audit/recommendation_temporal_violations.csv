@@ -1,0 +1,7 @@
+user_id,username,validation_repo_id,validation_repo_full_name,validation_time,latest_train_time,delta_seconds,order_status,latest_train_repo_ids,latest_train_repo_names,latest_train_rows
+798971,benracine,1644196,JuliaLang/julia,2011-05-19 19:42:04+00:00,2011-05-19 19:42:04+00:00,0.0,equal_timestamp,858127,pandas-dev/pandas,1
+1192156,lmwang9527,1644196,JuliaLang/julia,2011-11-13 19:32:07+00:00,2011-11-13 19:32:07+00:00,0.0,equal_timestamp,858127,pandas-dev/pandas,1
+1238408,unbuilt,1644196,JuliaLang/julia,2011-12-03 17:11:23+00:00,2011-12-03 17:11:23+00:00,0.0,equal_timestamp,858127,pandas-dev/pandas,1
+1363287,jedludlow,1644196,JuliaLang/julia,2012-01-21 13:58:33+00:00,2012-01-21 13:58:33+00:00,0.0,equal_timestamp,858127,pandas-dev/pandas,1
+1619852,antiface,1644196,JuliaLang/julia,2012-04-06 21:21:58+00:00,2012-04-06 21:21:58+00:00,0.0,equal_timestamp,858127,pandas-dev/pandas,1
+1864051,dnmiller,1644196,JuliaLang/julia,2012-06-18 18:31:41+00:00,2012-06-18 18:31:41+00:00,0.0,equal_timestamp,858127,pandas-dev/pandas,1

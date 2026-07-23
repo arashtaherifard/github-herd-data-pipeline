@@ -1,0 +1,216 @@
+{
+  "schema_version": "recommendation_design_v1",
+  "created_at_utc": "2026-07-23T13:22:13.528073+00:00",
+  "git_branch": "phase3",
+  "git_commit_before_freeze": "6ca59f9961f1cdcd2782a09fb77a62fbea44561c",
+  "random_state": 42,
+  "feedback_type": "implicit",
+  "catalog": {
+    "source": "training catalog",
+    "repositories": 145,
+    "candidate_strategy": "exact_full_catalog",
+    "validation_seen_item_exclusion": [
+      "training history"
+    ],
+    "final_test_seen_item_exclusion": [
+      "training history",
+      "validation history"
+    ],
+    "score_tie_breaker": "repo_id ascending"
+  },
+  "internal_tuning": {
+    "strategy": "leave_latest_training_interaction_out",
+    "eligibility": "at least two training interactions and a unique latest timestamp",
+    "assignment_path": "data/modeling/recommendation/recommendation_internal_tuning_assignments.csv",
+    "users_with_at_least_two_training_interactions": 24994,
+    "users_with_unique_latest_timestamp": 24968,
+    "users_excluded_for_latest_timestamp_tie": 26,
+    "internal_training_rows": 164996,
+    "internal_holdout_rows": 24968,
+    "minimum_remaining_history": 1,
+    "maximum_remaining_history": 74,
+    "train_holdout_pair_overlap": 0,
+    "temporal_order_violations": 0,
+    "catalog_repositories_before_holdout": 145,
+    "catalog_repositories_after_holdout": 145,
+    "cold_repositories_created": 0
+  },
+  "external_validation": {
+    "primary_population": "strictly later held-out validation timestamp",
+    "primary_user_path": "data/modeling/recommendation/recommendation_primary_validation_users.csv",
+    "full_population_role": "sensitivity analysis only",
+    "all_validation_users": 13301,
+    "primary_strict_validation_users": 13295,
+    "excluded_equal_timestamp_users": 6,
+    "excluded_train_after_validation_users": 0,
+    "missing_train_history_users": 0
+  },
+  "ranking_metrics": {
+    "primary": "ndcg_at_10",
+    "selection_tie_breakers": [
+      "mrr",
+      "recall_at_10",
+      "ndcg_at_5"
+    ],
+    "accuracy_metrics": [
+      "precision_at_5",
+      "precision_at_10",
+      "recall_at_5",
+      "recall_at_10",
+      "hit_rate_at_5",
+      "hit_rate_at_10",
+      "ndcg_at_5",
+      "ndcg_at_10",
+      "mrr",
+      "map_at_10"
+    ],
+    "beyond_accuracy_metrics": [
+      "catalog_coverage_at_10",
+      "novelty_at_10",
+      "intra_list_diversity_at_10",
+      "average_recommended_popularity_at_10",
+      "long_tail_share_at_10"
+    ],
+    "one_positive_user_equivalences": {
+      "recall_at_k": "equals hit_rate_at_k",
+      "map_at_10": "equals reciprocal rank when the positive rank is at most 10"
+    }
+  },
+  "primary_time_safe_model_pool": {
+    "eligible_for_primary_selection": true,
+    "families": {
+      "random_sanity": {
+        "seeds": [
+          11,
+          29,
+          42,
+          71,
+          101
+        ]
+      },
+      "training_popularity": {
+        "score": "internal-training interaction count"
+      },
+      "item_item_cosine": {
+        "aggregation": [
+          "sum",
+          "mean"
+        ],
+        "shrinkage": [
+          0.0,
+          10.0,
+          50.0,
+          100.0
+        ]
+      },
+      "truncated_svd": {
+        "n_components": [
+          16,
+          32,
+          64,
+          96
+        ],
+        "n_iter": [
+          7,
+          15
+        ],
+        "regularization": "component-count restriction"
+      },
+      "graph_personalized_pagerank": {
+        "edge_weights": [
+          "cosine",
+          "ppmi"
+        ],
+        "restart_probability": [
+          0.15,
+          0.3,
+          0.5
+        ]
+      },
+      "rank_normalized_hybrid": {
+        "components": [
+          "item_item_cosine",
+          "truncated_svd",
+          "graph_personalized_pagerank",
+          "training_popularity"
+        ],
+        "weight_grid": "convex combinations in 0.25 increments"
+      },
+      "herd_mitigation_reranker": {
+        "base": "best time-safe hybrid",
+        "popularity_penalty": [
+          0.0,
+          0.05,
+          0.1,
+          0.2,
+          0.3
+        ],
+        "purpose": "measure accuracy versus popularity-bias tradeoff"
+      }
+    }
+  },
+  "secondary_static_content_pool": {
+    "eligible_for_primary_selection": false,
+    "reason": "Descriptions, topics, and languages were collected in June 2026 and are not strictly time-safe for historical validation.",
+    "families": {
+      "tfidf_content": {
+        "fields": [
+          "topics",
+          "description",
+          "language"
+        ],
+        "ngram_range": [
+          1,
+          2
+        ],
+        "topic_repeat": [
+          1,
+          2,
+          3
+        ],
+        "language_repeat": [
+          1,
+          2
+        ]
+      },
+      "static_content_hybrid": {
+        "base": "best time-safe hybrid",
+        "content_weight": [
+          0.1,
+          0.2,
+          0.3
+        ]
+      }
+    }
+  },
+  "secondary_forecast_aware_pool": {
+    "eligible_for_primary_selection": false,
+    "reason": "Forecast-history coverage varies by validation cutoff; this branch is reported as a secondary herd-aware analysis.",
+    "frozen_forecast_artifact": "models/forecasting/selected_forecaster_pretest.joblib",
+    "availability_rule": "use the latest complete weekly feature row available no later than the user's cutoff",
+    "missing_signal_policy": "neutral rank-normalized score",
+    "forecast_weight": [
+      0.05,
+      0.1,
+      0.2,
+      0.3
+    ],
+    "validation_mean_catalog_coverage": 0.4919033829450209,
+    "validation_positive_coverage": 0.7712953913239606
+  },
+  "selection_protocol": {
+    "stage_1": "Tune each family using only the internal temporal holdout.",
+    "stage_2": "Evaluate one internally chosen winner per primary time-safe family on strict external validation users.",
+    "final_selection": "Select by external validation NDCG@10, then MRR, Recall@10, and NDCG@5.",
+    "test_rule": "Do not load or evaluate recommendation test values until the recommender is frozen and tagged.",
+    "post_test_rule": "No model, weights, features, or reranking parameter may change after final test evaluation."
+  },
+  "known_data_limitations": {
+    "equal_timestamp_validation_users": 6,
+    "repo_popularity_count": "Excluded because 144 of 145 repositories are capped at 1500.",
+    "topic_count": "Excluded because it is constant at one.",
+    "stars_count_and_forks_count": "Excluded from the primary time-safe pool because they are static present-day snapshots.",
+    "content_metadata": "Available for all 145 repositories but secondary only."
+  },
+  "test_data_status": "header_only_not_loaded_or_evaluated"
+}

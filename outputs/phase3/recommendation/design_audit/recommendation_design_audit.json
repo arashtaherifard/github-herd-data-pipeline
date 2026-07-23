@@ -1,0 +1,251 @@
+{
+  "audit_status": "recommendation_design_audit_complete",
+  "test_data_status": "header_only_not_loaded_or_evaluated",
+  "split_protocol": {
+    "feedback_type": "implicit",
+    "train_rows": 189964,
+    "validation_rows": 13301,
+    "train_users": 151142,
+    "validation_users": 13301,
+    "validation_rows_per_user": {
+      "minimum": 1.0,
+      "q25": 1.0,
+      "median": 1.0,
+      "mean": 1.0,
+      "q75": 1.0,
+      "q90": 1.0,
+      "q95": 1.0,
+      "maximum": 1.0
+    },
+    "validation_users_missing_from_train": 0,
+    "train_validation_pair_overlap": 0,
+    "validation_positive_already_seen_in_train": 0,
+    "temporal_order_violations": 6,
+    "minimum_train_history_for_validation_user": 1,
+    "train_history_for_validation_users": {
+      "minimum": 1.0,
+      "q25": 1.0,
+      "median": 2.0,
+      "mean": 2.5579279753402,
+      "q75": 3.0,
+      "q90": 5.0,
+      "q95": 7.0,
+      "maximum": 75.0
+    }
+  },
+  "catalog": {
+    "train_repositories": 145,
+    "validation_repositories": 144,
+    "validation_cold_repositories": 0,
+    "matrix_density_all_train_users": 0.008667984754232033,
+    "languages": 17,
+    "language_distribution": {
+      "Python": 45,
+      "TypeScript": 33,
+      "JavaScript": 24,
+      "Unknown": 13,
+      "Jupyter Notebook": 6,
+      "C++": 5,
+      "Rust": 5,
+      "MDX": 3,
+      "Go": 3,
+      "Julia": 1,
+      "Shell": 1,
+      "Ruby": 1,
+      "C": 1,
+      "Vue": 1,
+      "Dockerfile": 1,
+      "Java": 1,
+      "HTML": 1
+    },
+    "topic_count_distribution": {
+      "minimum": 1.0,
+      "q25": 1.0,
+      "median": 1.0,
+      "mean": 1.0,
+      "q75": 1.0,
+      "q90": 1.0,
+      "q95": 1.0,
+      "maximum": 1.0
+    }
+  },
+  "candidate_generation": {
+    "strategy": "full_catalog",
+    "validation_exclusion_rule": "Exclude repositories already seen in training; retain the single validation positive.",
+    "validation_candidate_count": {
+      "minimum": 70.0,
+      "q25": 142.0,
+      "median": 143.0,
+      "mean": 142.4420720246598,
+      "q75": 144.0,
+      "q90": 144.0,
+      "q95": 144.0,
+      "maximum": 144.0
+    },
+    "all_validation_positives_eligible": true
+  },
+  "popularity": {
+    "training_interaction_count": {
+      "minimum": 491.0,
+      "q25": 1255.0,
+      "median": 1313.0,
+      "mean": 1310.096551724138,
+      "q75": 1388.0,
+      "q90": 1430.0,
+      "q95": 1449.1999999999998,
+      "maximum": 1500.0
+    },
+    "training_popularity_gini": 0.04252493575915284,
+    "repo_popularity_count_maximum": 1500,
+    "repositories_at_maximum_repo_popularity_count": 144,
+    "fraction_at_maximum_repo_popularity_count": 0.993103448275862,
+    "repo_popularity_count_warning": "The collected repository popularity count is capped for nearly the full catalog and must not be treated as a faithful external popularity target."
+  },
+  "metadata": {
+    "consistency": {
+      "repo_full_name": {
+        "inconsistent_repositories": 0,
+        "maximum_unique_values": 1
+      },
+      "language": {
+        "inconsistent_repositories": 0,
+        "maximum_unique_values": 1
+      },
+      "topic_count": {
+        "inconsistent_repositories": 0,
+        "maximum_unique_values": 1
+      },
+      "stars_count": {
+        "inconsistent_repositories": 0,
+        "maximum_unique_values": 1
+      },
+      "forks_count": {
+        "inconsistent_repositories": 0,
+        "maximum_unique_values": 1
+      },
+      "repo_popularity_count": {
+        "inconsistent_repositories": 0,
+        "maximum_unique_values": 1
+      }
+    },
+    "temporal_leakage_warning": "stars_count, forks_count, language, topic_count, and repo_popularity_count are static repository snapshots. Use stars_count and forks_count only in a clearly labeled non-temporal content baseline unless historical snapshot timestamps can be established.",
+    "topic_limitation": "Only topic_count is present in the recommendation files; actual topic identities are not present."
+  },
+  "collaborative_graph": {
+    "users_with_at_least_two_train_interactions": 24994,
+    "observed_item_pairs": 9075,
+    "possible_item_pairs": 10440,
+    "pair_graph_density": 0.8692528735632183,
+    "maximum_pair_cooccurrence": 208
+  },
+  "database_join_profiles": {
+    "herd_modeling": {
+      "table": "herd_modeling",
+      "available": true,
+      "join_key_available": true,
+      "rows": 145,
+      "unique_repo_ids": 145,
+      "catalog_repositories": 145,
+      "catalog_overlap": 145,
+      "catalog_coverage": 1.0,
+      "columns": [
+        "repo_id",
+        "repo_full_name",
+        "early_4week_stars",
+        "early_avg_weekly_stars",
+        "early_max_weekly_stars",
+        "later_stars",
+        "later_avg_weekly_stars",
+        "became_high_growth",
+        "language",
+        "topics",
+        "stars_count",
+        "forks_count",
+        "watchers_count",
+        "open_issues_count",
+        "created_at",
+        "updated_at",
+        "pushed_at",
+        "archived",
+        "is_fork",
+        "license",
+        "html_url"
+      ]
+    },
+    "repositories": {
+      "table": "repositories",
+      "available": true,
+      "join_key_available": true,
+      "rows": 763,
+      "unique_repo_ids": 763,
+      "catalog_repositories": 145,
+      "catalog_overlap": 145,
+      "catalog_coverage": 1.0,
+      "columns": [
+        "repo_id",
+        "full_name",
+        "owner",
+        "owner_id",
+        "repo_name",
+        "description",
+        "language",
+        "topics",
+        "stars_count",
+        "forks_count",
+        "watchers_count",
+        "subscribers_count",
+        "network_count",
+        "open_issues_count",
+        "size",
+        "created_at",
+        "updated_at",
+        "pushed_at",
+        "default_branch",
+        "archived",
+        "disabled",
+        "is_fork",
+        "has_issues",
+        "has_projects",
+        "has_downloads",
+        "has_wiki",
+        "license",
+        "html_url",
+        "homepage",
+        "collected_at"
+      ]
+    }
+  },
+  "recommended_validation_protocol": {
+    "catalog": "Use the 145-item training catalog.",
+    "validation_candidates": "For each evaluation user, rank every catalog item except items observed in that user's training history.",
+    "test_candidates_after_freeze": "For final test evaluation, exclude both training and validation histories, then rank the remaining full catalog.",
+    "negative_sampling": "Do not use sampled negatives for final ranking metrics. The catalog is small enough for exact full-catalog ranking. Negative sampling may be used only inside model training.",
+    "primary_metric": "ndcg_at_10",
+    "selection_rule": "Tune each model family on training data and select using validation NDCG@10, with MRR and Recall@10 as tie-breakers. Do not inspect test ranking metrics until the recommender is frozen."
+  },
+  "eligible_model_families": [
+    "random ranking sanity baseline",
+    "training-popularity baseline",
+    "language-affinity content baseline",
+    "item-item cosine collaborative filtering",
+    "TruncatedSVD latent-factor recommender",
+    "co-occurrence graph recommender",
+    "rank-normalized hybrid recommender",
+    "herd-aware reranker using time-safe training popularity"
+  ],
+  "excluded_or_restricted_features": {
+    "repo_popularity_count": "Excluded as a meaningful external popularity feature because of the collection cap.",
+    "stars_count": "Restricted because it is a static present-day snapshot and may leak future popularity into historical recommendations.",
+    "forks_count": "Restricted for the same temporal-snapshot reason.",
+    "topic_count": "Permitted only as a weak scalar content feature; it does not encode topic identity."
+  },
+  "output_paths": {
+    "summary": "outputs/phase3/recommendation/design_audit/recommendation_design_audit.json",
+    "catalog_profile": "outputs/phase3/recommendation/design_audit/recommendation_catalog_profile.csv",
+    "user_history_profile": "outputs/phase3/recommendation/design_audit/recommendation_user_history_profile.csv",
+    "candidate_size_profile": "outputs/phase3/recommendation/design_audit/recommendation_candidate_size_profile.csv",
+    "item_popularity_profile": "outputs/phase3/recommendation/design_audit/recommendation_item_popularity_profile.csv",
+    "top_cooccurrence_edges": "outputs/phase3/recommendation/design_audit/recommendation_top_cooccurrence_edges.csv",
+    "database_schema": "outputs/phase3/recommendation/design_audit/recommendation_database_schema.json"
+  }
+}

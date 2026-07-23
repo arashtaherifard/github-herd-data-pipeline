@@ -33,3 +33,8 @@ mlartifacts/
 venv_py314_backup/
 models/forecasting/candidates/
 models/forecasting/selected_forecaster_development.joblib
+
+# Large reproducible Phase 3 recommendation diagnostics
+outputs/phase3/recommendation/design_audit/recommendation_user_history_profile.csv
+outputs/phase3/recommendation/temporal_signal_audit/recommendation_internal_tuning_eligibility.csv
+outputs/phase3/recommendation/temporal_signal_audit/recommendation_forecast_validation_coverage.csv

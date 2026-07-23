@@ -1,0 +1,500 @@
+{
+  "daily_timeseries": {
+    "rows": 11128,
+    "columns": [
+      {
+        "name": "repo_id",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "repo_full_name",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "date",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "daily_new_stars",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "cumulative_stars",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "daily_growth_rate",
+        "type": "FLOAT",
+        "not_null": false,
+        "primary_key": false
+      }
+    ]
+  },
+  "herd_modeling": {
+    "rows": 145,
+    "columns": [
+      {
+        "name": "repo_id",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "repo_full_name",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "early_4week_stars",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "early_avg_weekly_stars",
+        "type": "FLOAT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "early_max_weekly_stars",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "later_stars",
+        "type": "FLOAT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "later_avg_weekly_stars",
+        "type": "FLOAT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "became_high_growth",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "language",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "topics",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "stars_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "forks_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "watchers_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "open_issues_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "updated_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "pushed_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "archived",
+        "type": "BOOLEAN",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "is_fork",
+        "type": "BOOLEAN",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "license",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "html_url",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      }
+    ]
+  },
+  "repositories": {
+    "rows": 763,
+    "columns": [
+      {
+        "name": "repo_id",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "full_name",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "owner",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "owner_id",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "repo_name",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "description",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "language",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "topics",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "stars_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "forks_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "watchers_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "subscribers_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "network_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "open_issues_count",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "size",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "created_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "updated_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "pushed_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "default_branch",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "archived",
+        "type": "BOOLEAN",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "disabled",
+        "type": "BOOLEAN",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "is_fork",
+        "type": "BOOLEAN",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "has_issues",
+        "type": "BOOLEAN",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "has_projects",
+        "type": "BOOLEAN",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "has_downloads",
+        "type": "BOOLEAN",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "has_wiki",
+        "type": "BOOLEAN",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "license",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "html_url",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "homepage",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "collected_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      }
+    ]
+  },
+  "stars": {
+    "rows": 216566,
+    "columns": [
+      {
+        "name": "repo_id",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "repo_full_name",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "user_id",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "username",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "user_type",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "starred_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "collected_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      }
+    ]
+  },
+  "user_repo_interactions": {
+    "rows": 216566,
+    "columns": [
+      {
+        "name": "user_id",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "username",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "repo_id",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "repo_full_name",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "starred_at",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "interaction",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      }
+    ]
+  },
+  "weekly_timeseries": {
+    "rows": 2250,
+    "columns": [
+      {
+        "name": "repo_id",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "repo_full_name",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "week",
+        "type": "TEXT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "weekly_new_stars",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "cumulative_stars",
+        "type": "BIGINT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "previous_week_stars",
+        "type": "FLOAT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "weekly_growth_rate",
+        "type": "FLOAT",
+        "not_null": false,
+        "primary_key": false
+      },
+      {
+        "name": "herd_momentum_score",
+        "type": "FLOAT",
+        "not_null": false,
+        "primary_key": false
+      }
+    ]
+  }
+}
