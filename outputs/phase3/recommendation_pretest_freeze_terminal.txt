@@ -1,0 +1,19 @@
+========================================================================================================
+RECOMMENDATION PRETEST FREEZE
+========================================================================================================
+Artifact version: recommendation_pretest_v1
+Selected model: herd_mitigation_penalty_0.05
+Combined rows: 203265
+Combined users: 151142
+Combined repositories: 145
+Fit matrix shape: [151142, 145]
+Fit matrix nonzero: 203265
+Artifact path: models/recommendation/selected_recommender_pretest.joblib
+Artifact SHA256: f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878
+Reload maximum difference: 0.0
+Manifest path: outputs/phase3/recommendation/pretest_freeze/recommendation_pretest_freeze_manifest.json
+Test status: header_only_not_loaded_or_evaluated
+No recommendation test values were loaded or evaluated.
+real 6.74
+user 30.15
+sys 4.86

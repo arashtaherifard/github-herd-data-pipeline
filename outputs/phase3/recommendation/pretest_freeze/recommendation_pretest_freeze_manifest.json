@@ -1,0 +1,25 @@
+{
+  "freeze_name": "recommendation-pretest-freeze-v1",
+  "artifact_version": "recommendation_pretest_v1",
+  "git_commit_before_freeze": "610823bbae7bb011eb8d758f27e55f97e35cdab3",
+  "artifact_path": "models/recommendation/selected_recommender_pretest.joblib",
+  "artifact_sha256": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878",
+  "metadata_path": "models/recommendation/selected_recommender_pretest_metadata.json",
+  "metadata_sha256": "9d773f4f1bbc86bbd44ee3d1769ab75d3413531cc2a6d6af592778954f6f360d",
+  "refit_summary_path": "outputs/phase3/recommendation/pretest_freeze/recommendation_pretest_refit_summary.json",
+  "refit_summary_sha256": "996c4a4fde438bd3f624d324c49548f55bd7bb144f5d6611f2d4e2375d4c2a40",
+  "input_hashes": {
+    "data/modeling/recommendation/recommendation_train.csv": "107b929aa9c87a9b14b67c4f4925e54e1e69c2566df6471c4f4193e5d6b0cc1d",
+    "data/modeling/recommendation/recommendation_validation.csv": "79227e56ee9461dc4ed92b051376329e4e996953f7ea05562c599fa172bca876",
+    "data/modeling/recommendation/recommendation_test.csv": "bbed68a6c2d81e8e0e404e6d5de330905f4bfcd53d0d282b38acbb1a4f4d1674",
+    "outputs/phase3/recommendation/design_freeze/recommendation_design_freeze_manifest.json": "a0578a825c26cd140f2299f60578127cd0f4c1dd12fc8b26f3c7f2aebb5a0631",
+    "outputs/phase3/recommendation/design_freeze/recommendation_design_freeze_metadata.json": "4db0e3fe27c07a6f796592d748bf71ac7522e03e823c30b8a25380abf2811e01",
+    "models/recommendation/selected_recommender_development.joblib": "41758e0835f4296e1825e52f25c41780a89299f51cfbab48b46647edb633e7dd",
+    "models/recommendation/selected_recommender_development_metadata.json": "308623f8635391af2cae92337abd4db26b500d4586c8e15ff8896a056e06f90e",
+    "outputs/phase3/recommendation/model_search/recommendation_model_selection_summary.json": "096fe4ae709acd8ab515bcbaea530a82cf882810afaf15917d067214c1c59cce",
+    "outputs/phase3/recommendation/secondary_branches/secondary_recommendation_summary.json": "014004c623e7a46c693318783a3bd99e778736d50bb8bf71b6ad13863e63abf6",
+    "scripts/train_recommendation_models.py": "517d8a783f18d87c3c49aab1c47507b0faa81acb567f5c57778a89e4d2657f45",
+    "scripts/freeze_recommendation_pretest.py": "e42f985caf664bee3dd42690a80db679e7566329bc159c5473147d93cb7c936f"
+  },
+  "test_data_status": "header_only_not_loaded_or_evaluated"
+}

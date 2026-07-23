@@ -1,0 +1,136 @@
+{
+  "freeze_status": "recommendation_pretest_frozen",
+  "freeze_name": "recommendation-pretest-freeze-v1",
+  "created_at_utc": "2026-07-23T15:35:56.780304+00:00",
+  "artifact_version": "recommendation_pretest_v1",
+  "git_branch": "phase3",
+  "git_commit_before_freeze": "610823bbae7bb011eb8d758f27e55f97e35cdab3",
+  "design_freeze_commit": "a55c346c9c0b394995923852b0d50f82f15b359f",
+  "primary_selection_commit": "58fb7515be581e831b8fafcb11f1526c34ba09fc",
+  "secondary_analysis_commit": "610823bbae7bb011eb8d758f27e55f97e35cdab3",
+  "selected_family": "herd_mitigation_reranker",
+  "selected_model_name": "herd_mitigation_penalty_0.05",
+  "selected_parameters": {
+    "base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00",
+    "popularity_penalty": 0.05
+  },
+  "hybrid_parameters": {
+    "normalization": "candidate_rank",
+    "weights": {
+      "graph_personalized_pagerank": 0.25,
+      "item_item_cosine": 0.75,
+      "training_popularity": 0.0,
+      "truncated_svd": 0.0
+    }
+  },
+  "herd_parameters": {
+    "base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00",
+    "popularity_penalty": 0.05
+  },
+  "refit_data": {
+    "train_rows": 189964,
+    "validation_rows": 13301,
+    "combined_rows": 203265,
+    "combined_users": 151142,
+    "combined_repositories": 145,
+    "minimum_user_history": 1,
+    "maximum_user_history": 76,
+    "minimum_item_count": 541.0,
+    "maximum_item_count": 1500.0
+  },
+  "component_validation": {
+    "fit_matrix_shape": [
+      151142,
+      145
+    ],
+    "fit_matrix_nonzero": 203265,
+    "item_count_sum": 203265.0,
+    "minimum_item_count": 541.0,
+    "maximum_item_count": 1500.0,
+    "item_similarity_shape": [
+      145,
+      145
+    ],
+    "item_similarity_finite": true,
+    "item_similarity_symmetric": true,
+    "item_similarity_zero_diagonal": true,
+    "graph_propagation_shape": [
+      145,
+      145
+    ],
+    "graph_propagation_finite": true,
+    "svd_components_shape": [
+      64,
+      145
+    ],
+    "svd_components_finite": true,
+    "svd_variance_finite": true
+  },
+  "artifact": {
+    "path": "models/recommendation/selected_recommender_pretest.joblib",
+    "sha256": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878",
+    "reload_maximum_absolute_difference": 0.0
+  },
+  "input_hashes": {
+    "data/modeling/recommendation/recommendation_train.csv": "107b929aa9c87a9b14b67c4f4925e54e1e69c2566df6471c4f4193e5d6b0cc1d",
+    "data/modeling/recommendation/recommendation_validation.csv": "79227e56ee9461dc4ed92b051376329e4e996953f7ea05562c599fa172bca876",
+    "data/modeling/recommendation/recommendation_test.csv": "bbed68a6c2d81e8e0e404e6d5de330905f4bfcd53d0d282b38acbb1a4f4d1674",
+    "outputs/phase3/recommendation/design_freeze/recommendation_design_freeze_manifest.json": "a0578a825c26cd140f2299f60578127cd0f4c1dd12fc8b26f3c7f2aebb5a0631",
+    "outputs/phase3/recommendation/design_freeze/recommendation_design_freeze_metadata.json": "4db0e3fe27c07a6f796592d748bf71ac7522e03e823c30b8a25380abf2811e01",
+    "models/recommendation/selected_recommender_development.joblib": "41758e0835f4296e1825e52f25c41780a89299f51cfbab48b46647edb633e7dd",
+    "models/recommendation/selected_recommender_development_metadata.json": "308623f8635391af2cae92337abd4db26b500d4586c8e15ff8896a056e06f90e",
+    "outputs/phase3/recommendation/model_search/recommendation_model_selection_summary.json": "096fe4ae709acd8ab515bcbaea530a82cf882810afaf15917d067214c1c59cce",
+    "outputs/phase3/recommendation/secondary_branches/secondary_recommendation_summary.json": "014004c623e7a46c693318783a3bd99e778736d50bb8bf71b6ad13863e63abf6",
+    "scripts/train_recommendation_models.py": "517d8a783f18d87c3c49aab1c47507b0faa81acb567f5c57778a89e4d2657f45",
+    "scripts/freeze_recommendation_pretest.py": "e42f985caf664bee3dd42690a80db679e7566329bc159c5473147d93cb7c936f"
+  },
+  "verified_design_hashes": {
+    "config/phase3_config.json": "ef1407bcd533dfe841702df1d1bc74c37874aa30b4bd8a719c115d8420326145",
+    "data/modeling/recommendation/recommendation_train.csv": "107b929aa9c87a9b14b67c4f4925e54e1e69c2566df6471c4f4193e5d6b0cc1d",
+    "data/modeling/recommendation/recommendation_validation.csv": "79227e56ee9461dc4ed92b051376329e4e996953f7ea05562c599fa172bca876",
+    "data/modeling/recommendation/recommendation_test.csv": "bbed68a6c2d81e8e0e404e6d5de330905f4bfcd53d0d282b38acbb1a4f4d1674",
+    "outputs/phase3/recommendation/design_audit/recommendation_design_audit.json": "0c262cbc3c931c2be422b286e4f90dda0934d9ccf49f5e3f080f6ef1459a8ede",
+    "outputs/phase3/recommendation/temporal_signal_audit/recommendation_temporal_signal_audit.json": "0b43aab313903dc5041e8ee7f0b39e15c7b1ff514aea38ff65beb07746a0de2e",
+    "data/modeling/recommendation/recommendation_schema.json": "a9589cd9ebae366528e659c75ad193a97d54b89d6ec3e165cc165d7177b90036",
+    "data/modeling/recommendation/recommendation_internal_tuning_assignments.csv": "b285a7919390673684eb3857f42fbdb24287384d58dad3e20987ba4d17aa5eda",
+    "data/modeling/recommendation/recommendation_primary_validation_users.csv": "280cb5b8379de2188506aa28340d3e8d6dd88ffdea1fef568351f38338d89846"
+  },
+  "selection_evidence": {
+    "development_artifact_version": "recommendation_development_v1",
+    "development_artifact_sha256": "41758e0835f4296e1825e52f25c41780a89299f51cfbab48b46647edb633e7dd",
+    "primary_validation_metrics": {
+      "precision_at_5": 0.04726588943211733,
+      "precision_at_10": 0.03657013915005641,
+      "recall_at_5": 0.23632944716058668,
+      "recall_at_10": 0.36570139150056413,
+      "ndcg_at_5": 0.1538166866483406,
+      "ndcg_at_10": 0.1954139383295965,
+      "mrr": 0.1665256056636272,
+      "map_at_10": 0.1439310637129366,
+      "catalog_coverage_at_10": 0.9241379310344827,
+      "novelty_at_10": 7.213030965447362,
+      "intra_list_diversity_at_10": 0.9578666981462893,
+      "average_recommended_popularity_at_10": 1283.3438510718315,
+      "long_tail_share_at_10": 0.9240767205716435
+    },
+    "secondary_forecast_weight": 0.0,
+    "static_content_in_primary": false,
+    "selection_status": "primary_selection_complete"
+  },
+  "scoring_contract": {
+    "candidate_exclusion": "exclude all train-plus-validation user history during test ranking",
+    "tie_breaker": "repo_id ascending",
+    "top_k": 10,
+    "forecast_weight": 0.0,
+    "static_content_in_primary": false
+  },
+  "software": {
+    "python": "3.12.10",
+    "pandas": "3.0.3",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "scikit_learn": "1.9.0",
+    "joblib": "1.5.3"
+  },
+  "test_data_status": "header_only_not_loaded_or_evaluated"
+}

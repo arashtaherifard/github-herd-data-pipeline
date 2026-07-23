@@ -1,0 +1,73 @@
+{
+  "status": "recommendation_pretest_refit_complete",
+  "artifact_version": "recommendation_pretest_v1",
+  "selected_family": "herd_mitigation_reranker",
+  "selected_model_name": "herd_mitigation_penalty_0.05",
+  "selected_parameters": {
+    "base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00",
+    "popularity_penalty": 0.05
+  },
+  "hybrid_parameters": {
+    "normalization": "candidate_rank",
+    "weights": {
+      "graph_personalized_pagerank": 0.25,
+      "item_item_cosine": 0.75,
+      "training_popularity": 0.0,
+      "truncated_svd": 0.0
+    }
+  },
+  "herd_parameters": {
+    "base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00",
+    "popularity_penalty": 0.05
+  },
+  "train_rows": 189964,
+  "validation_rows": 13301,
+  "combined_rows": 203265,
+  "combined_users": 151142,
+  "combined_repositories": 145,
+  "duplicate_user_repo_pairs": 0,
+  "component_validation": {
+    "fit_matrix_shape": [
+      151142,
+      145
+    ],
+    "fit_matrix_nonzero": 203265,
+    "item_count_sum": 203265.0,
+    "minimum_item_count": 541.0,
+    "maximum_item_count": 1500.0,
+    "item_similarity_shape": [
+      145,
+      145
+    ],
+    "item_similarity_finite": true,
+    "item_similarity_symmetric": true,
+    "item_similarity_zero_diagonal": true,
+    "graph_propagation_shape": [
+      145,
+      145
+    ],
+    "graph_propagation_finite": true,
+    "svd_components_shape": [
+      64,
+      145
+    ],
+    "svd_components_finite": true,
+    "svd_variance_finite": true
+  },
+  "artifact_reload_maximum_absolute_difference": 0.0,
+  "test_header_columns": [
+    "user_id",
+    "username",
+    "repo_id",
+    "repo_full_name",
+    "starred_at",
+    "interaction",
+    "user_activity_count",
+    "repo_popularity_count",
+    "language",
+    "topic_count",
+    "stars_count",
+    "forks_count"
+  ],
+  "test_data_status": "header_only_not_loaded_or_evaluated"
+}
