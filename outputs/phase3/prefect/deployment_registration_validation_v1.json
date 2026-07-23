@@ -1,0 +1,91 @@
+{
+  "configuration": {
+    "entrypoint": "flows/phase3_prefect_flow.py:phase3_prefect_flow",
+    "flow_path": "flows/phase3_prefect_flow.py",
+    "flow_sha256": "2e40e303caf0178cf5df96b1ee427859a4bf2ab8199dcba71177965e91553b7d",
+    "path": "prefect.yaml",
+    "sha256": "8ab008c76cb97695179e701807b065c40628e09bcd09972598934fe4fb1787c6"
+  },
+  "existing_prefect_evidence": {
+    "path": "outputs/phase3/prefect/read_only_validation_v1.json",
+    "sha256": "2c0e449f9a80ae283be31c0f4a8337342aa2af6565c28c2a93a0dbd1fa6ce71a"
+  },
+  "generated_at_utc": "2026-07-23T21:48:31.435350+00:00",
+  "git_branch": "phase3",
+  "git_commit": "20fb11627eb175de6f971834d10fb56f1fe72e17",
+  "prefect": {
+    "server_mode": "isolated_self_hosted_ephemeral",
+    "server_services_disabled": true,
+    "server_stopped_after_validation": true,
+    "version": "3.7.8"
+  },
+  "protected_artifacts": {
+    "database/github_herd.db": "559803caa16b7f43a55cf6947f4eb580e92bb5a0ed7cd68ad0b581b960f88ee4",
+    "models/classification/corrected/selected_classifier_deployment.joblib": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23",
+    "models/forecasting/selected_forecaster_pretest.joblib": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+    "models/recommendation/selected_recommender_pretest.joblib": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878"
+  },
+  "registration": {
+    "deployment": {
+      "description": "Freeze-aware validation of the GitHub Herd Phase 3 models, MLflow evidence, and operational inference. Operational writes are disabled.",
+      "enforce_parameter_schema": true,
+      "entrypoint": "flows/phase3_prefect_flow.py:phase3_prefect_flow",
+      "job_variables": {
+        "env": {
+          "DO_NOT_TRACK": "1",
+          "PREFECT_SERVER_ANALYTICS_ENABLED": "false",
+          "PYTHONDONTWRITEBYTECODE": "1"
+        }
+      },
+      "name": "phase3-read-only-validation",
+      "parameters": {
+        "batch_size": 5000,
+        "database_path": "database/generated/github_herd_phase3_prefect_predictions.db",
+        "execute_operational_predictions": false,
+        "output_root": "outputs/phase3/operational_predictions",
+        "run_id": null,
+        "summary_path": null
+      },
+      "schedules": [],
+      "tags": [
+        "frozen-models",
+        "mlflow",
+        "no-retraining",
+        "phase3",
+        "read-only"
+      ],
+      "version": "1.0.0",
+      "work_pool_name": "github-herd-local-process-pool",
+      "work_queue_name": "default"
+    },
+    "deployment_registered": true,
+    "deployment_run_triggered": false,
+    "work_pool": {
+      "name": "github-herd-local-process-pool",
+      "paused": false,
+      "type": "process",
+      "work_queue_name": "default"
+    },
+    "work_pool_registered": true,
+    "worker_started": false
+  },
+  "repository_clean_at_preflight": true,
+  "repository_local_paths_created": {
+    ".prefect": false,
+    "database/generated/github_herd_phase3_prefect_predictions.db": false,
+    "flows/__pycache__": false
+  },
+  "safety": {
+    "database_path_is_generated": true,
+    "deployment_run_triggered": false,
+    "final_test_scripts_rerun": false,
+    "manual_only": true,
+    "models_retrained": false,
+    "operational_writes_enabled": false,
+    "parameter_schema_enforced": true,
+    "scheduled_runs_registered": false,
+    "telemetry_disabled": true,
+    "worker_started": false
+  },
+  "status": "prefect_deployment_registration_validation_complete"
+}
