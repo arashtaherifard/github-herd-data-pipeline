@@ -1,0 +1,98 @@
+{
+  "evaluation_status": "forecasting_final_test_complete",
+  "created_at_utc": "2026-07-23T12:17:39.361679+00:00",
+  "one_time_evaluation": true,
+  "frozen_pretest_tag": "forecasting-pretest-freeze-v1",
+  "frozen_pretest_commit": "89c79d3e90aa09ce748fcaf513367c39ca58a4ae",
+  "frozen_model_path": "models/forecasting/selected_forecaster_pretest.joblib",
+  "frozen_model_sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+  "artifact_version": "forecasting_pretest_v1",
+  "approach_family": "additive_residual_extra_trees",
+  "mode": "additive_residual",
+  "model_kind": "extra_trees",
+  "baseline_formula": "4.0 * rolling_3week_mean_stars",
+  "feature_columns": [
+    "weekly_new_stars",
+    "previous_week_stars",
+    "weekly_growth_rate",
+    "lag_2_week_stars",
+    "rolling_3week_mean_stars",
+    "rolling_4week_sum_stars",
+    "weekly_growth_acceleration"
+  ],
+  "residual_estimator_parameters": {
+    "max_depth": 4,
+    "max_features": "sqrt",
+    "min_samples_leaf": 10,
+    "n_estimators": 400,
+    "random_state": 42
+  },
+  "test_dataset": {
+    "path": "data/modeling/forecasting/forecast_primary_test.csv",
+    "sha256": "202e875b861f9dc104a684ab4312d4e7708772ab0e599f5e3ab8bf0de20d97f7",
+    "rows": 66,
+    "repositories": 22,
+    "samples_per_repository": 3,
+    "cutoff_week_minimum": "2012-05-07T00:00:00+00:00",
+    "cutoff_week_maximum": "2025-11-24T00:00:00+00:00",
+    "target_end_week_minimum": "2012-06-04T00:00:00+00:00",
+    "target_end_week_maximum": "2025-12-22T00:00:00+00:00",
+    "target_minimum": 8.0,
+    "target_median": 117.0,
+    "target_mean": 219.95454545454547,
+    "target_maximum": 1240.0,
+    "prediction_minimum": 25.888568370906942,
+    "prediction_median": 121.32277856864658,
+    "prediction_mean": 131.07680276396948,
+    "prediction_maximum": 550.4432771161697,
+    "residual_correction_mean": -1.185823498656776,
+    "residual_correction_median": 2.0961226663621053
+  },
+  "frozen_model_test_metrics": {
+    "rmsle": 0.917431231696348,
+    "mae": 127.04814991549598,
+    "rmse": 277.9667887214416,
+    "smape": 0.5038127396343218,
+    "forecast_bias": -88.87774269057596,
+    "median_absolute_error": 27.261509777734016,
+    "maximum_absolute_error": 1208.8551023658013
+  },
+  "best_descriptive_test_benchmark": {
+    "approach": "scaled_rolling_baseline_1_2",
+    "rmsle": 0.9125756308526274,
+    "mae": 128.4212121212121,
+    "rmse": 277.2758838369752,
+    "smape": 0.5012708668282332,
+    "forecast_bias": -61.23939393939394,
+    "median_absolute_error": 37.59999999999999,
+    "maximum_absolute_error": 1216.0
+  },
+  "comparison_interpretation_rule": "The frozen model was selected before opening the test set. All other test approaches are reported only as descriptive benchmarks and cannot replace, retune, or modify the frozen model.",
+  "pretest_validation_metrics": {
+    "rmsle": 0.4945711223443873,
+    "mae": 50.93507128061863,
+    "rmse": 115.05973059248772,
+    "smape": 0.3480073139838976,
+    "forecast_bias": -28.29374243598551
+  },
+  "pretest_cv_metrics": {
+    "mean_rmsle": 0.517680691925574,
+    "std_rmsle": 0.13498104727921792,
+    "mean_mae": 37.449958419465375
+  },
+  "outputs": {
+    "metrics_table": "outputs/phase3/forecasting/final_test_evaluation/final_test_model_comparison.csv",
+    "predictions": "outputs/phase3/forecasting/final_test_evaluation/final_test_predictions.csv",
+    "per_repository_metrics": "outputs/phase3/forecasting/final_test_evaluation/final_test_per_repository_metrics.csv",
+    "report": "outputs/phase3/forecasting/final_test_evaluation/final_test_report.txt"
+  },
+  "software": {
+    "python": "3.12.10",
+    "pandas": "3.0.3",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0",
+    "joblib": "1.5.3"
+  },
+  "test_data_status": "loaded_once_for_final_evaluation",
+  "post_test_model_changes": false
+}

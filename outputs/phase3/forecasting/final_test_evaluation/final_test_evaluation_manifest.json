@@ -1,0 +1,26 @@
+{
+  "evaluation_name": "forecasting-final-test-v1",
+  "created_at_utc": "2026-07-23T12:17:39.361679+00:00",
+  "pretest_tag": "forecasting-pretest-freeze-v1",
+  "pretest_commit": "89c79d3e90aa09ce748fcaf513367c39ca58a4ae",
+  "pretest_manifest_path": "outputs/phase3/forecasting/pretest_freeze/pretest_freeze_manifest.json",
+  "pretest_manifest_sha256": "01f1d59c38e2d1923c81646f6d05b9e4a919fac2eafdadecbbceb5f539bb9877",
+  "evaluation_script_path": "scripts/evaluate_frozen_forecasting_test.py",
+  "evaluation_script_sha256": "26e28c7e7fd72f2ce308119fcf6d154959104f08dd8090b87a15959a649bfc46",
+  "test_dataset_path": "data/modeling/forecasting/forecast_primary_test.csv",
+  "test_dataset_sha256": "202e875b861f9dc104a684ab4312d4e7708772ab0e599f5e3ab8bf0de20d97f7",
+  "frozen_model_path": "models/forecasting/selected_forecaster_pretest.joblib",
+  "frozen_model_sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+  "output_hashes": {
+    "outputs/phase3/forecasting/final_test_evaluation/final_test_metrics.json": "460938cecee05f8d8fff0b76830351c942754178aca0e8fecf6b3db3deaa64f8",
+    "outputs/phase3/forecasting/final_test_evaluation/final_test_model_comparison.csv": "7d3436618b63323f0b453490d6dd2c63cc6d2073c9061bc2aa75b15fd2d620c9",
+    "outputs/phase3/forecasting/final_test_evaluation/final_test_predictions.csv": "9512325151deb763d258ce145ed24b92a0d1a73d93745108602e546181da1d47",
+    "outputs/phase3/forecasting/final_test_evaluation/final_test_per_repository_metrics.csv": "7d854f7836d96569dfb3666d3e37223316878d414c96107126d33a366357688c",
+    "outputs/phase3/forecasting/final_test_evaluation/final_test_report.txt": "62e15c0fbbe064122b2abed2d4fcbbaabe7b988484cdd012598ec97cb60ed67d",
+    "outputs/phase3/forecasting/final_test_evaluation/final_test_observed_vs_predicted.png": "0d2aeb2af1104d20cce0ddb53718b6efe7c16ac0b80f862ca1eb8c15adbffc91",
+    "outputs/phase3/forecasting/final_test_evaluation/final_test_residuals.png": "6f58a993f8ed289df2f0c57ebf1fad5cb5c4c314f1fa15edeb52579ffbb6081d",
+    "outputs/phase3/forecasting/final_test_evaluation/final_test_rmsle_comparison.png": "d181fd28090c1915d396719a4d15cf5c7d8b88cd8aabf386e2e8e3e7a5cf014f",
+    "outputs/phase3/forecasting/final_test_evaluation/final_test_per_repository_mae.png": "1898f2b52825890e5c54e637ba6067fd193510bd5a365bcac6f0d68d93f2c984"
+  },
+  "post_test_model_changes": false
+}

@@ -1,0 +1,141 @@
+================================================================================================================
+FORECASTING FINAL TEST EVALUATION
+================================================================================================================
+{
+  "evaluation_status": "forecasting_final_test_complete",
+  "created_at_utc": "2026-07-23T12:17:39.361679+00:00",
+  "one_time_evaluation": true,
+  "frozen_pretest_tag": "forecasting-pretest-freeze-v1",
+  "frozen_pretest_commit": "89c79d3e90aa09ce748fcaf513367c39ca58a4ae",
+  "frozen_model_path": "models/forecasting/selected_forecaster_pretest.joblib",
+  "frozen_model_sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+  "artifact_version": "forecasting_pretest_v1",
+  "approach_family": "additive_residual_extra_trees",
+  "mode": "additive_residual",
+  "model_kind": "extra_trees",
+  "baseline_formula": "4.0 * rolling_3week_mean_stars",
+  "feature_columns": [
+    "weekly_new_stars",
+    "previous_week_stars",
+    "weekly_growth_rate",
+    "lag_2_week_stars",
+    "rolling_3week_mean_stars",
+    "rolling_4week_sum_stars",
+    "weekly_growth_acceleration"
+  ],
+  "residual_estimator_parameters": {
+    "max_depth": 4,
+    "max_features": "sqrt",
+    "min_samples_leaf": 10,
+    "n_estimators": 400,
+    "random_state": 42
+  },
+  "test_dataset": {
+    "path": "data/modeling/forecasting/forecast_primary_test.csv",
+    "sha256": "202e875b861f9dc104a684ab4312d4e7708772ab0e599f5e3ab8bf0de20d97f7",
+    "rows": 66,
+    "repositories": 22,
+    "samples_per_repository": 3,
+    "cutoff_week_minimum": "2012-05-07T00:00:00+00:00",
+    "cutoff_week_maximum": "2025-11-24T00:00:00+00:00",
+    "target_end_week_minimum": "2012-06-04T00:00:00+00:00",
+    "target_end_week_maximum": "2025-12-22T00:00:00+00:00",
+    "target_minimum": 8.0,
+    "target_median": 117.0,
+    "target_mean": 219.95454545454547,
+    "target_maximum": 1240.0,
+    "prediction_minimum": 25.888568370906942,
+    "prediction_median": 121.32277856864658,
+    "prediction_mean": 131.07680276396948,
+    "prediction_maximum": 550.4432771161697,
+    "residual_correction_mean": -1.185823498656776,
+    "residual_correction_median": 2.0961226663621053
+  },
+  "frozen_model_test_metrics": {
+    "rmsle": 0.917431231696348,
+    "mae": 127.04814991549598,
+    "rmse": 277.9667887214416,
+    "smape": 0.5038127396343218,
+    "forecast_bias": -88.87774269057596,
+    "median_absolute_error": 27.261509777734016,
+    "maximum_absolute_error": 1208.8551023658013
+  },
+  "best_descriptive_test_benchmark": {
+    "approach": "scaled_rolling_baseline_1_2",
+    "rmsle": 0.9125756308526274,
+    "mae": 128.4212121212121,
+    "rmse": 277.2758838369752,
+    "smape": 0.5012708668282332,
+    "forecast_bias": -61.23939393939394,
+    "median_absolute_error": 37.59999999999999,
+    "maximum_absolute_error": 1216.0
+  },
+  "comparison_interpretation_rule": "The frozen model was selected before opening the test set. All other test approaches are reported only as descriptive benchmarks and cannot replace, retune, or modify the frozen model.",
+  "pretest_validation_metrics": {
+    "rmsle": 0.4945711223443873,
+    "mae": 50.93507128061863,
+    "rmse": 115.05973059248772,
+    "smape": 0.3480073139838976,
+    "forecast_bias": -28.29374243598551
+  },
+  "pretest_cv_metrics": {
+    "mean_rmsle": 0.517680691925574,
+    "std_rmsle": 0.13498104727921792,
+    "mean_mae": 37.449958419465375
+  },
+  "outputs": {
+    "metrics_table": "outputs/phase3/forecasting/final_test_evaluation/final_test_model_comparison.csv",
+    "predictions": "outputs/phase3/forecasting/final_test_evaluation/final_test_predictions.csv",
+    "per_repository_metrics": "outputs/phase3/forecasting/final_test_evaluation/final_test_per_repository_metrics.csv",
+    "report": "outputs/phase3/forecasting/final_test_evaluation/final_test_report.txt"
+  },
+  "software": {
+    "python": "3.12.10",
+    "pandas": "3.0.3",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0",
+    "joblib": "1.5.3"
+  },
+  "test_data_status": "loaded_once_for_final_evaluation",
+  "post_test_model_changes": false
+}
+
+================================================================================================================
+FINAL TEST MODEL COMPARISON
+================================================================================================================
+                            approach       evaluation_role    rmsle        mae       rmse    smape  forecast_bias  median_absolute_error  maximum_absolute_error
+         scaled_rolling_baseline_1_2 descriptive_benchmark 0.912576 128.421212 277.275884 0.501271     -61.239394              37.600000             1216.000000
+frozen_additive_residual_extra_trees  frozen_primary_model 0.917431 127.048150 277.966789 0.503813     -88.877743              27.261510             1208.855102
+           raw_rolling_3week_mean_x4 descriptive_benchmark 0.934287 123.439394 279.328563 0.463650     -87.691919              19.333333             1220.000000
+                previous_4week_total descriptive_benchmark 0.947986 131.454545 288.731814 0.469459     -82.030303              20.000000             1213.000000
+                    previous_week_x4 descriptive_benchmark 0.969117 128.287879 277.285790 0.536263     -98.621212              29.500000             1216.000000
+                        last_week_x4 descriptive_benchmark 0.970225 120.106061 273.548871 0.471291     -85.469697              24.000000             1232.000000
+
+================================================================================================================
+FINAL TEST PER-REPOSITORY METRICS
+================================================================================================================
+  repo_id                       repo_full_name  test_rows  target_mean  prediction_mean    rmsle        mae       rmse    smape  forecast_bias  median_absolute_error  maximum_absolute_error
+997737944                        ruvnet/RuView          3   422.666667        40.701379 2.307631 423.938114 698.406893 1.342385    -381.965288              32.888888             1208.855102
+542284380                       usebruno/bruno          3   622.333333        71.170659 1.942471 551.162675 673.578288 1.269936    -551.162675             662.277613              959.966301
+695864515              hacksider/Deep-Live-Cam          3   440.333333       107.985507 1.758931 428.155834 661.236064 1.123796    -332.347826              76.842804             1140.755491
+ 58028038             521xueweihan/HelloGitHub          3    86.000000       268.690981 1.240154 186.912529 273.612730 0.836622     182.690981              88.961988              465.443277
+135614069 sudheerj/reactjs-interview-questions          3   479.333333       171.457482 1.038945 307.875851 308.745307 0.949274    -307.875851             318.898737              329.067583
+  1644196                      JuliaLang/julia          3    12.333333        29.943762 0.963315  17.610429  19.147097 0.831751      17.610429              16.710843               27.231875
+307260205                        yt-dlp/yt-dlp          3   445.000000       208.767643 0.812205 236.232357 244.294029 0.731152    -236.232357             276.785012              283.612374
+ 80945428                          nestjs/nest          3   362.666667       184.526948 0.809057 178.139719 198.693949 0.670403    -178.139719             191.335023              278.722763
+357728969                          oven-sh/bun          3   298.333333       133.489796 0.769777 164.843538 188.279424 0.727082    -164.843538             113.765778              292.641507
+ 43441403                        strapi/strapi          3    28.333333        47.075032 0.517077  18.741699  19.562035 0.497950      18.741699              18.591177               25.681064
+   858127                    pandas-dev/pandas          3    50.333333        70.459507 0.340261  20.126173  20.482054 0.334693      20.126173              17.493183               25.501981
+ 22887094              tesseract-ocr/tesseract          3   347.333333       267.924694 0.327248  79.408640  97.410670 0.261104     -79.408640              49.407397              158.437412
+ 91629816                  freqtrade/freqtrade          3    83.000000        78.920961 0.321131  22.273135  25.593418 0.276963      -4.079039              27.291144               34.580017
+ 23088740                          axios/axios          3   131.333333       153.196684 0.284374  27.818502  37.488981 0.204689      21.863351              11.187886               63.334892
+ 33884891                       apache/airflow          3   118.000000       140.835065 0.226283  22.835065  28.431035 0.179348      22.835065              14.106897               46.517266
+ 19745004                            odoo/odoo          3    95.333333       111.300436 0.196696  18.049212  21.005248 0.170653      15.967103              23.046592               27.977880
+ 65750241                            expo/expo          3   104.000000       102.291059 0.180760  16.892959  18.128639 0.167508      -1.708941              20.192847               22.776028
+192925833                        prisma/prisma          3   246.666667       213.830348 0.160269  32.836319  36.798212 0.143008     -32.836319              23.552074               56.164773
+  5108051                        opencv/opencv          3   134.333333       138.008716 0.158576  17.114294  20.833224 0.129235       3.675383              20.158366               29.900872
+  5625464                          pyenv/pyenv          3    71.666667        71.223747 0.119418   7.582100   8.518041 0.107172      -0.442919               9.926595               10.708770
+ 32689863                           3b1b/manim          3   114.666667       124.295896 0.081928   9.629229  10.028554 0.079968       9.629229               9.367352               13.184103
+ 63476337                 TheAlgorithms/Python          3   145.000000       147.593359 0.063221   6.880926   8.696347 0.049186       2.593359               4.670585               14.211427
+
+The frozen forecasting model was not changed after viewing test results.
