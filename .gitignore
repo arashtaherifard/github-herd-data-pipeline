@@ -46,3 +46,6 @@ outputs/phase3/recommendation/model_search/external_validation_per_user_ranks.cs
 database/generated/*.db
 database/generated/*.db-wal
 database/generated/*.db-shm
+
+# Isolated MLflow and Prefect environment
+venv_bonus/
