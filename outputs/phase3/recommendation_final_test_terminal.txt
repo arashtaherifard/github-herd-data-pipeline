@@ -1,0 +1,18 @@
+============================================================================================================
+FINAL RECOMMENDATION TEST
+============================================================================================================
+Artifact version: recommendation_pretest_v1
+Selected model: herd_mitigation_penalty_0.05
+Test rows/users: 13301
+Test repositories: 143
+
+            model_family                   model_name                                                                                                                                          parameters_json  evaluation_users  precision_at_5  precision_at_10  recall_at_5  recall_at_10  hit_rate_at_5  hit_rate_at_10  ndcg_at_5  ndcg_at_10      mrr  map_at_10  median_positive_rank  mean_positive_rank  catalog_coverage_at_10  novelty_at_10  intra_list_diversity_at_10  average_recommended_popularity_at_10  long_tail_share_at_10
+herd_mitigation_reranker herd_mitigation_penalty_0.05 {"base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00", "popularity_penalty": 0.05}             13301         0.02684         0.022269       0.1342       0.22269         0.1342         0.22269   0.089484    0.117786 0.109231   0.086385                  33.0           43.793549                0.924138       7.183504                    0.953118                            1400.05859               0.868506
+
+Temporal diagnostics: {'test_users': 13301, 'strictly_later_than_latest_history': 13301, 'equal_to_latest_history': 0, 'earlier_than_latest_history': 0, 'policy': 'all frozen test rows evaluated; diagnostics reported without post-test filtering'}
+Candidate count min/median/mean/max: 69 142.0 141.4420720246598 143
+Top-10 rows: 133010
+Final status: final_results_frozen_no_retuning
+real 4.12
+user 6.85
+sys 0.86

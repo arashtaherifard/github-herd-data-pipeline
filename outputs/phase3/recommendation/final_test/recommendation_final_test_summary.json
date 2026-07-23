@@ -1,0 +1,79 @@
+{
+  "status": "recommendation_final_test_evaluated_once",
+  "evaluation_policy": "one-time test evaluation; no tuning or model changes after viewing results",
+  "pretest_commit": "cb8faceda1160590d097b368efdda56f1e155708",
+  "pretest_tag": "recommendation-pretest-freeze-v1",
+  "artifact_version": "recommendation_pretest_v1",
+  "artifact_sha256": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878",
+  "selected_family": "herd_mitigation_reranker",
+  "selected_model_name": "herd_mitigation_penalty_0.05",
+  "selected_parameters": {
+    "base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00",
+    "popularity_penalty": 0.05
+  },
+  "hybrid_parameters": {
+    "normalization": "candidate_rank",
+    "weights": {
+      "graph_personalized_pagerank": 0.25,
+      "item_item_cosine": 0.75,
+      "training_popularity": 0.0,
+      "truncated_svd": 0.0
+    }
+  },
+  "herd_parameters": {
+    "base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00",
+    "popularity_penalty": 0.05
+  },
+  "train_rows": 189964,
+  "validation_rows": 13301,
+  "test_rows": 13301,
+  "test_users": 13301,
+  "test_repositories": 143,
+  "catalog_repositories": 145,
+  "test_file_sha256": "bbed68a6c2d81e8e0e404e6d5de330905f4bfcd53d0d282b38acbb1a4f4d1674",
+  "candidate_count": {
+    "minimum": 69,
+    "median": 142.0,
+    "mean": 141.4420720246598,
+    "maximum": 143
+  },
+  "temporal_diagnostics": {
+    "test_users": 13301,
+    "strictly_later_than_latest_history": 13301,
+    "equal_to_latest_history": 0,
+    "earlier_than_latest_history": 0,
+    "policy": "all frozen test rows evaluated; diagnostics reported without post-test filtering"
+  },
+  "metrics": {
+    "model_family": "herd_mitigation_reranker",
+    "model_name": "herd_mitigation_penalty_0.05",
+    "parameters_json": "{\"base_hybrid\": \"hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00\", \"popularity_penalty\": 0.05}",
+    "evaluation_users": 13301.0,
+    "precision_at_5": 0.026840087211487857,
+    "precision_at_10": 0.02226900233065183,
+    "recall_at_5": 0.13420043605743928,
+    "recall_at_10": 0.2226900233065183,
+    "hit_rate_at_5": 0.13420043605743928,
+    "hit_rate_at_10": 0.2226900233065183,
+    "ndcg_at_5": 0.08948385490094088,
+    "ndcg_at_10": 0.11778583757768221,
+    "mrr": 0.10923059616118408,
+    "map_at_10": 0.08638463154101075,
+    "median_positive_rank": 33.0,
+    "mean_positive_rank": 43.79354935719119,
+    "catalog_coverage_at_10": 0.9241379310344827,
+    "novelty_at_10": 7.183504036580449,
+    "intra_list_diversity_at_10": 0.9531183375050368,
+    "average_recommended_popularity_at_10": 1400.0585895797308,
+    "long_tail_share_at_10": 0.8685061273588452
+  },
+  "top10_rows": 133010,
+  "outputs": {
+    "metrics": "outputs/phase3/recommendation/final_test/recommendation_final_test_metrics.csv",
+    "per_user_ranks": "outputs/phase3/recommendation/final_test/recommendation_final_test_per_user_ranks.csv",
+    "top10_recommendations": "outputs/phase3/recommendation/final_test/recommendation_final_test_top10.csv.gz",
+    "positive_rank_plot": "outputs/phase3/recommendation/final_test/recommendation_final_test_positive_rank_distribution.png",
+    "top_repository_plot": "outputs/phase3/recommendation/final_test/recommendation_final_test_top_repository_frequency.png"
+  },
+  "post_test_status": "final_results_frozen_no_retuning"
+}

@@ -1,0 +1,38 @@
+{
+  "freeze_name": "recommendation-final-test-v1",
+  "status": "recommendation_final_test_evaluated_once",
+  "created_at_utc": "2026-07-23T16:02:25.338542+00:00",
+  "pretest_tag": "recommendation-pretest-freeze-v1",
+  "pretest_commit": "cb8faceda1160590d097b368efdda56f1e155708",
+  "current_head_before_final_commit": "cb8faceda1160590d097b368efdda56f1e155708",
+  "selected_family": "herd_mitigation_reranker",
+  "selected_model_name": "herd_mitigation_penalty_0.05",
+  "artifact_version": "recommendation_pretest_v1",
+  "artifact_sha256": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878",
+  "test_file_sha256": "bbed68a6c2d81e8e0e404e6d5de330905f4bfcd53d0d282b38acbb1a4f4d1674",
+  "test_rows": 13301,
+  "test_users": 13301,
+  "top10_rows": 133010,
+  "primary_metrics": {
+    "ndcg_at_10": 0.11778583757768221,
+    "mrr": 0.10923059616118408,
+    "recall_at_10": 0.2226900233065183,
+    "map_at_10": 0.08638463154101075,
+    "catalog_coverage_at_10": 0.9241379310344827,
+    "novelty_at_10": 7.183504036580449,
+    "intra_list_diversity_at_10": 0.9531183375050368,
+    "long_tail_share_at_10": 0.8685061273588452
+  },
+  "file_hashes": {
+    "outputs/phase3/recommendation/final_test/recommendation_final_test_metrics.csv": "16d422925eebc348b13df1dbf30fd337d132754dcfe560912105aaa653c2ec30",
+    "outputs/phase3/recommendation/final_test/recommendation_final_test_per_user_ranks.csv": "cc86980d803a9f1efebd45a2ad62ea8b9cd7e7f1f9e720a7b0cf7b6653b91eb5",
+    "outputs/phase3/recommendation/final_test/recommendation_final_test_top10.csv.gz": "cb202687fd3a9e5226a0f902d470851217ef61f1acaf93c3df692a9c8b19343c",
+    "outputs/phase3/recommendation/final_test/recommendation_final_test_summary.json": "6b2a59644a1a364cf9c1408fec3fa1272bd2939da75136cae3fda5ad59de9c05",
+    "outputs/phase3/recommendation/final_test/recommendation_final_test_positive_rank_distribution.png": "d2b24629b24397dcba698b03a989f4b6743ced1a9b6b7f86a9d56d163157bad9",
+    "outputs/phase3/recommendation/final_test/recommendation_final_test_top_repository_frequency.png": "f2255844da82677a3515403638ceaf7f5451404b113bb532f121522489a5e4c2",
+    "outputs/phase3/recommendation_final_test_terminal.txt": "70a14e7602cbe179710e4917adf87e2ff1b407a28393ca00ba9bb4f7e5bf44f4",
+    "scripts/evaluate_recommendation_test.py": "7c8a32518f4fd841dd72f990464df446c8dc361c3146af63e5976a106d841cf0"
+  },
+  "post_test_policy": "final results frozen; no model, weight, filtering rule, or hyperparameter may be changed based on test performance",
+  "post_test_status": "final_results_frozen_no_retuning"
+}
