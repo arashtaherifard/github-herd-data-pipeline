@@ -1,0 +1,222 @@
+================================================================================================================
+RECOMMENDATION MODEL-SEARCH AUDIT
+================================================================================================================
+{
+  "audit_status": "recommendation_model_search_audit_complete",
+  "test_data_status": "header_only_not_loaded_or_evaluated",
+  "test_header_columns": [
+    "user_id",
+    "username",
+    "repo_id",
+    "repo_full_name",
+    "starred_at",
+    "interaction",
+    "user_activity_count",
+    "repo_popularity_count",
+    "language",
+    "topic_count",
+    "stars_count",
+    "forks_count"
+  ],
+  "selected_family": "herd_mitigation_reranker",
+  "selected_model_name": "herd_mitigation_penalty_0.05",
+  "selected_parameters": {
+    "base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00",
+    "popularity_penalty": 0.05
+  },
+  "selection_rule_check": {
+    "selection_rule_matched": true,
+    "expected_family": "herd_mitigation_reranker",
+    "expected_model_name": "herd_mitigation_penalty_0.05"
+  },
+  "development_artifact": {
+    "path": "models/recommendation/selected_recommender_development.joblib",
+    "sha256": "41758e0835f4296e1825e52f25c41780a89299f51cfbab48b46647edb633e7dd",
+    "metadata_hash_matched": true
+  },
+  "metric_reproduction": {
+    "maximum_absolute_difference": 0.0,
+    "tolerance": 1e-12,
+    "all_metrics_reproduced": true,
+    "metric_differences": {
+      "precision_at_5": {
+        "stored": 0.04726588943211733,
+        "reproduced": 0.04726588943211733,
+        "absolute_difference": 0.0
+      },
+      "precision_at_10": {
+        "stored": 0.03657013915005641,
+        "reproduced": 0.03657013915005641,
+        "absolute_difference": 0.0
+      },
+      "recall_at_5": {
+        "stored": 0.23632944716058668,
+        "reproduced": 0.23632944716058668,
+        "absolute_difference": 0.0
+      },
+      "recall_at_10": {
+        "stored": 0.36570139150056413,
+        "reproduced": 0.36570139150056413,
+        "absolute_difference": 0.0
+      },
+      "ndcg_at_5": {
+        "stored": 0.1538166866483406,
+        "reproduced": 0.1538166866483406,
+        "absolute_difference": 0.0
+      },
+      "ndcg_at_10": {
+        "stored": 0.1954139383295965,
+        "reproduced": 0.1954139383295965,
+        "absolute_difference": 0.0
+      },
+      "mrr": {
+        "stored": 0.1665256056636272,
+        "reproduced": 0.1665256056636272,
+        "absolute_difference": 0.0
+      },
+      "map_at_10": {
+        "stored": 0.1439310637129366,
+        "reproduced": 0.1439310637129366,
+        "absolute_difference": 0.0
+      },
+      "catalog_coverage_at_10": {
+        "stored": 0.9241379310344827,
+        "reproduced": 0.9241379310344827,
+        "absolute_difference": 0.0
+      },
+      "novelty_at_10": {
+        "stored": 7.213030965447362,
+        "reproduced": 7.213030965447362,
+        "absolute_difference": 0.0
+      },
+      "intra_list_diversity_at_10": {
+        "stored": 0.9578666981462893,
+        "reproduced": 0.9578666981462893,
+        "absolute_difference": 0.0
+      },
+      "average_recommended_popularity_at_10": {
+        "stored": 1283.3438510718315,
+        "reproduced": 1283.3438510718315,
+        "absolute_difference": 0.0
+      },
+      "long_tail_share_at_10": {
+        "stored": 0.9240767205716435,
+        "reproduced": 0.9240767205716435,
+        "absolute_difference": 0.0
+      }
+    }
+  },
+  "strict_external_validation": {
+    "users": 13295,
+    "metrics": {
+      "ndcg_at_10": 0.1954139383295965,
+      "mrr": 0.1665256056636272,
+      "recall_at_10": 0.3657013915005641,
+      "ndcg_at_5": 0.1538166866483406,
+      "catalog_coverage_at_10": 0.9241379310344828,
+      "novelty_at_10": 7.213030965447362,
+      "intra_list_diversity_at_10": 0.9578666981462892,
+      "average_recommended_popularity_at_10": 1283.3438510718315,
+      "long_tail_share_at_10": 0.9240767205716436
+    }
+  },
+  "best_nonselected_family": {
+    "model_family": "item_item_cosine",
+    "model_name": "item_cosine_mean_shrink_0",
+    "ndcg_at_10": 0.1880718961856997,
+    "selected_minus_ndcg_at_10": 0.007342042143896804,
+    "relative_ndcg_at_10_improvement": 0.039038486306573784
+  },
+  "full_validation_sensitivity": {
+    "strict_validation_users": 13295,
+    "full_validation_users": 13301,
+    "additional_equal_timestamp_users": 6,
+    "full_validation_metrics": {
+      "ndcg_at_10": 0.19561039685838763,
+      "mrr": 0.1666760339296236,
+      "recall_at_10": 0.36598751973535826,
+      "ndcg_at_5": 0.15403190944373485,
+      "catalog_coverage_at_10": 0.9241379310344827,
+      "novelty_at_10": 7.212989720262734,
+      "intra_list_diversity_at_10": 0.9578701012342448,
+      "average_recommended_popularity_at_10": 1283.380820990903,
+      "long_tail_share_at_10": 0.9239756409292534
+    },
+    "maximum_absolute_metric_change": 0.03696991907145275
+  },
+  "input_counts": {
+    "internal_result_rows": 65,
+    "internal_winner_rows": 7,
+    "external_family_rows": 7,
+    "external_rank_rows": 79770,
+    "selection_summary_external_users": 13295
+  },
+  "output_paths": {
+    "summary": "outputs/phase3/recommendation/model_search_audit/recommendation_model_search_audit.json",
+    "paired_bootstrap": "outputs/phase3/recommendation/model_search_audit/paired_bootstrap_differences.csv",
+    "history_subgroups": "outputs/phase3/recommendation/model_search_audit/history_subgroup_metrics.csv",
+    "external_ablation": "outputs/phase3/recommendation/model_search_audit/external_validation_ablation.csv",
+    "full_validation_sensitivity": "outputs/phase3/recommendation/model_search_audit/full_validation_sensitivity.csv",
+    "bootstrap_plot": "outputs/phase3/recommendation/model_search_audit/paired_bootstrap_ndcg_at_10.png"
+  }
+}
+
+================================================================================================================
+PAIRED BOOTSTRAP DIFFERENCES
+================================================================================================================
+         selected_family           comparator_family       metric  users  observed_mean_difference  bootstrap_mean_difference   ci_2_5  ci_97_5  probability_selected_better  bootstrap_replications  random_state
+herd_mitigation_reranker graph_personalized_pagerank   ndcg_at_10  13295                  0.008231                   0.008239 0.006021 0.010525                        1.000                    2000            42
+herd_mitigation_reranker graph_personalized_pagerank          mrr  13295                  0.008551                   0.008572 0.006464 0.010897                        1.000                    2000            42
+herd_mitigation_reranker graph_personalized_pagerank recall_at_10  13295                  0.006995                   0.007005 0.002933 0.011057                        0.999                    2000            42
+herd_mitigation_reranker            item_item_cosine   ndcg_at_10  13295                  0.007342                   0.007323 0.005627 0.008953                        1.000                    2000            42
+herd_mitigation_reranker            item_item_cosine          mrr  13295                  0.007296                   0.007280 0.005391 0.009215                        1.000                    2000            42
+herd_mitigation_reranker            item_item_cosine recall_at_10  13295                  0.006318                   0.006272 0.003231 0.009554                        1.000                    2000            42
+herd_mitigation_reranker      rank_normalized_hybrid   ndcg_at_10  13295                  0.007884                   0.007885 0.006327 0.009485                        1.000                    2000            42
+herd_mitigation_reranker      rank_normalized_hybrid          mrr  13295                  0.007348                   0.007327 0.005589 0.009048                        1.000                    2000            42
+herd_mitigation_reranker      rank_normalized_hybrid recall_at_10  13295                  0.008274                   0.008274 0.005566 0.011132                        1.000                    2000            42
+herd_mitigation_reranker         training_popularity   ndcg_at_10  13295                  0.189382                   0.189346 0.184147 0.194272                        1.000                    2000            42
+herd_mitigation_reranker         training_popularity          mrr  13295                  0.148516                   0.148508 0.144085 0.153109                        1.000                    2000            42
+herd_mitigation_reranker         training_popularity recall_at_10  13295                  0.349605                   0.349494 0.340953 0.358257                        1.000                    2000            42
+herd_mitigation_reranker               truncated_svd   ndcg_at_10  13295                  0.027289                   0.027297 0.023429 0.031194                        1.000                    2000            42
+herd_mitigation_reranker               truncated_svd          mrr  13295                  0.023634                   0.023633 0.020157 0.027267                        1.000                    2000            42
+herd_mitigation_reranker               truncated_svd recall_at_10  13295                  0.052200                   0.052254 0.045278 0.059421                        1.000                    2000            42
+
+================================================================================================================
+HISTORY SUBGROUP METRICS
+================================================================================================================
+               model_family                                                                                                model_name history_group  users  mean_train_history_count  ndcg_at_10      mrr  recall_at_10  ndcg_at_5  median_positive_rank  mean_positive_rank
+graph_personalized_pagerank                                                                                     ppr_ppmi_restart_0.50             1   6401                  1.000000    0.227115 0.189332      0.420091   0.182302                  15.0           27.976097
+graph_personalized_pagerank                                                                                     ppr_ppmi_restart_0.50             2   2814                  2.000000    0.196063 0.163057      0.381663   0.149696                  16.0           28.772566
+graph_personalized_pagerank                                                                                     ppr_ppmi_restart_0.50           3-4   2281                  3.358176    0.143453 0.121241      0.300745   0.100806                  22.0           32.792635
+graph_personalized_pagerank                                                                                     ppr_ppmi_restart_0.50           5-9   1420                  6.211268    0.098366 0.093840      0.200000   0.071454                  31.5           39.302817
+graph_personalized_pagerank                                                                                     ppr_ppmi_restart_0.50           10+    379                 14.532982    0.042777 0.052010      0.094987   0.029088                  44.0           48.965699
+   herd_mitigation_reranker                                                                              herd_mitigation_penalty_0.05             1   6401                  1.000000    0.238561 0.200158      0.433838   0.194483                  14.0           25.533198
+   herd_mitigation_reranker                                                                              herd_mitigation_penalty_0.05             2   2814                  2.000000    0.203776 0.171602      0.387349   0.156660                  16.0           27.173774
+   herd_mitigation_reranker                                                                              herd_mitigation_penalty_0.05           3-4   2281                  3.358176    0.149331 0.129870      0.297238   0.108504                  23.0           31.711968
+   herd_mitigation_reranker                                                                              herd_mitigation_penalty_0.05           5-9   1420                  6.211268    0.101556 0.096692      0.201408   0.073964                  32.5           39.140845
+   herd_mitigation_reranker                                                                              herd_mitigation_penalty_0.05           10+    379                 14.532982    0.033624 0.043060      0.081794   0.017785                  48.0           51.791557
+           item_item_cosine                                                                                 item_cosine_mean_shrink_0             1   6401                  1.000000    0.237529 0.199347      0.433057   0.193299                  14.0           25.292767
+           item_item_cosine                                                                                 item_cosine_mean_shrink_0             2   2814                  2.000000    0.191428 0.156946      0.383440   0.141135                  17.0           27.326581
+           item_item_cosine                                                                                 item_cosine_mean_shrink_0           3-4   2281                  3.358176    0.136855 0.119207      0.280579   0.098869                  23.0           32.172731
+           item_item_cosine                                                                                 item_cosine_mean_shrink_0           5-9   1420                  6.211268    0.084587 0.079539      0.186620   0.052512                  33.0           40.186620
+           item_item_cosine                                                                                 item_cosine_mean_shrink_0           10+    379                 14.532982    0.023839 0.038095      0.058047   0.013973                  51.0           53.891821
+     rank_normalized_hybrid hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00             1   6401                  1.000000    0.236435 0.198759      0.430089   0.192429                  14.0           25.620216
+     rank_normalized_hybrid hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00             2   2814                  2.000000    0.192112 0.158577      0.381308   0.140961                  16.0           27.509950
+     rank_normalized_hybrid hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00           3-4   2281                  3.358176    0.134887 0.116859      0.280579   0.094769                  23.0           32.218764
+     rank_normalized_hybrid hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00           5-9   1420                  6.211268    0.085644 0.081841      0.184507   0.056276                  33.0           39.930282
+     rank_normalized_hybrid hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00           10+    379                 14.532982    0.026091 0.039596      0.063325   0.015407                  50.0           52.744063
+        training_popularity                                                                                       training_popularity             1   6401                  1.000000    0.008826 0.020498      0.023434   0.003089                  85.0           82.728480
+        training_popularity                                                                                       training_popularity             2   2814                  2.000000    0.004346 0.017241      0.011372   0.002505                  93.0           88.419332
+        training_popularity                                                                                       training_popularity           3-4   2281                  3.358176    0.002400 0.014952      0.007014   0.000698                  98.0           92.388865
+        training_popularity                                                                                       training_popularity           5-9   1420                  6.211268    0.002776 0.014121      0.007042   0.001706                 103.0           96.023944
+        training_popularity                                                                                       training_popularity           10+    379                 14.532982    0.005425 0.014676      0.015831   0.002273                  98.0           93.153034
+              truncated_svd                                                                                            svd_64_iter_15             1   6401                  1.000000    0.192475 0.164720      0.339322   0.160825                  29.0           46.752382
+              truncated_svd                                                                                            svd_64_iter_15             2   2814                  2.000000    0.174622 0.146563      0.330490   0.137955                  25.0           42.779318
+              truncated_svd                                                                                            svd_64_iter_15           3-4   2281                  3.358176    0.147544 0.123841      0.292416   0.111500                  28.0           44.753178
+              truncated_svd                                                                                            svd_64_iter_15           5-9   1420                  6.211268    0.108440 0.091661      0.240141   0.072289                  31.0           44.871127
+              truncated_svd                                                                                            svd_64_iter_15           10+    379                 14.532982    0.056131 0.053560      0.153034   0.025458                  36.0           46.490765
+
+Recommendation test values were not loaded or evaluated.
+real 5.00
+user 9.09
+sys 1.17

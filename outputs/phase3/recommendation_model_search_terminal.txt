@@ -1,0 +1,63 @@
+================================================================================================================
+RECOMMENDATION PRIMARY MODEL SEARCH
+================================================================================================================
+
+Internal family winners:
+               model_family                                                                                                model_name  ndcg_at_10      mrr  recall_at_10  catalog_coverage_at_10  novelty_at_10  long_tail_share_at_10
+              random_sanity                                                                                       random_seed_average    0.031919 0.038858      0.069889                     NaN            NaN                    NaN
+        training_popularity                                                                                       training_popularity    0.006872 0.018862      0.019064                     NaN            NaN                    NaN
+           item_item_cosine                                                                                 item_cosine_mean_shrink_0    0.157903 0.136145      0.301786                     NaN            NaN                    NaN
+              truncated_svd                                                                                            svd_64_iter_15    0.118388 0.105653      0.229894                     NaN            NaN                    NaN
+graph_personalized_pagerank                                                                                     ppr_ppmi_restart_0.50    0.142173 0.122807      0.275192                     NaN            NaN                    NaN
+     rank_normalized_hybrid hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00    0.154272 0.132770      0.296099                     NaN            NaN                    NaN
+   herd_mitigation_reranker                                                                              herd_mitigation_penalty_0.05    0.157866 0.135947      0.300184                     NaN            NaN                    NaN
+
+================================================================================================================
+EXTERNAL VALIDATION FAMILY RESULTS
+================================================================================================================
+               model_family                                                                                                model_name  ndcg_at_10      mrr  recall_at_10  ndcg_at_5  catalog_coverage_at_10  novelty_at_10  intra_list_diversity_at_10  average_recommended_popularity_at_10  long_tail_share_at_10
+   herd_mitigation_reranker                                                                              herd_mitigation_penalty_0.05    0.195414 0.166526      0.365701   0.153817                0.924138       7.213031                    0.957867                           1283.343851               0.924077
+           item_item_cosine                                                                                 item_cosine_mean_shrink_0    0.188072 0.159230      0.359383   0.145907                0.972414       7.199301                    0.958652                           1295.185017               0.902745
+     rank_normalized_hybrid hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00    0.187530 0.159178      0.357428   0.145191                0.931034       7.202426                    0.957982                           1292.423798               0.910816
+graph_personalized_pagerank                                                                                     ppr_ppmi_restart_0.50    0.187183 0.157975      0.358706   0.145212                0.889655       7.215648                    0.956370                           1281.661294               0.927552
+              truncated_svd                                                                                            svd_64_iter_15    0.168125 0.142892      0.313501   0.134206                0.965517       7.186297                    0.978885                           1306.249131               0.919902
+              random_sanity                                                                                       random_seed_average    0.032080 0.039144      0.070493   0.020557                1.000000       7.186544                    0.992582                           1310.279466               0.799708
+        training_popularity                                                                                       training_popularity    0.006032 0.018010      0.016096   0.002384                0.103448       7.017807                    0.995905                           1466.107604               0.000000
+
+================================================================================================================
+SELECTED DEVELOPMENT RECOMMENDER
+================================================================================================================
+{
+  "artifact_version": "recommendation_development_v1",
+  "selection_status": "selected_on_external_validation_not_refit_for_test",
+  "git_commit": "a55c346c9c0b394995923852b0d50f82f15b359f",
+  "selected_family": "herd_mitigation_reranker",
+  "selected_model_name": "herd_mitigation_penalty_0.05",
+  "selected_parameters": {
+    "base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00",
+    "popularity_penalty": 0.05
+  },
+  "selected_external_validation_metrics": {
+    "precision_at_5": 0.04726588943211733,
+    "precision_at_10": 0.03657013915005641,
+    "recall_at_5": 0.23632944716058668,
+    "recall_at_10": 0.36570139150056413,
+    "ndcg_at_5": 0.1538166866483406,
+    "ndcg_at_10": 0.1954139383295965,
+    "mrr": 0.1665256056636272,
+    "map_at_10": 0.1439310637129366,
+    "catalog_coverage_at_10": 0.9241379310344827,
+    "novelty_at_10": 7.213030965447362,
+    "intra_list_diversity_at_10": 0.9578666981462893,
+    "average_recommended_popularity_at_10": 1283.3438510718315,
+    "long_tail_share_at_10": 0.9240767205716435
+  },
+  "development_artifact_path": "models/recommendation/selected_recommender_development.joblib",
+  "development_artifact_sha256": "41758e0835f4296e1825e52f25c41780a89299f51cfbab48b46647edb633e7dd",
+  "test_data_status": "header_only_not_loaded_or_evaluated"
+}
+
+Recommendation test values were not loaded or evaluated.
+real 39.36
+user 163.93
+sys 45.31

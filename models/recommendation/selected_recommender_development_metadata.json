@@ -1,0 +1,29 @@
+{
+  "artifact_version": "recommendation_development_v1",
+  "selection_status": "selected_on_external_validation_not_refit_for_test",
+  "git_commit": "a55c346c9c0b394995923852b0d50f82f15b359f",
+  "selected_family": "herd_mitigation_reranker",
+  "selected_model_name": "herd_mitigation_penalty_0.05",
+  "selected_parameters": {
+    "base_hybrid": "hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00",
+    "popularity_penalty": 0.05
+  },
+  "selected_external_validation_metrics": {
+    "precision_at_5": 0.04726588943211733,
+    "precision_at_10": 0.03657013915005641,
+    "recall_at_5": 0.23632944716058668,
+    "recall_at_10": 0.36570139150056413,
+    "ndcg_at_5": 0.1538166866483406,
+    "ndcg_at_10": 0.1954139383295965,
+    "mrr": 0.1665256056636272,
+    "map_at_10": 0.1439310637129366,
+    "catalog_coverage_at_10": 0.9241379310344827,
+    "novelty_at_10": 7.213030965447362,
+    "intra_list_diversity_at_10": 0.9578666981462893,
+    "average_recommended_popularity_at_10": 1283.3438510718315,
+    "long_tail_share_at_10": 0.9240767205716435
+  },
+  "development_artifact_path": "models/recommendation/selected_recommender_development.joblib",
+  "development_artifact_sha256": "41758e0835f4296e1825e52f25c41780a89299f51cfbab48b46647edb633e7dd",
+  "test_data_status": "header_only_not_loaded_or_evaluated"
+}
