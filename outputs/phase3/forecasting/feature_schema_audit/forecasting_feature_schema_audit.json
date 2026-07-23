@@ -1,0 +1,104 @@
+{
+  "training_rows": 700,
+  "validation_rows": 66,
+  "training_repositories": 22,
+  "validation_repositories": 22,
+  "target": "future_4week_stars",
+  "candidate_feature_count": 12,
+  "candidate_features": [
+    "clean_history_weeks",
+    "weekly_new_stars",
+    "cumulative_stars",
+    "previous_week_stars",
+    "weekly_growth_rate",
+    "herd_momentum_score",
+    "lag_1_week_stars",
+    "lag_2_week_stars",
+    "rolling_3week_mean_stars",
+    "rolling_4week_sum_stars",
+    "weekly_growth_acceleration",
+    "cumulative_growth_lag_1"
+  ],
+  "identifier_columns": [
+    "repo_id",
+    "repo_full_name",
+    "cutoff_week",
+    "target_end_week"
+  ],
+  "non_model_columns": [
+    "history_length",
+    "initial_snapshot_rows",
+    "split",
+    "validation_samples_per_repo",
+    "test_samples_per_repo",
+    "minimum_train_samples"
+  ],
+  "constant_candidate_features": [],
+  "exact_duplicate_candidate_features": [
+    {
+      "feature_1": "previous_week_stars",
+      "feature_2": "lag_1_week_stars"
+    }
+  ],
+  "train_duplicate_keys": 0,
+  "validation_duplicate_keys": 0,
+  "train_target_summary": {
+    "minimum": 4.0,
+    "median": 57.0,
+    "mean": 70.14714285714285,
+    "maximum": 513.0,
+    "zero_rows": 0
+  },
+  "validation_target_summary": {
+    "minimum": 20.0,
+    "median": 113.0,
+    "mean": 130.5151515151515,
+    "maximum": 750.0,
+    "zero_rows": 0
+  },
+  "train_date_audit": {
+    "split": "train",
+    "invalid_date_order_rows": 0,
+    "minimum_horizon_days": 28.0,
+    "maximum_horizon_days": 28.0,
+    "unique_horizon_days": [
+      28.0
+    ]
+  },
+  "validation_date_audit": {
+    "split": "validation",
+    "invalid_date_order_rows": 0,
+    "minimum_horizon_days": 28.0,
+    "maximum_horizon_days": 28.0,
+    "unique_horizon_days": [
+      28.0
+    ]
+  },
+  "test_column_count": 23,
+  "test_columns": [
+    "repo_id",
+    "repo_full_name",
+    "cutoff_week",
+    "target_end_week",
+    "history_length",
+    "initial_snapshot_rows",
+    "clean_history_weeks",
+    "future_4week_stars",
+    "weekly_new_stars",
+    "cumulative_stars",
+    "previous_week_stars",
+    "weekly_growth_rate",
+    "herd_momentum_score",
+    "lag_1_week_stars",
+    "lag_2_week_stars",
+    "rolling_3week_mean_stars",
+    "rolling_4week_sum_stars",
+    "weekly_growth_acceleration",
+    "cumulative_growth_lag_1",
+    "split",
+    "validation_samples_per_repo",
+    "test_samples_per_repo",
+    "minimum_train_samples"
+  ],
+  "test_values_loaded": false
+}

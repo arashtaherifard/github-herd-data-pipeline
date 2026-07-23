@@ -1,0 +1,4 @@
+fold,repositories,train_rows,validation_rows,train_target_mean,validation_target_mean,train_target_median,validation_target_median,validation_target_minimum,validation_target_maximum,target_window_overlap_violations
+1,22,546,22,61.37362637362637,107.95454545454545,52.0,100.0,10.0,278.0,0
+2,22,568,22,62.88380281690141,108.5,53.0,104.0,11.0,248.0,0
+3,22,590,22,63.97118644067797,104.68181818181819,53.0,99.0,9.0,244.0,0

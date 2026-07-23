@@ -1,0 +1,158 @@
+=========================================================================================================
+FORECASTING FEATURE-SCHEMA AUDIT
+=========================================================================================================
+{
+  "training_rows": 700,
+  "validation_rows": 66,
+  "training_repositories": 22,
+  "validation_repositories": 22,
+  "target": "future_4week_stars",
+  "candidate_feature_count": 12,
+  "candidate_features": [
+    "clean_history_weeks",
+    "weekly_new_stars",
+    "cumulative_stars",
+    "previous_week_stars",
+    "weekly_growth_rate",
+    "herd_momentum_score",
+    "lag_1_week_stars",
+    "lag_2_week_stars",
+    "rolling_3week_mean_stars",
+    "rolling_4week_sum_stars",
+    "weekly_growth_acceleration",
+    "cumulative_growth_lag_1"
+  ],
+  "identifier_columns": [
+    "repo_id",
+    "repo_full_name",
+    "cutoff_week",
+    "target_end_week"
+  ],
+  "non_model_columns": [
+    "history_length",
+    "initial_snapshot_rows",
+    "split",
+    "validation_samples_per_repo",
+    "test_samples_per_repo",
+    "minimum_train_samples"
+  ],
+  "constant_candidate_features": [],
+  "exact_duplicate_candidate_features": [
+    {
+      "feature_1": "previous_week_stars",
+      "feature_2": "lag_1_week_stars"
+    }
+  ],
+  "train_duplicate_keys": 0,
+  "validation_duplicate_keys": 0,
+  "train_target_summary": {
+    "minimum": 4.0,
+    "median": 57.0,
+    "mean": 70.14714285714285,
+    "maximum": 513.0,
+    "zero_rows": 0
+  },
+  "validation_target_summary": {
+    "minimum": 20.0,
+    "median": 113.0,
+    "mean": 130.5151515151515,
+    "maximum": 750.0,
+    "zero_rows": 0
+  },
+  "train_date_audit": {
+    "split": "train",
+    "invalid_date_order_rows": 0,
+    "minimum_horizon_days": 28.0,
+    "maximum_horizon_days": 28.0,
+    "unique_horizon_days": [
+      28.0
+    ]
+  },
+  "validation_date_audit": {
+    "split": "validation",
+    "invalid_date_order_rows": 0,
+    "minimum_horizon_days": 28.0,
+    "maximum_horizon_days": 28.0,
+    "unique_horizon_days": [
+      28.0
+    ]
+  },
+  "test_column_count": 23,
+  "test_columns": [
+    "repo_id",
+    "repo_full_name",
+    "cutoff_week",
+    "target_end_week",
+    "history_length",
+    "initial_snapshot_rows",
+    "clean_history_weeks",
+    "future_4week_stars",
+    "weekly_new_stars",
+    "cumulative_stars",
+    "previous_week_stars",
+    "weekly_growth_rate",
+    "herd_momentum_score",
+    "lag_1_week_stars",
+    "lag_2_week_stars",
+    "rolling_3week_mean_stars",
+    "rolling_4week_sum_stars",
+    "weekly_growth_acceleration",
+    "cumulative_growth_lag_1",
+    "split",
+    "validation_samples_per_repo",
+    "test_samples_per_repo",
+    "minimum_train_samples"
+  ],
+  "test_values_loaded": false
+}
+
+=========================================================================================================
+TRAINING NUMERIC COLUMN SUMMARY
+=========================================================================================================
+split                      column   dtype  rows  missing_rows  non_finite_rows  unique_values       minimum           q01       median         mean          q99      maximum  zero_rows  negative_rows  correlation_with_target
+train                     repo_id   int64   700             0                0             22 858127.000000 858127.000000 3.268986e+07 9.124727e+07 9.977379e+08 9.977379e+08          0              0                 0.006254
+train              history_length   int64   700             0                0            104      5.000000      5.000000 2.600000e+01 3.197286e+01 1.010100e+02 1.220000e+02          0              0                -0.097209
+train       initial_snapshot_rows   int64   700             0                0              1      1.000000      1.000000 1.000000e+00 1.000000e+00 1.000000e+00 1.000000e+00          0              0                      NaN
+train         clean_history_weeks   int64   700             0                0            104      4.000000      4.000000 2.500000e+01 3.097286e+01 1.000100e+02 1.210000e+02          0              0                -0.097209
+train          future_4week_stars float64   700             0                0            191      4.000000      6.990000 5.700000e+01 7.014714e+01 2.830700e+02 5.130000e+02          0              0                      NaN
+train            weekly_new_stars   int64   700             0                0             72      1.000000      1.000000 1.100000e+01 1.661571e+01 8.206000e+01 2.630000e+02          0              0                 0.470618
+train            cumulative_stars   int64   700             0                0            555      7.000000     17.970000 5.055000e+02 5.361800e+02 1.339070e+03 1.390000e+03          0              0                -0.096031
+train         previous_week_stars float64   700             0                0             72      1.000000      1.000000 1.100000e+01 1.617571e+01 8.206000e+01 2.630000e+02          0              0                 0.361070
+train          weekly_growth_rate float64   700             0                0            288     -0.925373     -0.857208 0.000000e+00 6.126471e-01 7.846250e+00 6.600000e+01         63            317                 0.073003
+train         herd_momentum_score float64   700             0                0            664      7.000000     35.860000 5.768000e+03 8.920747e+03 4.697730e+04 1.491210e+05          0              0                 0.272146
+train            lag_1_week_stars float64   700             0                0             72      1.000000      1.000000 1.100000e+01 1.617571e+01 8.206000e+01 2.630000e+02          0              0                 0.361070
+train            lag_2_week_stars float64   700             0                0             71      1.000000      1.000000 1.000000e+01 1.592571e+01 8.206000e+01 2.630000e+02          0              0                 0.299285
+train    rolling_3week_mean_stars float64   700             0                0            143      1.000000      1.333333 1.266667e+01 1.623905e+01 6.972667e+01 1.566667e+02          0              0                 0.473813
+train     rolling_4week_sum_stars float64   700             0                0            174      5.000000      6.000000 5.300000e+01 6.487143e+01 2.830700e+02 5.130000e+02          0              0                 0.458444
+train  weekly_growth_acceleration float64   700             0                0             92   -133.000000    -55.070000 0.000000e+00 4.400000e-01 6.105000e+01 2.590000e+02         63            317                 0.117662
+train     cumulative_growth_lag_1 float64   700             0                0            551      6.000000     14.970000 4.855000e+02 5.195643e+02 1.335040e+03 1.388000e+03          0              0                -0.121264
+train validation_samples_per_repo   int64   700             0                0              1      3.000000      3.000000 3.000000e+00 3.000000e+00 3.000000e+00 3.000000e+00          0              0                      NaN
+train       test_samples_per_repo   int64   700             0                0              1      3.000000      3.000000 3.000000e+00 3.000000e+00 3.000000e+00 3.000000e+00          0              0                      NaN
+train       minimum_train_samples   int64   700             0                0              1      8.000000      8.000000 8.000000e+00 8.000000e+00 8.000000e+00 8.000000e+00          0              0                      NaN
+
+=========================================================================================================
+TRAIN–VALIDATION FEATURE SHIFT
+=========================================================================================================
+                   feature  train_mean  validation_mean  train_median  validation_median    train_std  standardized_mean_shift  train_minimum  validation_minimum  train_maximum  validation_maximum
+       herd_momentum_score 8920.747143     22947.060606   5768.000000         25145.0000 11510.269024                 1.218591       7.000000          126.000000  149121.000000        64293.000000
+          cumulative_stars  536.180000       877.893939    505.500000           937.5000   364.693631                 0.936989       7.000000          126.000000    1390.000000         1452.000000
+   cumulative_growth_lag_1  519.564286       851.757576    485.500000           890.0000   365.124167                 0.909809       6.000000          123.000000    1388.000000         1444.000000
+   rolling_4week_sum_stars   64.871429       101.590909     53.000000           111.0000    58.972880                 0.622650       5.000000           13.000000     513.000000          236.000000
+  rolling_3week_mean_stars   16.239048        25.636364     12.666667            27.5000    15.541935                 0.604643       1.000000            3.333333     156.666667           59.333333
+       clean_history_weeks   30.972857        43.909091     25.000000            34.0000    23.203586                 0.557510       4.000000           16.000000     121.000000          128.000000
+          lag_2_week_stars   15.925714        25.409091     10.000000            26.0000    19.406852                 0.488661       1.000000            1.000000     263.000000          101.000000
+          weekly_new_stars   16.615714        26.136364     11.000000            26.0000    19.664676                 0.484150       1.000000            2.000000     263.000000          101.000000
+       previous_week_stars   16.175714        25.363636     11.000000            26.0000    19.467680                 0.471958       1.000000            1.000000     263.000000          101.000000
+          lag_1_week_stars   16.175714        25.363636     11.000000            26.0000    19.467680                 0.471958       1.000000            1.000000     263.000000          101.000000
+        weekly_growth_rate    0.612647         0.731841      0.000000             0.1025     4.169672                 0.028586      -0.925373           -0.930693      66.000000           32.666667
+weekly_growth_acceleration    0.440000         0.772727      0.000000             1.5000    18.913052                 0.017592    -133.000000          -94.000000     259.000000           98.000000
+
+=========================================================================================================
+HIGH FEATURE CORRELATIONS
+=========================================================================================================
+               feature_1               feature_2  correlation  absolute_correlation
+     previous_week_stars        lag_1_week_stars     1.000000              1.000000
+        cumulative_stars cumulative_growth_lag_1     0.998549              0.998549
+rolling_3week_mean_stars rolling_4week_sum_stars     0.950556              0.950556
+
+Forecast test values were not loaded or evaluated.

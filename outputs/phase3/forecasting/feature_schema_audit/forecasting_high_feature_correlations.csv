@@ -1,0 +1,4 @@
+feature_1,feature_2,correlation,absolute_correlation
+previous_week_stars,lag_1_week_stars,1.0,1.0
+cumulative_stars,cumulative_growth_lag_1,0.9985486685890846,0.9985486685890846
+rolling_3week_mean_stars,rolling_4week_sum_stars,0.9505564095069943,0.9505564095069943

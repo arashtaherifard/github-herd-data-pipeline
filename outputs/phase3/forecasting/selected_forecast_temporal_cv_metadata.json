@@ -1,0 +1,21 @@
+{
+  "target": "future_4week_stars",
+  "training_rows": 700,
+  "repositories": 22,
+  "folds": 3,
+  "validation_samples_per_repository": 1,
+  "purge_gap_weeks": 4,
+  "all_repositories_required": true,
+  "selection_rationale": "The 3-fold, one-validation-sample-per-repository configuration retains all 22 repositories, has zero future-target-window overlap, preserves the same repository population as the final primary split, and gives highly stable validation target means across folds.",
+  "naive_baseline": {
+    "name": "rolling_3week_mean_x4",
+    "mean_rmsle": 0.596797838292772,
+    "std_rmsle": 0.16739870205421925,
+    "mean_mae": 40.14646464646466,
+    "mean_rmse": 58.62197642648285,
+    "mean_smape": 0.39844828318293896,
+    "mean_forecast_bias": -14.803030303030306
+  },
+  "validation_data_status": "not_loaded_or_evaluated",
+  "test_data_status": "not_loaded_or_evaluated"
+}

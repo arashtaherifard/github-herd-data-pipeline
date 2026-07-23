@@ -79,7 +79,44 @@
     "main_naive_baseline": "rolling_3week_mean_x4",
     "initial_snapshot_rows": 1,
     "minimum_clean_history_weeks": 4,
-    "minimum_observed_rows": 5
+    "minimum_observed_rows": 5,
+    "cross_validation_strategy": "repository_aware_purged_temporal",
+    "cross_validation_folds": 3,
+    "cross_validation_validation_samples_per_repository": 1,
+    "cross_validation_purge_weeks": 4,
+    "cross_validation_require_all_repositories": true,
+    "cross_validation_selection_rationale": "The 3-fold, one-validation-sample-per-repository configuration retains all 22 repositories, has zero future-target-window overlap, preserves the same repository population as the final primary split, and gives highly stable validation target means across folds.",
+    "cross_validation_baseline": {
+      "name": "rolling_3week_mean_x4",
+      "mean_rmsle": 0.596797838292772,
+      "std_rmsle": 0.16739870205421925,
+      "mean_mae": 40.14646464646466,
+      "mean_rmse": 58.62197642648285,
+      "mean_smape": 0.39844828318293896,
+      "mean_forecast_bias": -14.803030303030306
+    },
+    "feature_schema_path": "data/modeling/forecasting/forecasting_schema.json",
+    "feature_columns": [
+      "clean_history_weeks",
+      "weekly_new_stars",
+      "cumulative_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "herd_momentum_score",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration"
+    ],
+    "excluded_redundant_features": {
+      "lag_1_week_stars": "Exactly identical to previous_week_stars.",
+      "cumulative_growth_lag_1": "Exactly reconstructible as cumulative_stars minus weekly_new_stars."
+    },
+    "target_transform_candidates": [
+      "raw",
+      "log1p"
+    ],
+    "prediction_minimum": 0.0
   },
   "recommendation": {
     "feedback_type": "implicit",
