@@ -1,0 +1,10 @@
+secondary_family,reference_family,metric,users,observed_secondary_minus_primary,ci_2_5,ci_97_5,probability_secondary_better,bootstrap_replications,random_state
+secondary_cutoff_aligned_forecast_reranker,primary_herd_mitigation,ndcg_at_10,13295,0.0,0.0,0.0,0.0,2000,42
+secondary_cutoff_aligned_forecast_reranker,primary_herd_mitigation,mrr,13295,0.0,0.0,0.0,0.0,2000,42
+secondary_cutoff_aligned_forecast_reranker,primary_herd_mitigation,recall_at_10,13295,0.0,0.0,0.0,0.0,2000,42
+secondary_static_content_hybrid,primary_herd_mitigation,ndcg_at_10,13295,-0.006949153722514781,-0.009315479691187378,-0.004564138978669427,0.0,2000,42
+secondary_static_content_hybrid,primary_herd_mitigation,mrr,13295,-0.008127025126717065,-0.010729349115089715,-0.005410591089739474,0.0,2000,42
+secondary_static_content_hybrid,primary_herd_mitigation,recall_at_10,13295,-0.0018051899210229409,-0.005641218503196691,0.0023317036479879654,0.19,2000,42
+secondary_tfidf_content,primary_herd_mitigation,ndcg_at_10,13295,-0.11965498436902285,-0.1255287672115829,-0.11435638110670746,0.0,2000,42
+secondary_tfidf_content,primary_herd_mitigation,mrr,13295,-0.09316010424048075,-0.09785637023691737,-0.08848937992645178,0.0,2000,42
+secondary_tfidf_content,primary_herd_mitigation,recall_at_10,13295,-0.2056412185031967,-0.21511846558856712,-0.19608875517111696,0.0,2000,42

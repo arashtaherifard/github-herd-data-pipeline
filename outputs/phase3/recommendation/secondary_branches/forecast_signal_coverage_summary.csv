@@ -1,0 +1,3 @@
+stage,users,positive_signal_fraction,mean_candidate_signal_fraction,median_candidate_signal_fraction,zero_candidate_signal_users,complete_candidate_signal_users
+internal_tuning,24968,0.7708266581223967,0.5300464212699888,0.5069444444444444,7,349
+strict_external_validation,13295,0.7711921775103422,0.4839336293787668,0.45774647887323944,10,14

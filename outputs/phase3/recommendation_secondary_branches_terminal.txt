@@ -1,0 +1,45 @@
+================================================================================================================
+SECONDARY RECOMMENDATION BRANCHES
+================================================================================================================
+
+Internal family winners:
+                              model_family                         model_name  ndcg_at_10      mrr  recall_at_10  ndcg_at_5
+                   secondary_tfidf_content tfidf_ngram_1_1_topic_2_language_1    0.081536 0.080251      0.159604   0.060439
+           secondary_static_content_hybrid static_content_hybrid_content_0.10    0.154485 0.133429      0.295819   0.118530
+secondary_cutoff_aligned_forecast_reranker      forecast_reranker_weight_0.00    0.157866 0.135947      0.300184   0.120889
+
+================================================================================================================
+STRICT EXTERNAL VALIDATION
+================================================================================================================
+                              model_family                         model_name  ndcg_at_10      mrr  recall_at_10  ndcg_at_5  catalog_coverage_at_10  novelty_at_10  intra_list_diversity_at_10  average_recommended_popularity_at_10  long_tail_share_at_10
+                   primary_herd_mitigation       herd_mitigation_penalty_0.05    0.195414 0.166526      0.365701   0.153817                0.924138       7.213031                    0.957867                           1283.343851               0.924077
+secondary_cutoff_aligned_forecast_reranker      forecast_reranker_weight_0.00    0.195414 0.166526      0.365701   0.153817                0.924138       7.213031                    0.957867                           1283.343851               0.924077
+           secondary_static_content_hybrid static_content_hybrid_content_0.10    0.188465 0.158399      0.363896   0.144286                0.924138       7.212064                    0.959226                           1284.334961               0.926739
+                   secondary_tfidf_content tfidf_ngram_1_1_topic_2_language_1    0.075759 0.073366      0.160060   0.052709                0.993103       7.193735                    0.986144                           1304.068567               0.856299
+
+================================================================================================================
+FORECAST SIGNAL COVERAGE
+================================================================================================================
+                     stage  users  positive_signal_fraction  mean_candidate_signal_fraction  median_candidate_signal_fraction  zero_candidate_signal_users  complete_candidate_signal_users
+           internal_tuning  24968                  0.770827                        0.530046                          0.506944                            7                              349
+strict_external_validation  13295                  0.771192                        0.483934                          0.457746                           10                               14
+
+================================================================================================================
+PAIRED BOOTSTRAP: SECONDARY MINUS PRIMARY
+================================================================================================================
+                          secondary_family        reference_family       metric  users  observed_secondary_minus_primary    ci_2_5   ci_97_5  probability_secondary_better  bootstrap_replications  random_state
+secondary_cutoff_aligned_forecast_reranker primary_herd_mitigation   ndcg_at_10  13295                          0.000000  0.000000  0.000000                          0.00                    2000            42
+secondary_cutoff_aligned_forecast_reranker primary_herd_mitigation          mrr  13295                          0.000000  0.000000  0.000000                          0.00                    2000            42
+secondary_cutoff_aligned_forecast_reranker primary_herd_mitigation recall_at_10  13295                          0.000000  0.000000  0.000000                          0.00                    2000            42
+           secondary_static_content_hybrid primary_herd_mitigation   ndcg_at_10  13295                         -0.006949 -0.009315 -0.004564                          0.00                    2000            42
+           secondary_static_content_hybrid primary_herd_mitigation          mrr  13295                         -0.008127 -0.010729 -0.005411                          0.00                    2000            42
+           secondary_static_content_hybrid primary_herd_mitigation recall_at_10  13295                         -0.001805 -0.005641  0.002332                          0.19                    2000            42
+                   secondary_tfidf_content primary_herd_mitigation   ndcg_at_10  13295                         -0.119655 -0.125529 -0.114356                          0.00                    2000            42
+                   secondary_tfidf_content primary_herd_mitigation          mrr  13295                         -0.093160 -0.097856 -0.088489                          0.00                    2000            42
+                   secondary_tfidf_content primary_herd_mitigation recall_at_10  13295                         -0.205641 -0.215118 -0.196089                          0.00                    2000            42
+
+Primary model remains frozen. Static content is exploratory and not historically time-safe.
+Recommendation test values were not loaded or evaluated.
+real 12.43
+user 30.30
+sys 8.39

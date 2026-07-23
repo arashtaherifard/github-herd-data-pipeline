@@ -1,0 +1,375 @@
+{
+  "status": "secondary_recommendation_branches_complete",
+  "created_at_commit": "58fb7515be581e831b8fafcb11f1526c34ba09fc",
+  "test_data_status": "header_only_not_loaded_or_evaluated",
+  "test_header_columns": [
+    "user_id",
+    "username",
+    "repo_id",
+    "repo_full_name",
+    "starred_at",
+    "interaction",
+    "user_activity_count",
+    "repo_popularity_count",
+    "language",
+    "topic_count",
+    "stars_count",
+    "forks_count"
+  ],
+  "primary_model": {
+    "family": "herd_mitigation_reranker",
+    "model_name": "herd_mitigation_penalty_0.05",
+    "artifact_sha256": "41758e0835f4296e1825e52f25c41780a89299f51cfbab48b46647edb633e7dd",
+    "external_metric_reproduction_maximum_absolute_difference": 0.0,
+    "eligibility": "frozen primary model; secondary branches do not replace it"
+  },
+  "static_content": {
+    "catalog_metadata_rows": 145,
+    "metadata_collection_minimum": "2026-06-13 20:47:18.656748+00:00",
+    "metadata_collection_maximum": "2026-06-13 21:08:28.702323+00:00",
+    "historically_time_safe": false,
+    "interpretation": "exploratory secondary analysis only because the metadata is a June 2026 snapshot"
+  },
+  "forecast_signal": {
+    "artifact_version": "forecasting_pretest_v1",
+    "artifact_sha256": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+    "feature_columns": [
+      "weekly_new_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration"
+    ],
+    "weekly_rows": 2250,
+    "repositories": 145,
+    "availability_rule": "week_start plus seven days; latest row with available_at less than or equal to user cutoff",
+    "prediction_minimum": 4.708260025210933,
+    "prediction_median": 85.93538129394963,
+    "prediction_mean": 312.34925720057805,
+    "prediction_maximum": 5975.974128507976,
+    "historically_time_safe": true,
+    "missing_signal_policy": "neutral value 0.5, producing zero reranking adjustment",
+    "internal_coverage": {
+      "stage": "internal_tuning",
+      "users": 24968,
+      "positive_signal_fraction": 0.7708266581223967,
+      "mean_candidate_signal_fraction": 0.5300464212699888,
+      "median_candidate_signal_fraction": 0.5069444444444444,
+      "zero_candidate_signal_users": 7,
+      "complete_candidate_signal_users": 349
+    },
+    "external_coverage": {
+      "stage": "strict_external_validation",
+      "users": 13295,
+      "positive_signal_fraction": 0.7711921775103422,
+      "mean_candidate_signal_fraction": 0.4839336293787668,
+      "median_candidate_signal_fraction": 0.45774647887323944,
+      "zero_candidate_signal_users": 10,
+      "complete_candidate_signal_users": 14
+    }
+  },
+  "internal_family_winners": {
+    "secondary_tfidf_content": {
+      "model_name": "tfidf_ngram_1_1_topic_2_language_1",
+      "parameters": {
+        "historically_time_safe": false,
+        "language_repeat": 1,
+        "metadata_snapshot": "2026-06-13",
+        "ngram_range": [
+          1,
+          1
+        ],
+        "topic_repeat": 2,
+        "vocabulary_size": 1862
+      },
+      "internal_metrics": {
+        "ndcg_at_10": 0.08153640973158272,
+        "mrr": 0.0802509748523026,
+        "recall_at_10": 0.15960429349567445,
+        "ndcg_at_5": 0.06043868580654897
+      }
+    },
+    "secondary_static_content_hybrid": {
+      "model_name": "static_content_hybrid_content_0.10",
+      "parameters": {
+        "content_model": "tfidf_ngram_1_1_topic_2_language_1",
+        "content_weight": 0.1,
+        "historically_time_safe": false,
+        "metadata_snapshot": "2026-06-13",
+        "normalization": "candidate_rank",
+        "primary_weight": 0.9
+      },
+      "internal_metrics": {
+        "ndcg_at_10": 0.1544845348255862,
+        "mrr": 0.13342943423340936,
+        "recall_at_10": 0.29581864786927264,
+        "ndcg_at_5": 0.11852976010040987
+      }
+    },
+    "secondary_cutoff_aligned_forecast_reranker": {
+      "model_name": "forecast_reranker_weight_0.00",
+      "parameters": {
+        "forecast_artifact_version": "forecasting_pretest_v1",
+        "forecast_signal": "within-user rank of latest cutoff-available frozen four-week forecast",
+        "forecast_weight": 0.0,
+        "historically_time_safe": true,
+        "missing_signal_value": 0.5
+      },
+      "internal_metrics": {
+        "ndcg_at_10": 0.15786606382228063,
+        "mrr": 0.13594724783395976,
+        "recall_at_10": 0.300184235821852,
+        "ndcg_at_5": 0.12088946992933329
+      }
+    }
+  },
+  "external_results": [
+    {
+      "model_family": "primary_herd_mitigation",
+      "model_name": "herd_mitigation_penalty_0.05",
+      "parameters_json": "{\"base_hybrid\": \"hybrid_item_item_cosine=0.75_truncated_svd=0.00_graph_personalized_pagerank=0.25_training_popularity=0.00\", \"popularity_penalty\": 0.05}",
+      "evaluation_users": 13295,
+      "precision_at_5": 0.04726588943211733,
+      "precision_at_10": 0.03657013915005641,
+      "recall_at_5": 0.23632944716058668,
+      "recall_at_10": 0.36570139150056413,
+      "hit_rate_at_5": 0.23632944716058668,
+      "hit_rate_at_10": 0.36570139150056413,
+      "ndcg_at_5": 0.1538166866483406,
+      "ndcg_at_10": 0.1954139383295965,
+      "mrr": 0.1665256056636272,
+      "map_at_10": 0.1439310637129366,
+      "median_positive_rank": 18.0,
+      "mean_positive_rank": 29.142459571267395,
+      "catalog_coverage_at_10": 0.9241379310344827,
+      "novelty_at_10": 7.213030965447362,
+      "intra_list_diversity_at_10": 0.9578666981462893,
+      "average_recommended_popularity_at_10": 1283.3438510718315,
+      "long_tail_share_at_10": 0.9240767205716435
+    },
+    {
+      "model_family": "secondary_tfidf_content",
+      "model_name": "tfidf_ngram_1_1_topic_2_language_1",
+      "parameters_json": "{\"historically_time_safe\": false, \"language_repeat\": 1, \"metadata_snapshot\": \"2026-06-13\", \"ngram_range\": [1, 1], \"topic_repeat\": 2, \"vocabulary_size\": 1862}",
+      "evaluation_users": 13295,
+      "precision_at_5": 0.01757051523128996,
+      "precision_at_10": 0.016006017299736743,
+      "recall_at_5": 0.0878525761564498,
+      "recall_at_10": 0.16006017299736744,
+      "hit_rate_at_5": 0.0878525761564498,
+      "hit_rate_at_10": 0.16006017299736744,
+      "ndcg_at_5": 0.052709477596252975,
+      "ndcg_at_10": 0.07575895396057365,
+      "mrr": 0.07336550142314645,
+      "map_at_10": 0.050619877385578785,
+      "median_positive_rank": 41.0,
+      "mean_positive_rank": 49.678676194057914,
+      "catalog_coverage_at_10": 0.993103448275862,
+      "novelty_at_10": 7.19373500485063,
+      "intra_list_diversity_at_10": 0.9861436597079285,
+      "average_recommended_popularity_at_10": 1304.0685671305002,
+      "long_tail_share_at_10": 0.8562993606619029
+    },
+    {
+      "model_family": "secondary_static_content_hybrid",
+      "model_name": "static_content_hybrid_content_0.10",
+      "parameters_json": "{\"content_model\": \"tfidf_ngram_1_1_topic_2_language_1\", \"content_weight\": 0.1, \"historically_time_safe\": false, \"metadata_snapshot\": \"2026-06-13\", \"normalization\": \"candidate_rank\", \"primary_weight\": 0.9}",
+      "evaluation_users": 13295,
+      "precision_at_5": 0.04537044001504325,
+      "precision_at_10": 0.03638962015795412,
+      "recall_at_5": 0.22685220007521625,
+      "recall_at_10": 0.36389620157954117,
+      "hit_rate_at_5": 0.22685220007521625,
+      "hit_rate_at_10": 0.36389620157954117,
+      "ndcg_at_5": 0.14428605072492212,
+      "ndcg_at_10": 0.18846478460708171,
+      "mrr": 0.15839858053691017,
+      "map_at_10": 0.13552597646805994,
+      "median_positive_rank": 18.0,
+      "mean_positive_rank": 29.05934561865363,
+      "catalog_coverage_at_10": 0.9241379310344827,
+      "novelty_at_10": 7.212064484473092,
+      "intra_list_diversity_at_10": 0.9592261566515679,
+      "average_recommended_popularity_at_10": 1284.3349605114704,
+      "long_tail_share_at_10": 0.9267393757051523
+    },
+    {
+      "model_family": "secondary_cutoff_aligned_forecast_reranker",
+      "model_name": "forecast_reranker_weight_0.00",
+      "parameters_json": "{\"forecast_artifact_version\": \"forecasting_pretest_v1\", \"forecast_signal\": \"within-user rank of latest cutoff-available frozen four-week forecast\", \"forecast_weight\": 0.0, \"historically_time_safe\": true, \"missing_signal_value\": 0.5}",
+      "evaluation_users": 13295,
+      "precision_at_5": 0.04726588943211733,
+      "precision_at_10": 0.03657013915005641,
+      "recall_at_5": 0.23632944716058668,
+      "recall_at_10": 0.36570139150056413,
+      "hit_rate_at_5": 0.23632944716058668,
+      "hit_rate_at_10": 0.36570139150056413,
+      "ndcg_at_5": 0.1538166866483406,
+      "ndcg_at_10": 0.1954139383295965,
+      "mrr": 0.1665256056636272,
+      "map_at_10": 0.1439310637129366,
+      "median_positive_rank": 18.0,
+      "mean_positive_rank": 29.142459571267395,
+      "catalog_coverage_at_10": 0.9241379310344827,
+      "novelty_at_10": 7.213030965447362,
+      "intra_list_diversity_at_10": 0.9578666981462893,
+      "average_recommended_popularity_at_10": 1283.3438510718315,
+      "long_tail_share_at_10": 0.9240767205716435
+    }
+  ],
+  "branch_comparisons_to_primary": {
+    "secondary_tfidf_content": {
+      "model_name": "tfidf_ngram_1_1_topic_2_language_1",
+      "ndcg_at_10": 0.07575895396057365,
+      "mrr": 0.07336550142314645,
+      "recall_at_10": 0.16006017299736744,
+      "ndcg_at_10_minus_primary": -0.11965498436902285,
+      "mrr_minus_primary": -0.09316010424048075,
+      "recall_at_10_minus_primary": -0.2056412185031967,
+      "catalog_coverage_at_10": 0.993103448275862,
+      "long_tail_share_at_10": 0.8562993606619029
+    },
+    "secondary_static_content_hybrid": {
+      "model_name": "static_content_hybrid_content_0.10",
+      "ndcg_at_10": 0.18846478460708171,
+      "mrr": 0.15839858053691017,
+      "recall_at_10": 0.36389620157954117,
+      "ndcg_at_10_minus_primary": -0.006949153722514784,
+      "mrr_minus_primary": -0.008127025126717036,
+      "recall_at_10_minus_primary": -0.001805189921022965,
+      "catalog_coverage_at_10": 0.9241379310344827,
+      "long_tail_share_at_10": 0.9267393757051523
+    },
+    "secondary_cutoff_aligned_forecast_reranker": {
+      "model_name": "forecast_reranker_weight_0.00",
+      "ndcg_at_10": 0.1954139383295965,
+      "mrr": 0.1665256056636272,
+      "recall_at_10": 0.36570139150056413,
+      "ndcg_at_10_minus_primary": 0.0,
+      "mrr_minus_primary": 0.0,
+      "recall_at_10_minus_primary": 0.0,
+      "catalog_coverage_at_10": 0.9241379310344827,
+      "long_tail_share_at_10": 0.9240767205716435
+    }
+  },
+  "paired_bootstrap": [
+    {
+      "secondary_family": "secondary_cutoff_aligned_forecast_reranker",
+      "reference_family": "primary_herd_mitigation",
+      "metric": "ndcg_at_10",
+      "users": 13295,
+      "observed_secondary_minus_primary": 0.0,
+      "ci_2_5": 0.0,
+      "ci_97_5": 0.0,
+      "probability_secondary_better": 0.0,
+      "bootstrap_replications": 2000,
+      "random_state": 42
+    },
+    {
+      "secondary_family": "secondary_cutoff_aligned_forecast_reranker",
+      "reference_family": "primary_herd_mitigation",
+      "metric": "mrr",
+      "users": 13295,
+      "observed_secondary_minus_primary": 0.0,
+      "ci_2_5": 0.0,
+      "ci_97_5": 0.0,
+      "probability_secondary_better": 0.0,
+      "bootstrap_replications": 2000,
+      "random_state": 42
+    },
+    {
+      "secondary_family": "secondary_cutoff_aligned_forecast_reranker",
+      "reference_family": "primary_herd_mitigation",
+      "metric": "recall_at_10",
+      "users": 13295,
+      "observed_secondary_minus_primary": 0.0,
+      "ci_2_5": 0.0,
+      "ci_97_5": 0.0,
+      "probability_secondary_better": 0.0,
+      "bootstrap_replications": 2000,
+      "random_state": 42
+    },
+    {
+      "secondary_family": "secondary_static_content_hybrid",
+      "reference_family": "primary_herd_mitigation",
+      "metric": "ndcg_at_10",
+      "users": 13295,
+      "observed_secondary_minus_primary": -0.006949153722514781,
+      "ci_2_5": -0.009315479691187378,
+      "ci_97_5": -0.004564138978669427,
+      "probability_secondary_better": 0.0,
+      "bootstrap_replications": 2000,
+      "random_state": 42
+    },
+    {
+      "secondary_family": "secondary_static_content_hybrid",
+      "reference_family": "primary_herd_mitigation",
+      "metric": "mrr",
+      "users": 13295,
+      "observed_secondary_minus_primary": -0.008127025126717065,
+      "ci_2_5": -0.010729349115089715,
+      "ci_97_5": -0.005410591089739474,
+      "probability_secondary_better": 0.0,
+      "bootstrap_replications": 2000,
+      "random_state": 42
+    },
+    {
+      "secondary_family": "secondary_static_content_hybrid",
+      "reference_family": "primary_herd_mitigation",
+      "metric": "recall_at_10",
+      "users": 13295,
+      "observed_secondary_minus_primary": -0.0018051899210229409,
+      "ci_2_5": -0.005641218503196691,
+      "ci_97_5": 0.0023317036479879654,
+      "probability_secondary_better": 0.19,
+      "bootstrap_replications": 2000,
+      "random_state": 42
+    },
+    {
+      "secondary_family": "secondary_tfidf_content",
+      "reference_family": "primary_herd_mitigation",
+      "metric": "ndcg_at_10",
+      "users": 13295,
+      "observed_secondary_minus_primary": -0.11965498436902285,
+      "ci_2_5": -0.1255287672115829,
+      "ci_97_5": -0.11435638110670746,
+      "probability_secondary_better": 0.0,
+      "bootstrap_replications": 2000,
+      "random_state": 42
+    },
+    {
+      "secondary_family": "secondary_tfidf_content",
+      "reference_family": "primary_herd_mitigation",
+      "metric": "mrr",
+      "users": 13295,
+      "observed_secondary_minus_primary": -0.09316010424048075,
+      "ci_2_5": -0.09785637023691737,
+      "ci_97_5": -0.08848937992645178,
+      "probability_secondary_better": 0.0,
+      "bootstrap_replications": 2000,
+      "random_state": 42
+    },
+    {
+      "secondary_family": "secondary_tfidf_content",
+      "reference_family": "primary_herd_mitigation",
+      "metric": "recall_at_10",
+      "users": 13295,
+      "observed_secondary_minus_primary": -0.2056412185031967,
+      "ci_2_5": -0.21511846558856712,
+      "ci_97_5": -0.19608875517111696,
+      "probability_secondary_better": 0.0,
+      "bootstrap_replications": 2000,
+      "random_state": 42
+    }
+  ],
+  "selection_policy": "Tune each secondary family on the frozen internal temporal holdout. Evaluate one winner per family on strict external validation. Secondary results are reported but do not alter the frozen primary winner.",
+  "output_paths": {
+    "internal_results": "outputs/phase3/recommendation/secondary_branches/secondary_internal_tuning_results.csv",
+    "internal_winners": "outputs/phase3/recommendation/secondary_branches/secondary_internal_family_winners.csv",
+    "external_results": "outputs/phase3/recommendation/secondary_branches/secondary_external_validation_results.csv",
+    "bootstrap": "outputs/phase3/recommendation/secondary_branches/secondary_paired_bootstrap.csv",
+    "forecast_coverage": "outputs/phase3/recommendation/secondary_branches/forecast_signal_coverage_summary.csv"
+  }
+}
