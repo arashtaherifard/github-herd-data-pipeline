@@ -41,3 +41,8 @@ outputs/phase3/recommendation/temporal_signal_audit/recommendation_forecast_vali
 
 # Large reproducible Phase 3 recommendation model-search output
 outputs/phase3/recommendation/model_search/external_validation_per_user_ranks.csv
+
+# Generated Phase 3 prediction databases
+database/generated/*.db
+database/generated/*.db-wal
+database/generated/*.db-shm
