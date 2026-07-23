@@ -49,3 +49,6 @@ database/generated/*.db-shm
 
 # Isolated MLflow and Prefect environment
 venv_bonus/
+
+# Local MLflow tracking database and artifacts
+.mlflow_local/
