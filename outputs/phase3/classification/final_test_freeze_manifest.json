@@ -1,0 +1,84 @@
+{
+  "status": "final_classification_test_results_frozen",
+  "created_at_utc": "2026-07-23T10:21:18.307688+00:00",
+  "pre_test_freeze_tag": "classification-pretest-freeze-v1",
+  "pre_test_freeze_commit": "de89ba7b50e71eeb923c981d7ef3f59cefe81fe7",
+  "evaluation_status": "one_time_final_classification_test_evaluation_complete",
+  "target": "future_growth_surge",
+  "test_rows": 66,
+  "test_repositories": 22,
+  "frozen_threshold": 0.17482545773975103,
+  "metrics_at_frozen_threshold": {
+    "threshold": 0.17482545773975103,
+    "roc_auc": 0.6482593037214887,
+    "pr_auc": 0.3983386582259413,
+    "accuracy": 0.6060606060606061,
+    "balanced_accuracy": 0.581032412965186,
+    "precision": 0.3333333333333333,
+    "recall": 0.5294117647058824,
+    "f1": 0.4090909090909091,
+    "mcc": 0.14414417014206696,
+    "cohen_kappa": 0.13595166163142003,
+    "log_loss": 0.5705001140184939,
+    "brier_score": 0.18900936148145922,
+    "expected_calibration_error": 0.09199450207952993,
+    "maximum_calibration_error": 0.14951426960238018,
+    "tn": 31,
+    "fp": 18,
+    "fn": 8,
+    "tp": 9
+  },
+  "artifacts": {
+    "evaluation_script": {
+      "relative_path": "scripts/evaluate_frozen_classification_test.py",
+      "size_bytes": 21243,
+      "sha256": "be469e00a9ef7d64c0f695d7fc85208e732bb7e15a1a22835072b60664c44977"
+    },
+    "evaluation_record": {
+      "relative_path": "outputs/phase3/classification/final_test_evaluation/final_test_evaluation.json",
+      "size_bytes": 6114,
+      "sha256": "2f518764d00b0a540ea5d77355c61ff42972828841d7aa6c40a07584079861f1"
+    },
+    "metrics": {
+      "relative_path": "outputs/phase3/classification/final_test_evaluation/final_test_metrics.csv",
+      "size_bytes": 684,
+      "sha256": "3270c7af78a8609ff89954fdc9fda1d6110a88cef9bd132b011e28814d92d72a"
+    },
+    "predictions": {
+      "relative_path": "outputs/phase3/classification/final_test_evaluation/final_test_predictions.csv",
+      "size_bytes": 8468,
+      "sha256": "6c920b68a648314097001949eecb6a6b9a54ece73eb1621370badc598098f907"
+    },
+    "report": {
+      "relative_path": "outputs/phase3/classification/final_test_evaluation/final_test_report.txt",
+      "size_bytes": 2464,
+      "sha256": "781bed2ed47fa1980dfc9d515ced7b04c7f2b005a164f63ea01041ecd3e517b3"
+    },
+    "roc_curve": {
+      "relative_path": "outputs/phase3/classification/final_test_evaluation/test_roc_curve.png",
+      "size_bytes": 117963,
+      "sha256": "820174ad4754a25866ad007b64a3fa5dea144ddff7419f55c3ff1e49ba2ce6f5"
+    },
+    "precision_recall_curve": {
+      "relative_path": "outputs/phase3/classification/final_test_evaluation/test_precision_recall_curve.png",
+      "size_bytes": 119861,
+      "sha256": "e2e00a9fe8ac1da7efcfc853ce35ae715efb41127ca23923d19b25b2bd6f609b"
+    },
+    "calibration_curve": {
+      "relative_path": "outputs/phase3/classification/final_test_evaluation/test_calibration_curve.png",
+      "size_bytes": 131876,
+      "sha256": "f93046af31076f364492cc2e8fe37f3789f0553199b2975e92d82850d885af02"
+    },
+    "confusion_matrix": {
+      "relative_path": "outputs/phase3/classification/final_test_evaluation/test_confusion_matrix.png",
+      "size_bytes": 74251,
+      "sha256": "87fdec825ed47d6fad31f140216cf0a70bd5ce6cb96328a8aad3aad106e0f825"
+    },
+    "terminal_output": {
+      "relative_path": "outputs/phase3/classification/final_test_evaluation_terminal.txt",
+      "size_bytes": 2536,
+      "sha256": "9a3b7b84af32a5efffd5929997de9ecfcd4ebcc1b1fc1ceb7dbd8f2756f6d00b"
+    }
+  },
+  "scientific_rule": "These test results are final. No classifier, feature, calibration method, or threshold may be modified in response to test performance."
+}

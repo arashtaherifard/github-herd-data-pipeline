@@ -1,0 +1,150 @@
+{
+  "evaluation_status": "one_time_final_classification_test_evaluation_complete",
+  "evaluated_at_utc": "2026-07-23T10:19:34.648342+00:00",
+  "freeze_commit": "de89ba7b50e71eeb923c981d7ef3f59cefe81fe7",
+  "freeze_tag": "classification-pretest-freeze-v1",
+  "target": "future_growth_surge",
+  "model": "logistic_regression",
+  "probability_method": "sigmoid_temporal_cv",
+  "test_rows": 66,
+  "test_repositories": 22,
+  "test_class_counts": {
+    "0": 49,
+    "1": 17
+  },
+  "test_positive_rate": 0.25757575757575757,
+  "frozen_threshold": 0.17482545773975103,
+  "metrics_at_frozen_threshold": {
+    "threshold": 0.17482545773975103,
+    "roc_auc": 0.6482593037214887,
+    "pr_auc": 0.3983386582259413,
+    "accuracy": 0.6060606060606061,
+    "balanced_accuracy": 0.581032412965186,
+    "precision": 0.3333333333333333,
+    "recall": 0.5294117647058824,
+    "f1": 0.4090909090909091,
+    "mcc": 0.14414417014206696,
+    "cohen_kappa": 0.13595166163142003,
+    "log_loss": 0.5705001140184939,
+    "brier_score": 0.18900936148145922,
+    "expected_calibration_error": 0.09199450207952993,
+    "maximum_calibration_error": 0.14951426960238018,
+    "tn": 31,
+    "fp": 18,
+    "fn": 8,
+    "tp": 9
+  },
+  "metrics_at_default_threshold_0_5": {
+    "threshold": 0.5,
+    "roc_auc": 0.6482593037214887,
+    "pr_auc": 0.3983386582259413,
+    "accuracy": 0.7424242424242424,
+    "balanced_accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "mcc": 0.0,
+    "cohen_kappa": 0.0,
+    "log_loss": 0.5705001140184939,
+    "brier_score": 0.18900936148145922,
+    "expected_calibration_error": 0.09199450207952993,
+    "maximum_calibration_error": 0.14951426960238018,
+    "tn": 49,
+    "fp": 0,
+    "fn": 17,
+    "tp": 0
+  },
+  "validation_metrics_from_frozen_metadata": {
+    "method": "sigmoid_temporal_cv",
+    "deployment_eligible": true,
+    "selected_threshold": 0.17482545773975103,
+    "roc_auc": 0.7725000000000001,
+    "pr_auc": 0.497073839093027,
+    "log_loss": 0.48708256183082693,
+    "brier_score": 0.16082585198760224,
+    "expected_calibration_error": 0.11905295943420258,
+    "maximum_calibration_error": 0.15169918199369756,
+    "accuracy_at_0_5": 0.7727272727272727,
+    "balanced_accuracy_at_0_5": 0.53125,
+    "f1_at_0_5": 0.11764705882352941,
+    "mcc_at_0_5": 0.2192645048267573,
+    "accuracy_at_selected_threshold": 0.6363636363636364,
+    "balanced_accuracy_at_selected_threshold": 0.76,
+    "precision_at_selected_threshold": 0.4,
+    "recall_at_selected_threshold": 1.0,
+    "f1_at_selected_threshold": 0.5714285714285714,
+    "mcc_at_selected_threshold": 0.4560701700396552,
+    "tn_at_selected_threshold": 26,
+    "fp_at_selected_threshold": 24,
+    "fn_at_selected_threshold": 0,
+    "tp_at_selected_threshold": 16,
+    "roc_auc_drop": -0.036250000000000115
+  },
+  "test_minus_validation_changes": {
+    "roc_auc_change_test_minus_validation": -0.12424069627851142,
+    "pr_auc_change_test_minus_validation": -0.09873518086708571,
+    "log_loss_change_test_minus_validation": 0.08341755218766694,
+    "brier_change_test_minus_validation": 0.02818350949385698,
+    "balanced_accuracy_change_test_minus_validation": -0.17896758703481397,
+    "f1_change_test_minus_validation": -0.16233766233766228,
+    "mcc_change_test_minus_validation": -0.3119259998975883
+  },
+  "git_verification": {
+    "current_head": "de89ba7b50e71eeb923c981d7ef3f59cefe81fe7",
+    "freeze_tag": "classification-pretest-freeze-v1",
+    "freeze_tag_target": "de89ba7b50e71eeb923c981d7ef3f59cefe81fe7",
+    "head_matches_tag": true,
+    "working_tree_clean": true
+  },
+  "frozen_hash_verification": {
+    "untouched_test_dataset": {
+      "relative_path": "data/modeling/classification/classification_test.csv",
+      "expected_sha256": "fcb8e0ea12ab27345f59585ddc5add206cba862250fa014fb3eaeb6170bea631",
+      "actual_sha256": "fcb8e0ea12ab27345f59585ddc5add206cba862250fa014fb3eaeb6170bea631",
+      "match": true
+    },
+    "deployment_model": {
+      "relative_path": "models/classification/corrected/selected_classifier_deployment.joblib",
+      "expected_sha256": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23",
+      "actual_sha256": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23",
+      "match": true
+    },
+    "deployment_metadata": {
+      "relative_path": "models/classification/corrected/selected_classifier_deployment_metadata.json",
+      "expected_sha256": "e101fee0ec87fc28237624eafb284c48e15406cf0f3110dc951da15c091be06c",
+      "actual_sha256": "e101fee0ec87fc28237624eafb284c48e15406cf0f3110dc951da15c091be06c",
+      "match": true
+    },
+    "base_model_metadata": {
+      "relative_path": "models/classification/corrected/selected_classifier_metadata.json",
+      "expected_sha256": "5d26e6755c082ba75835cad6bb2eb16175a0ca1dc0269dba49c5cd2ff2f3644b",
+      "actual_sha256": "5d26e6755c082ba75835cad6bb2eb16175a0ca1dc0269dba49c5cd2ff2f3644b",
+      "match": true
+    },
+    "classification_schema": {
+      "relative_path": "data/modeling/classification/classification_schema.json",
+      "expected_sha256": "564d91aa5f19260e235d84dfed186fe3fdbe1165c170c002f71c790d8e47ff13",
+      "actual_sha256": "564d91aa5f19260e235d84dfed186fe3fdbe1165c170c002f71c790d8e47ff13",
+      "match": true
+    },
+    "phase3_configuration": {
+      "relative_path": "config/phase3_config.json",
+      "expected_sha256": "6c6829da31266699416a402757bb8b01e866afc7479f868e2194d6eb08a2bcfb",
+      "actual_sha256": "6c6829da31266699416a402757bb8b01e866afc7479f868e2194d6eb08a2bcfb",
+      "match": true
+    },
+    "dataset_manifest": {
+      "relative_path": "data/modeling/phase3_dataset_manifest.json",
+      "expected_sha256": "6fa23569dabbb7303cc40c9f4df7be441a680a611897934279df53a560a0391c",
+      "actual_sha256": "6fa23569dabbb7303cc40c9f4df7be441a680a611897934279df53a560a0391c",
+      "match": true
+    }
+  },
+  "software": {
+    "python": "3.12.10",
+    "pandas": "3.0.3",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0"
+  },
+  "post_test_rule": "No model, feature, calibration, or threshold changes are permitted in response to these test results."
+}
