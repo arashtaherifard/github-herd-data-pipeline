@@ -1,0 +1,70 @@
+{
+  "jobs": {
+    "Build and run Phase 3 container": {
+      "conclusion": "success",
+      "status": "completed",
+      "successful_steps": [
+        "Set up job",
+        "Check out repository",
+        "Build Phase 3 image",
+        "Run container read-only",
+        "Post Check out repository",
+        "Complete job"
+      ]
+    },
+    "Portable read-only validation": {
+      "conclusion": "success",
+      "status": "completed",
+      "successful_steps": [
+        "Set up job",
+        "Check out repository",
+        "Set up Python 3.12",
+        "Install Phase 3 runtime",
+        "Validate Python and shell syntax",
+        "Run read-only Phase 3 validation",
+        "Post Set up Python 3.12",
+        "Post Check out repository",
+        "Complete job"
+      ]
+    },
+    "Validate Kubernetes manifest": {
+      "conclusion": "success",
+      "status": "completed",
+      "successful_steps": [
+        "Set up job",
+        "Check out repository",
+        "Set up Python 3.12",
+        "Install YAML parser",
+        "Parse Kubernetes manifest",
+        "Post Set up Python 3.12",
+        "Post Check out repository",
+        "Complete job"
+      ]
+    }
+  },
+  "recorded_at_utc": "2026-07-24T12:50:42.839975+00:00",
+  "source_git_branch": "phase3",
+  "source_git_commit": "d8f89bf941bcffe5a65738beef6a91155fe8e5e5",
+  "status": "github_actions_phase3_validation_complete",
+  "validated_artifacts": {
+    ".github/workflows/phase3_delivery.yml": "e92fbcbbd69e32e4395e832aaeb4a9d824ead69e7fbe471f6b3d8f03629ae286",
+    "Dockerfile.phase3": "714be1721e8b1a29375fd1707ab3a2986460478ce4c83c64ed9984e2f63df8b5",
+    "k8s/phase3-validation-job.yaml": "b4afa9f70b9118fb9593c0d4281163c3e2c551832cbfdb269302d0c566ae1f99",
+    "outputs/phase3/delivery/phase3_delivery_validation_v1.json": "d61f39a093d3675625fadc6f452d6457f54e2e367e3bf1db5f62a67fda0bd970",
+    "run_phase3.sh": "f71b105ae3939475422b799c7ce9e0dc580430483252a0f7a633a36142ea53c5",
+    "scripts/validate_phase3_delivery.py": "83a65f9fe9f2fc6ae2b6611388da44762f7fa22c93b0c1f2c64668830f355db3"
+  },
+  "workflow": {
+    "branch": "phase3",
+    "commit": "d8f89bf941bcffe5a65738beef6a91155fe8e5e5",
+    "conclusion": "success",
+    "event": "push",
+    "name": "Phase 3 Delivery Validation",
+    "run_id": 30094121205,
+    "run_number": 1,
+    "started_at": "2026-07-24T12:43:17Z",
+    "status": "completed",
+    "updated_at": "2026-07-24T12:44:52Z",
+    "url": "https://github.com/arashtaherifard/github-herd-data-pipeline/actions/runs/30094121205"
+  }
+}
