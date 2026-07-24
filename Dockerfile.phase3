@@ -1,0 +1,95 @@
+FROM python:3.12-slim
+
+LABEL org.opencontainers.image.title="GitHub Herd Phase 3 Validation"
+LABEL org.opencontainers.image.description="Read-only validation of frozen Phase 3 models and delivery evidence"
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    DO_NOT_TRACK=1 \
+    PREFECT_SERVER_ANALYTICS_ENABLED=false \
+    PHASE3_PYTHON=/usr/local/bin/python \
+    HOME=/tmp \
+    XDG_CACHE_HOME=/tmp/.cache
+
+WORKDIR /app
+
+RUN apt-get update \
+    && apt-get install \
+        --yes \
+        --no-install-recommends \
+        bash \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements-phase3-runtime.txt ./
+
+RUN python -m pip install \
+        --no-cache-dir \
+        --upgrade \
+        pip \
+    && python -m pip install \
+        --no-cache-dir \
+        --requirement \
+        requirements-phase3-runtime.txt
+
+RUN groupadd \
+        --gid 10001 \
+        appuser \
+    && useradd \
+        --create-home \
+        --uid 10001 \
+        --gid 10001 \
+        appuser
+
+COPY --chown=appuser:appuser \
+    run_phase3.sh \
+    ./
+
+COPY --chown=appuser:appuser \
+    scripts/validate_phase3_delivery.py \
+    scripts/generate_operational_predictions.py \
+    scripts/
+
+COPY --chown=appuser:appuser \
+    data/processed/weekly_timeseries_features.csv \
+    data/processed/
+
+COPY --chown=appuser:appuser \
+    data/modeling/recommendation/recommendation_train.csv \
+    data/modeling/recommendation/recommendation_validation.csv \
+    data/modeling/recommendation/
+
+COPY --chown=appuser:appuser \
+    models/classification/corrected/selected_classifier_deployment.joblib \
+    models/classification/corrected/selected_classifier_deployment_metadata.json \
+    models/classification/corrected/
+
+COPY --chown=appuser:appuser \
+    models/forecasting/selected_forecaster_pretest.joblib \
+    models/forecasting/
+
+COPY --chown=appuser:appuser \
+    models/recommendation/selected_recommender_pretest.joblib \
+    models/recommendation/
+
+COPY --chown=appuser:appuser \
+    database/github_herd.db \
+    database/
+
+COPY --chown=appuser:appuser \
+    outputs/phase3/mlflow/frozen_registry_summary.json \
+    outputs/phase3/mlflow/
+
+COPY --chown=appuser:appuser \
+    outputs/phase3/prefect/read_only_validation_v1.json \
+    outputs/phase3/prefect/deployment_registration_validation_v1.json \
+    outputs/phase3/prefect/deployment_worker_run_validation_v1.json \
+    outputs/phase3/prefect/
+
+COPY --chown=appuser:appuser \
+    outputs/phase3/operational_predictions/operational_v1_1cafd65/ \
+    outputs/phase3/operational_predictions/operational_v1_1cafd65/
+
+USER appuser
+
+ENTRYPOINT ["./run_phase3.sh"]
+CMD []

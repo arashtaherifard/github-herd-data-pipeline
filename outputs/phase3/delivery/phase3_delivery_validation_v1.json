@@ -1,0 +1,61 @@
+{
+  "created_at_utc": "2026-07-24T12:32:04.244827+00:00",
+  "docker": {
+    "architecture": "arm64",
+    "capabilities_dropped": [
+      "ALL"
+    ],
+    "configured_user": "appuser",
+    "entrypoint": [
+      "./run_phase3.sh"
+    ],
+    "image_id": "sha256:914c53ed18c3c1b53c2aaaaf80a4f5bcfcc2f09ab499ac7ac06ad4e852f4b20f",
+    "image_reference": "github-herd-phase3:latest",
+    "network_disabled": true,
+    "no_new_privileges": true,
+    "operating_system": "linux",
+    "read_only_root_filesystem": true,
+    "validation_status": "PASSED"
+  },
+  "kubernetes": {
+    "allow_privilege_escalation": false,
+    "capabilities_dropped": [
+      "ALL"
+    ],
+    "container_exit_code": 0,
+    "container_restarts": 0,
+    "context": "colima",
+    "failed": 0,
+    "job_name": "github-herd-phase3-validation",
+    "pod_name": "github-herd-phase3-validation-j47vz",
+    "pod_phase": "Succeeded",
+    "read_only_root_filesystem": true,
+    "ready_node_count": 1,
+    "run_as_group": 10001,
+    "run_as_non_root": true,
+    "run_as_user": 10001,
+    "succeeded": 1,
+    "validation_status": "PASSED",
+    "warning_event_count": 0
+  },
+  "scientific_safety": {
+    "final_test_scripts_rerun": false,
+    "models_retrained": false,
+    "operational_writes_performed": false,
+    "protected_files_unchanged": true
+  },
+  "source_git_branch": "phase3",
+  "source_git_commit": "804fa069f5aa20985219a6618f62a6db0b67d4ce",
+  "source_hashes": {
+    ".github/workflows/phase3_delivery.yml": "e92fbcbbd69e32e4395e832aaeb4a9d824ead69e7fbe471f6b3d8f03629ae286",
+    "Dockerfile.phase3": "714be1721e8b1a29375fd1707ab3a2986460478ce4c83c64ed9984e2f63df8b5",
+    "Dockerfile.phase3.dockerignore": "0e69da5280c1d7583c9e311d3373c7eb1ffcb5cf1a0c462d322eb80a99b54ec6",
+    "data/modeling/recommendation/recommendation_train.csv": "107b929aa9c87a9b14b67c4f4925e54e1e69c2566df6471c4f4193e5d6b0cc1d",
+    "data/modeling/recommendation/recommendation_validation.csv": "79227e56ee9461dc4ed92b051376329e4e996953f7ea05562c599fa172bca876",
+    "k8s/phase3-validation-job.yaml": "b4afa9f70b9118fb9593c0d4281163c3e2c551832cbfdb269302d0c566ae1f99",
+    "requirements-phase3-runtime.txt": "6b68b41174e7a40948a1672ce0d7e361c6a88d7e335f2dbb668627120cd0981e",
+    "run_phase3.sh": "f71b105ae3939475422b799c7ce9e0dc580430483252a0f7a633a36142ea53c5",
+    "scripts/validate_phase3_delivery.py": "83a65f9fe9f2fc6ae2b6611388da44762f7fa22c93b0c1f2c64668830f355db3"
+  },
+  "status": "phase3_delivery_validation_complete"
+}
