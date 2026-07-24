@@ -1,0 +1,168 @@
+{
+  "completed_at_utc": "2026-07-24T06:42:15.358110Z",
+  "configuration": {
+    "entrypoint": "flows/phase3_prefect_flow.py:phase3_prefect_flow",
+    "flow_path": "flows/phase3_prefect_flow.py",
+    "flow_sha256": "2e40e303caf0178cf5df96b1ee427859a4bf2ab8199dcba71177965e91553b7d",
+    "path": "prefect.yaml",
+    "sha256": "8ab008c76cb97695179e701807b065c40628e09bcd09972598934fe4fb1787c6"
+  },
+  "existing_prefect_evidence": {
+    "deployment_registration_validation": {
+      "path": "outputs/phase3/prefect/deployment_registration_validation_v1.json",
+      "sha256": "98c5485904fc21e6c2d407beac74fccc79d1da7da6f4bbf8f20cdd2deb8e13ea"
+    },
+    "read_only_flow_validation": {
+      "path": "outputs/phase3/prefect/read_only_validation_v1.json",
+      "sha256": "2c0e449f9a80ae283be31c0f4a8337342aa2af6565c28c2a93a0dbd1fa6ce71a"
+    }
+  },
+  "flow_run": {
+    "deployment_id": "191425c0-580b-4214-8db0-ce0dc43259bd",
+    "deployment_triggered": true,
+    "duration_seconds": 4.814917,
+    "end_time": "2026-07-24T06:42:15.358110Z",
+    "id": "92c13e71-39b1-45fa-af48-ce1dc3cd743e",
+    "infrastructure_process_created": true,
+    "name": "phase3-deployment-readonly-validation-v1",
+    "parameters": {
+      "batch_size": 5000,
+      "database_path": "database/generated/github_herd_phase3_prefect_predictions.db",
+      "execute_operational_predictions": false,
+      "output_root": "outputs/phase3/operational_predictions",
+      "run_id": null,
+      "summary_path": null
+    },
+    "start_time": "2026-07-24T06:42:10.543193Z",
+    "state_history": [
+      {
+        "message": null,
+        "name": "Scheduled",
+        "timestamp": "2026-07-24T06:42:08.692311+00:00",
+        "type": "SCHEDULED"
+      },
+      {
+        "message": null,
+        "name": "Pending",
+        "timestamp": "2026-07-24T06:42:09.041647+00:00",
+        "type": "PENDING"
+      },
+      {
+        "message": null,
+        "name": "Submitting",
+        "timestamp": "2026-07-24T06:42:09.081151+00:00",
+        "type": "PENDING"
+      },
+      {
+        "message": null,
+        "name": "Running",
+        "timestamp": "2026-07-24T06:42:10.543193+00:00",
+        "type": "RUNNING"
+      },
+      {
+        "message": null,
+        "name": "Completed",
+        "timestamp": "2026-07-24T06:42:15.358110+00:00",
+        "type": "COMPLETED"
+      }
+    ],
+    "state_name": "Completed",
+    "state_type": "COMPLETED",
+    "work_pool_name": "github-herd-local-process-pool",
+    "work_queue_name": "default"
+  },
+  "git_branch": "phase3",
+  "git_commit": "93a93d1d4c59b333dd02c0c84fc4715420d0cf5e",
+  "isolated_server_warnings": {
+    "affected_flow_run_state": false,
+    "flow_run_final_state": "COMPLETED",
+    "scope": "isolated_prefect_server_database",
+    "sqlite_lock_message_count": 442
+  },
+  "operational_output_directories": [
+    "outputs/phase3/operational_predictions/operational_v1_1cafd65"
+  ],
+  "prefect": {
+    "server_mode": "isolated_self_hosted",
+    "server_stopped_after_run": true,
+    "validation_port_released": true,
+    "version": "3.7.8",
+    "worker_stopped_after_run": true,
+    "worker_type": "process"
+  },
+  "protected_artifacts": {
+    "database/github_herd.db": "559803caa16b7f43a55cf6947f4eb580e92bb5a0ed7cd68ad0b581b960f88ee4",
+    "models/classification/corrected/selected_classifier_deployment.joblib": "7f66e845d0689c2c29583ec28d93218a602b951a3246a56767646d2cc48f5f23",
+    "models/forecasting/selected_forecaster_pretest.joblib": "e728866f0b523a3393d1fe00cbf58b7500a02181866b337a4c1b78f8d2806294",
+    "models/recommendation/selected_recommender_pretest.joblib": "f2b178d1c888a04a5dbf15253e0d99b1a920e9230c549c8213e4f529f4c5e878"
+  },
+  "registration": {
+    "deployment": {
+      "enforce_parameter_schema": true,
+      "entrypoint": "flows/phase3_prefect_flow.py:phase3_prefect_flow",
+      "id": "191425c0-580b-4214-8db0-ce0dc43259bd",
+      "job_variables": {
+        "env": {
+          "DO_NOT_TRACK": "1",
+          "PREFECT_SERVER_ANALYTICS_ENABLED": "false",
+          "PYTHONDONTWRITEBYTECODE": "1"
+        }
+      },
+      "name": "phase3-read-only-validation",
+      "parameters": {
+        "batch_size": 5000,
+        "database_path": "database/generated/github_herd_phase3_prefect_predictions.db",
+        "execute_operational_predictions": false,
+        "output_root": "outputs/phase3/operational_predictions",
+        "run_id": null,
+        "summary_path": null
+      },
+      "schedules": [],
+      "status": "READY",
+      "version": "1.0.0",
+      "work_pool_name": "github-herd-local-process-pool",
+      "work_queue_name": "default"
+    },
+    "work_pool": {
+      "id": "a257b9f3-849c-46c8-bc08-40f3fc6df464",
+      "name": "github-herd-local-process-pool",
+      "paused": false,
+      "status": "READY",
+      "type": "process"
+    }
+  },
+  "repository_clean_at_preflight": true,
+  "repository_local_paths_created": {
+    ".prefect": false,
+    "database/generated/github_herd_phase3_prefect_predictions.db": false,
+    "flows/__pycache__": false
+  },
+  "safety": {
+    "final_test_scripts_rerun": false,
+    "models_retrained": false,
+    "operational_directories_unchanged": true,
+    "operational_execution_performed": false,
+    "operational_writes_enabled": false,
+    "parameter_schema_enforced": true,
+    "protected_hashes_unchanged": true,
+    "scheduled_recurring_runs_registered": false,
+    "server_stopped": true,
+    "summary_artifact_created_by_flow": false,
+    "telemetry_disabled": true,
+    "validation_port_released": true,
+    "worker_stopped": true
+  },
+  "status": "prefect_deployment_worker_run_validation_complete",
+  "worker_validation": {
+    "deployment_pull_completed": true,
+    "final_tests_not_rerun": true,
+    "flow_completed": true,
+    "flow_started": true,
+    "models_not_retrained": true,
+    "operational_writes_disabled": true,
+    "process_exited_cleanly": true,
+    "read_only_validation_count": 2,
+    "read_only_validations_passed": true,
+    "worker_submitted_run": true
+  }
+}
