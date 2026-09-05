@@ -1,13 +1,45 @@
-venv/
-__pycache__/
-*.pyc
+# macOS
 .DS_Store
-__MACOSX/
 
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
 .ipynb_checkpoints/
 
-*.log
+# Environments
+.venv/
+venv/
+env/
 
-outputs/figures/.DS_Store
-outputs/.DS_Store
-data/.DS_Store
+# Editors
+.vscode/
+.idea/
+
+# Large/generated data
+data/raw/
+data/interim/
+data/processed/
+data/modeling/*.csv
+database/*.db
+database/generated/
+
+# Models
+models/
+*.joblib
+*.pkl
+*.pt
+*.pth
+
+# Local experiment tracking
+.mlflow_local/
+mlruns/
+
+# Large generated experiment artifacts
+outputs/phase3/
+
+# Local secrets
+.env
+.env.*
+!.env.example

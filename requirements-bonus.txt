@@ -1,0 +1,4 @@
+# Optional Phase 3 orchestration and experiment-tracking dependencies.
+# Install these in the isolated venv_bonus environment.
+mlflow==3.14.0
+prefect==3.7.8

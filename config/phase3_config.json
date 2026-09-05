@@ -1,0 +1,185 @@
+{
+  "project_name": "GitHub Herd Behavior and Repository Recommendation",
+  "random_state": 42,
+  "classification": {
+    "target": "future_growth_surge",
+    "secondary_target": "future_absolute_high_growth",
+    "target_base": "future_4week_stars",
+    "recent_activity_column": "rolling_4week_sum_stars",
+    "relative_growth_multiplier": 1.5,
+    "absolute_high_growth_quantile": 0.8,
+    "split_strategy": "shared_with_primary_repository_aware_purged_forecasting_split",
+    "cross_validation_folds": 3,
+    "cross_validation_strategy": "repository_aware_purged_temporal",
+    "purge_weeks": 4,
+    "primary_metric": "roc_auc",
+    "secondary_metrics": [
+      "accuracy",
+      "balanced_accuracy",
+      "precision",
+      "recall",
+      "f1",
+      "pr_auc",
+      "mcc",
+      "cohen_kappa",
+      "log_loss"
+    ],
+    "feature_columns": [
+      "clean_history_weeks",
+      "weekly_new_stars",
+      "cumulative_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "herd_momentum_score",
+      "lag_1_week_stars",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration",
+      "cumulative_growth_lag_1"
+    ],
+    "target_feature_ablation": {
+      "enabled": true,
+      "feature": "rolling_4week_sum_stars",
+      "reason": "This historical feature is used in the relative-growth target definition. An ablation will verify that performance is not dependent only on this feature."
+    },
+    "cross_validation_validation_samples_per_repository": 1,
+    "cross_validation_require_all_repositories": true,
+    "cross_validation_selection_rationale": "The 3-fold, one-validation-sample-per-repository configuration retains all 22 repositories, preserves both classes in every fold, provides 6 to 7 positive validation observations per fold, and has zero future-target-window overlap violations."
+  },
+  "forecasting": {
+    "target": "future_4week_stars",
+    "forecast_horizon_weeks": 4,
+    "target_transformation": "log1p",
+    "primary_metric": "rmsle",
+    "secondary_metrics": [
+      "mae",
+      "rmse",
+      "smape",
+      "forecast_bias"
+    ],
+    "primary_split": {
+      "strategy": "repository_aware_purged_temporal",
+      "validation_samples_per_repository": 3,
+      "test_samples_per_repository": 3,
+      "minimum_train_samples_per_repository": 8
+    },
+    "secondary_split": {
+      "strategy": "global_chronological_cold_start",
+      "train_fraction": 0.7,
+      "validation_fraction": 0.15,
+      "test_fraction": 0.15
+    },
+    "naive_baselines": [
+      "last_week_x4",
+      "previous_week_x4",
+      "rolling_3week_mean_x4",
+      "previous_4week_total"
+    ],
+    "main_naive_baseline": "rolling_3week_mean_x4",
+    "initial_snapshot_rows": 1,
+    "minimum_clean_history_weeks": 4,
+    "minimum_observed_rows": 5,
+    "cross_validation_strategy": "repository_aware_purged_temporal",
+    "cross_validation_folds": 3,
+    "cross_validation_validation_samples_per_repository": 1,
+    "cross_validation_purge_weeks": 4,
+    "cross_validation_require_all_repositories": true,
+    "cross_validation_selection_rationale": "The 3-fold, one-validation-sample-per-repository configuration retains all 22 repositories, has zero future-target-window overlap, preserves the same repository population as the final primary split, and gives highly stable validation target means across folds.",
+    "cross_validation_baseline": {
+      "name": "rolling_3week_mean_x4",
+      "mean_rmsle": 0.596797838292772,
+      "std_rmsle": 0.16739870205421925,
+      "mean_mae": 40.14646464646466,
+      "mean_rmse": 58.62197642648285,
+      "mean_smape": 0.39844828318293896,
+      "mean_forecast_bias": -14.803030303030306
+    },
+    "feature_schema_path": "data/modeling/forecasting/forecasting_schema.json",
+    "feature_columns": [
+      "clean_history_weeks",
+      "weekly_new_stars",
+      "cumulative_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "herd_momentum_score",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration"
+    ],
+    "excluded_redundant_features": {
+      "lag_1_week_stars": "Exactly identical to previous_week_stars.",
+      "cumulative_growth_lag_1": "Exactly reconstructible as cumulative_stars minus weekly_new_stars."
+    },
+    "target_transform_candidates": [
+      "raw",
+      "log1p"
+    ],
+    "prediction_minimum": 0.0,
+    "selected_approach_family": "additive_residual_extra_trees",
+    "selected_approach_mode": "additive_residual",
+    "selected_feature_set_name": "recent_only",
+    "selected_feature_columns": [
+      "weekly_new_stars",
+      "previous_week_stars",
+      "weekly_growth_rate",
+      "lag_2_week_stars",
+      "rolling_3week_mean_stars",
+      "rolling_4week_sum_stars",
+      "weekly_growth_acceleration"
+    ],
+    "selected_baseline_formula": "4 * rolling_3week_mean_stars",
+    "selected_residual_model": "ExtraTreesRegressor",
+    "selected_residual_model_parameters": {
+      "max_depth": 4,
+      "max_features": "sqrt",
+      "min_samples_leaf": 10,
+      "n_estimators": 400,
+      "random_state": 42
+    },
+    "pretest_model_path": "models/forecasting/selected_forecaster_pretest.joblib",
+    "pretest_model_metadata_path": "models/forecasting/selected_forecaster_pretest_metadata.json",
+    "pretest_freeze_manifest_path": "outputs/phase3/forecasting/pretest_freeze/pretest_freeze_manifest.json",
+    "test_data_status": "not_loaded_or_evaluated"
+  },
+  "recommendation": {
+    "feedback_type": "implicit",
+    "minimum_interactions_for_evaluation": 3,
+    "split_strategy": "leave_two_out_by_timestamp",
+    "validation_interactions_per_user": 1,
+    "test_interactions_per_user": 1,
+    "candidate_strategy": "full_catalog",
+    "ranking_cutoffs": [
+      5,
+      10
+    ],
+    "primary_metric": "ndcg_at_10",
+    "secondary_metrics": [
+      "precision_at_5",
+      "precision_at_10",
+      "recall_at_5",
+      "recall_at_10",
+      "ndcg_at_5",
+      "hit_rate_at_5",
+      "hit_rate_at_10",
+      "mrr",
+      "map_at_10",
+      "catalog_coverage",
+      "novelty",
+      "diversity",
+      "average_recommended_popularity"
+    ],
+    "schema_path": "data/modeling/recommendation/recommendation_schema.json",
+    "internal_tuning_assignments_path": "data/modeling/recommendation/recommendation_internal_tuning_assignments.csv",
+    "primary_validation_users_path": "data/modeling/recommendation/recommendation_primary_validation_users.csv",
+    "catalog_size": 145,
+    "primary_validation_users": 13295,
+    "validation_sensitivity_users": 13301,
+    "internal_tuning_users": 24968,
+    "primary_model_pool": "time_safe_interaction_models",
+    "secondary_content_pool": "static_snapshot_exploratory",
+    "secondary_forecast_pool": "cutoff_aligned_exploratory",
+    "test_data_status": "header_only_not_loaded_or_evaluated"
+  }
+}

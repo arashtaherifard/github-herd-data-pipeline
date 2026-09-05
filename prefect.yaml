@@ -1,0 +1,47 @@
+# Prefect deployment configuration for the GitHub Herd Phase 3 project.
+#
+# This deployment is intentionally read-only:
+# - it verifies frozen classification, forecasting, and recommendation artifacts;
+# - it validates the existing MLflow registration evidence;
+# - it validates operational inference without writing predictions;
+# - it never retrains models or reruns final-test evaluation scripts.
+#
+# The deployment has no schedule and must be triggered manually.
+
+prefect-version: 3.7.8
+name: github-herd-phase3
+
+build: null
+push: null
+pull: null
+
+deployments:
+  - name: phase3-read-only-validation
+    version: 1.0.0
+    description: >-
+      Freeze-aware validation of the GitHub Herd Phase 3 models, MLflow
+      evidence, and operational inference. Operational writes are disabled.
+    tags:
+      - phase3
+      - frozen-models
+      - read-only
+      - mlflow
+      - no-retraining
+    schedule: null
+    entrypoint: flows/phase3_prefect_flow.py:phase3_prefect_flow
+    parameters:
+      batch_size: 5000
+      execute_operational_predictions: false
+      run_id: null
+      database_path: database/generated/github_herd_phase3_prefect_predictions.db
+      output_root: outputs/phase3/operational_predictions
+      summary_path: null
+    enforce_parameter_schema: true
+    work_pool:
+      name: github-herd-local-process-pool
+      work_queue_name: default
+      job_variables:
+        env:
+          PREFECT_SERVER_ANALYTICS_ENABLED: "false"
+          DO_NOT_TRACK: "1"
+          PYTHONDONTWRITEBYTECODE: "1"

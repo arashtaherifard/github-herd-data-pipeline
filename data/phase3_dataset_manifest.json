@@ -1,0 +1,202 @@
+{
+  "project": "GitHub Herd Behavior and Repository Recommendation",
+  "random_state": 42,
+  "classification": {
+    "design_status": "corrected_after_collection_cap_leakage_audit",
+    "primary_target": "future_growth_surge",
+    "secondary_target": "future_absolute_high_growth",
+    "relative_growth_multiplier": 1.5,
+    "absolute_training_quantile": 0.8,
+    "absolute_training_threshold": 101.0,
+    "feature_count": 12,
+    "splits": {
+      "train": {
+        "rows": 700,
+        "repositories": 22,
+        "primary_target_class_counts": {
+          "0": 524,
+          "1": 176
+        },
+        "secondary_target_class_counts": {
+          "0": 558,
+          "1": 142
+        }
+      },
+      "validation": {
+        "rows": 66,
+        "repositories": 22,
+        "primary_target_class_counts": {
+          "0": 50,
+          "1": 16
+        },
+        "secondary_target_class_counts": {
+          "0": 30,
+          "1": 36
+        }
+      },
+      "test": {
+        "rows": 66,
+        "repositories": 22,
+        "target_distribution_status": "not_summarized_during_development"
+      }
+    }
+  },
+  "forecasting": {
+    "forecast_horizon_weeks": 4,
+    "initial_snapshot_rows": 1,
+    "minimum_clean_history_weeks": 4,
+    "minimum_observed_rows": 5,
+    "complete_rows": 1371,
+    "repositories": 63,
+    "primary_repository_aware": {
+      "split_summary": {
+        "validation_samples_per_repo": 3,
+        "test_samples_per_repo": 3,
+        "minimum_train_samples": 8,
+        "eligible_repositories": 22,
+        "train_rows": 700,
+        "validation_rows": 66,
+        "test_rows": 66,
+        "retained_rows": 832,
+        "purged_or_unused_rows": 176,
+        "overlap_violations": 0,
+        "train_target_mean": 70.14714285714285,
+        "validation_target_mean": 130.5151515151515,
+        "test_target_mean": 219.95454545454547
+      },
+      "splits": {
+        "train": {
+          "rows": 700,
+          "repositories": 22,
+          "target_mean": 70.14714285714285,
+          "target_median": 57.0
+        },
+        "validation": {
+          "rows": 66,
+          "repositories": 22,
+          "target_mean": 130.5151515151515,
+          "target_median": 113.0
+        },
+        "test": {
+          "rows": 66,
+          "repositories": 22,
+          "target_mean": 219.95454545454547,
+          "target_median": 117.0
+        }
+      }
+    },
+    "secondary_cold_start": {
+      "train": {
+        "rows": 1091,
+        "repositories": 38,
+        "target_mean": 115.95600366636114,
+        "target_median": 77.0
+      },
+      "validation": {
+        "rows": 141,
+        "repositories": 15,
+        "target_mean": 255.97163120567376,
+        "target_median": 161.0
+      },
+      "test": {
+        "rows": 128,
+        "repositories": 11,
+        "target_mean": 198.3828125,
+        "target_median": 54.0
+      },
+      "training_boundary": "2020-02-10 00:00:00+00:00",
+      "validation_boundary": "2023-03-27 00:00:00+00:00"
+    }
+  },
+  "recommendation": {
+    "eligible_evaluation_users": 13301,
+    "train": {
+      "rows": 189964,
+      "users": 151142,
+      "repositories": 145
+    },
+    "validation": {
+      "rows": 13301,
+      "users": 13301,
+      "repositories": 144,
+      "cold_start_repositories": 0
+    },
+    "test": {
+      "rows": 13301,
+      "users": 13301,
+      "repositories": 143,
+      "cold_start_repositories": 0
+    }
+  },
+  "generated_files": {
+    "data/modeling/forecasting/forecast_supervised_complete.csv": {
+      "rows": 1371,
+      "columns": 19,
+      "sha256": "8201a087e181ce55f2a9ec8fd571076a86e1a5d2fc600ba8a747b937acd70877"
+    },
+    "data/modeling/forecasting/forecast_primary_train.csv": {
+      "rows": 700,
+      "columns": 23,
+      "sha256": "11f25fa9b61e1cfc7c7a402553fcf2852250a404528cb6023cd36d74ec500876"
+    },
+    "data/modeling/forecasting/forecast_primary_validation.csv": {
+      "rows": 66,
+      "columns": 23,
+      "sha256": "8915fe1bc958362ba1eff624163d6df51d320aae37570b1449e7956f70ad0047"
+    },
+    "data/modeling/forecasting/forecast_primary_test.csv": {
+      "rows": 66,
+      "columns": 23,
+      "sha256": "202e875b861f9dc104a684ab4312d4e7708772ab0e599f5e3ab8bf0de20d97f7"
+    },
+    "data/modeling/forecasting/forecast_cold_start_train.csv": {
+      "rows": 1091,
+      "columns": 20,
+      "sha256": "dd3d394a6ffc6274255f32c186061c1eac7f21a7c2b5395bacc55ebd688cbe67"
+    },
+    "data/modeling/forecasting/forecast_cold_start_validation.csv": {
+      "rows": 141,
+      "columns": 20,
+      "sha256": "083a024fbcc8092c184389e4552fb84582a4c393ec208b1050de9e5cdda41de7"
+    },
+    "data/modeling/forecasting/forecast_cold_start_test.csv": {
+      "rows": 128,
+      "columns": 20,
+      "sha256": "939c6f01136c1501c13880de1e017c7563f22150050f9e9aa1dde56fe5292d5a"
+    },
+    "data/modeling/classification/classification_train.csv": {
+      "rows": 700,
+      "columns": 25,
+      "sha256": "982442694f11010dde8118a06277601c95876e644be426582ccc3b892dc12cd8"
+    },
+    "data/modeling/classification/classification_validation.csv": {
+      "rows": 66,
+      "columns": 25,
+      "sha256": "e0c0d91a6d99e27dfdbfa1da95a7bd28b000c6d1b6a4344dda581696f9435ba9"
+    },
+    "data/modeling/classification/classification_test.csv": {
+      "rows": 66,
+      "columns": 25,
+      "sha256": "fcb8e0ea12ab27345f59585ddc5add206cba862250fa014fb3eaeb6170bea631"
+    },
+    "data/modeling/classification/classification_schema.json": {
+      "type": "schema",
+      "sha256": "564d91aa5f19260e235d84dfed186fe3fdbe1165c170c002f71c790d8e47ff13"
+    },
+    "data/modeling/recommendation/recommendation_train.csv": {
+      "rows": 189964,
+      "columns": 12,
+      "sha256": "107b929aa9c87a9b14b67c4f4925e54e1e69c2566df6471c4f4193e5d6b0cc1d"
+    },
+    "data/modeling/recommendation/recommendation_validation.csv": {
+      "rows": 13301,
+      "columns": 12,
+      "sha256": "79227e56ee9461dc4ed92b051376329e4e996953f7ea05562c599fa172bca876"
+    },
+    "data/modeling/recommendation/recommendation_test.csv": {
+      "rows": 13301,
+      "columns": 12,
+      "sha256": "bbed68a6c2d81e8e0e404e6d5de330905f4bfcd53d0d282b38acbb1a4f4d1674"
+    }
+  }
+}
